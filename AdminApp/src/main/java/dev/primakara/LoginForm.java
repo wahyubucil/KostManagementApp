@@ -5,7 +5,6 @@
  */
 package dev.primakara;
 
-import static dev.primakara.MainForm.mouseDownCompCoords;
 import java.awt.Point;
 
 /**
