@@ -794,7 +794,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         Point currCoords = evt.getLocationOnScreen();
-        this.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
+        MainClass.objMainForm.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
     }//GEN-LAST:event_formMouseDragged
 
 //    edit dan delete btn event handler pada halaman list kost
