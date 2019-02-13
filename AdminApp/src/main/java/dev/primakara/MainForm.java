@@ -5,9 +5,8 @@
  */
 package dev.primakara;
 
-import java.awt.Color;
-import java.awt.Point;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -21,6 +20,7 @@ public class MainForm extends javax.swing.JFrame {
      * Creates new form Main_Form
      */
     public MainForm() {
+
         initComponents();
         
         //  Atur mainHeader content

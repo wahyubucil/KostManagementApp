@@ -33,3 +33,9 @@ gradle-app.setting
 *.ear
 
 .nb-gradle/
+
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+
+service-account.json

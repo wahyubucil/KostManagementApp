@@ -21,4 +21,6 @@ dependencies {
     //
     // You can read more about how to add dependency here:
     //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:how_to_declare_your_dependencies
+    implementation 'com.google.firebase:firebase-admin:6.7.0'
+    implementation 'ch.qos.logback:logback-classic:0.9.24'
 }
