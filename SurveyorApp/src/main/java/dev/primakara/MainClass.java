@@ -17,10 +17,11 @@ import java.io.IOException;
  * @author hellyeah
  */
 public class MainClass {
-    static MainForm objMainForm = new MainForm();
+    static MainForm objMainForm;
     
     public static void main(String []args){
         MainClass.firebaseInit();
+        objMainForm = new MainForm();
         MainClass.objMainForm.setVisible(true);
     }
 
