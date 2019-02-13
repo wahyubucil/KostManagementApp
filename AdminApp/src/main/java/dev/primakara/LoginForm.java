@@ -18,6 +18,8 @@ import java.awt.*;
 public class LoginForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
+    static boolean isUsernameHaveFocused = false;
+    static boolean isPasswordHaveFocused = false;
     
     /**
      * Creates new form LoginForm
@@ -82,11 +84,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
 
         usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark-user-32.png"))); // NOI18N
-        usernameIcon.setMaximumSize(new java.awt.Dimension(32, 32));
-        usernameIcon.setMinimumSize(new java.awt.Dimension(32, 32));
-        usernameIcon.setPreferredSize(new java.awt.Dimension(32, 32));
 
-        username.setBackground(new java.awt.Color(255, 255, 255));
         username.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(110, 89, 222));
         username.setText("Username");
@@ -102,7 +100,6 @@ public class LoginForm extends javax.swing.JFrame {
 
         passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark-password-32.png"))); // NOI18N
 
-        password.setBackground(new java.awt.Color(255, 255, 255));
         password.setForeground(new java.awt.Color(110, 89, 222));
         password.setText("Password");
         password.setBorder(null);
@@ -160,7 +157,7 @@ public class LoginForm extends javax.swing.JFrame {
                             .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(loginFrameLayout.createSequentialGroup()
                                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(usernameIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usernameIcon)
                                     .addComponent(passwordIcon))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -191,7 +188,7 @@ public class LoginForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(separatorUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFrameLayout.createSequentialGroup()
-                        .addComponent(usernameIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(usernameIcon)
                         .addGap(8, 8, 8)))
                 .addGap(30, 30, 30)
                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,6 +218,7 @@ public class LoginForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -228,11 +226,17 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
-        MainClass.objLoginForm.username.setText(""); // TODO: WHAT THE PURPOSE OF THIS FUNCTION!!
+        if(!MainClass.objLoginForm.isUsernameHaveFocused){
+           MainClass.objLoginForm.username.setText("");
+           MainClass.objLoginForm.isUsernameHaveFocused = true;
+        }
     }//GEN-LAST:event_usernameFocusGained
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
-        MainClass.objLoginForm.password.setText("");
+        if(!MainClass.objLoginForm.isPasswordHaveFocused){
+           MainClass.objLoginForm.password.setText("");
+           MainClass.objLoginForm.isPasswordHaveFocused = true;
+        }
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
