@@ -12,7 +12,6 @@ import dev.primakara.model.User;
 
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -290,6 +289,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(null, errorMessage);
+        MainClass.objLoginForm.jLabel14.setText("LOGIN");
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
