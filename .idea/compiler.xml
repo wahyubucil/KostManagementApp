@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="jcg-netbeans-rootproject.AdminApp.main" target="1.8" />
       <module name="jcg-netbeans-rootproject.AdminApp.test" target="1.8" />
+      <module name="jcg-netbeans-rootproject.SurveyorApp.main" target="1.8" />
+      <module name="jcg-netbeans-rootproject.SurveyorApp.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
