@@ -6,6 +6,7 @@
 package dev.primakara;
 
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.google.firebase.database.*;
 import dev.primakara.model.User;
 
@@ -241,6 +242,16 @@ public class LoginForm extends javax.swing.JFrame {
         String username = MainClass.objLoginForm.username.getText();
         String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
 
+        if (isInputEmpty(username, password)) {
+            loginErrorMessage("Mohon mengisi field yang ada!");
+        } else {
+            login(username, password);
+        }
+    }//GEN-LAST:event_btnLoginMouseClicked
+
+    private boolean isInputEmpty(String username, String password) {
+        return username.trim().length() < 1 || password.trim().length() < 1;
+    }
 
     private void login(String username, String password) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -251,7 +262,10 @@ public class LoginForm extends javax.swing.JFrame {
                 if (snapshot.exists()) {
                     DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
                     User user = selectedUser.getValue(User.class);
-                    if (!user.getPassword().equals(password)) {
+
+                    BCrypt.Result passwordCheck = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
+                    boolean isAdmin = user.getType().equals("admin");
+                    if (!passwordCheck.verified || !isAdmin) {
                         loginErrorMessage("Username atau Password salah");
                     } else {
                         MainClass.isLogin = true;
@@ -267,12 +281,10 @@ public class LoginForm extends javax.swing.JFrame {
                 loginErrorMessage("The read failed: " + error.getMessage());
             }
         });
-
-    }//GEN-LAST:event_btnLoginMouseClicked
+    }
 
     private void loginErrorMessage(String errorMessage) {
-        // TODO: Please someone implement this
-        System.out.println(errorMessage);
+        JOptionPane.showMessageDialog(null, errorMessage);
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
