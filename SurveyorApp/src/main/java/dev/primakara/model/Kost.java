@@ -7,7 +7,7 @@ public class Kost {
     private String address;
     private int rooms;
     private int price;
-    private List<String> facilities;
+    private String facilities;
     private String electricityCost;
     private String waterCost;
     private String description;
@@ -17,18 +17,18 @@ public class Kost {
     public Kost() {
     }
 
-    public Kost(String name, String address, int rooms, int price, List<String> facilities, String electricityCost, String waterCost, String description, String ownerName, String ownerPhoneNumber) {
-        this.name = name;
-        this.address = address;
-        this.rooms = rooms;
-        this.price = price;
-        this.facilities = facilities;
-        this.electricityCost = electricityCost;
-        this.waterCost = waterCost;
-        this.description = description;
-        this.ownerName = ownerName;
-        this.ownerPhoneNumber = ownerPhoneNumber;
-    }
+//    public Kost(String name, String address, int rooms, int price, String facilities, String electricityCost, String waterCost, String description, String ownerName, String ownerPhoneNumber) {
+//        this.name = name;
+//        this.address = address;
+//        this.rooms = rooms;
+//        this.price = price;
+//        this.facilities = facilities;
+//        this.electricityCost = electricityCost;
+//        this.waterCost = waterCost;
+//        this.description = description;
+//        this.ownerName = ownerName;
+//        this.ownerPhoneNumber = ownerPhoneNumber;
+//    }
 
     public String getName() {
         return name;
@@ -62,11 +62,11 @@ public class Kost {
         this.price = price;
     }
 
-    public List<String> getFacilities() {
+    public String getFacilities() {
         return facilities;
     }
 
-    public void setFacilities(List<String> facilities) {
+    public void setFacilities(String facilities) {
         this.facilities = facilities;
     }
 

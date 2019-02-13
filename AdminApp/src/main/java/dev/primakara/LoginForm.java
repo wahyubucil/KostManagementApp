@@ -10,6 +10,7 @@ import com.google.firebase.database.*;
 import dev.primakara.model.User;
 
 import java.awt.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,15 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
+    }
+    
+    public boolean checkInputs()
+    {
+        if(username.getText() == null || password.getText() == null){
+            return false;
+        } else{
+            return true;
+        }
     }
 
     /**
@@ -267,7 +277,6 @@ public class LoginForm extends javax.swing.JFrame {
                 loginErrorMessage("The read failed: " + error.getMessage());
             }
         });
-
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void loginErrorMessage(String errorMessage) {
