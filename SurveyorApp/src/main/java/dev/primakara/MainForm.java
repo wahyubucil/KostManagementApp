@@ -1362,23 +1362,23 @@ public class MainForm extends javax.swing.JFrame {
 
     //Method for send data to inputs
     void sendDataToInputs(int index) {
-        editNamaKost.setText(getKostList().get(index).getName());
-        editAlamatKost.setText(getKostList().get(index).getAddress());
-        editJumlahKamar.setText(Integer.toString(getKostList().get(index).getRooms()));
-        editHargaBulanan.setText(Integer.toString(getKostList().get(index).getPrice()));
-        editDeskripsiKost.setText(getKostList().get(index).getDescription());
-        editNamaLengkapPemilik.setText(getKostList().get(index).getOwnerName());
-        editNomorTeleponPemilik.setText(getKostList().get(index).getOwnerPhoneNumber());
+        editNamaKost.setText(kosts.get(index).getName());
+        editAlamatKost.setText(kosts.get(index).getAddress());
+        editJumlahKamar.setText(Integer.toString(kosts.get(index).getRooms()));
+        editHargaBulanan.setText(Integer.toString(kosts.get(index).getPrice()));
+        editDeskripsiKost.setText(kosts.get(index).getDescription());
+        editNamaLengkapPemilik.setText(kosts.get(index).getOwnerName());
+        editNomorTeleponPemilik.setText(kosts.get(index).getOwnerPhoneNumber());
     }
     
     //Method for send data to labels
     void sendDataToLabels(int index){
-        namaKost.setText(getKostList().get(index).getName());
-        alamatLengkapKost.setText(getKostList().get(index).getAddress());
-        jumlahKamar.setText(Integer.toString(getKostList().get(index).getRooms()));
-        hargaBulanan.setText(Integer.toString(getKostList().get(index).getPrice()));
-        namaLengkapPemilik.setText(getKostList().get(index).getOwnerName());
-        nomorTeleponPemilik.setText(getKostList().get(index).getOwnerPhoneNumber());
+        namaKost.setText(kosts.get(index).getName());
+        alamatLengkapKost.setText(kosts.get(index).getAddress());
+        jumlahKamar.setText(Integer.toString(kosts.get(index).getRooms()));
+        hargaBulanan.setText(Integer.toString(kosts.get(index).getPrice()));
+        namaLengkapPemilik.setText(kosts.get(index).getOwnerName());
+        nomorTeleponPemilik.setText(kosts.get(index).getOwnerPhoneNumber());
     }
     
     // VIEWS
@@ -1456,7 +1456,7 @@ public class MainForm extends javax.swing.JFrame {
 
         //  Atur mainHeader content
         menuTitle.setText("DETAIL KOST");
-        menuDesc.setText(getKostList().get(index).getDescription());
+        menuDesc.setText(kosts.get(index).getDescription());
         
         //  Remove content sblmnya jika ada
         mainContent.removeAll();
