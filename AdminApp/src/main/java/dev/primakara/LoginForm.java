@@ -9,6 +9,7 @@ package dev.primakara;
 import com.google.firebase.database.*;
 import dev.primakara.model.User;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -236,12 +237,15 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        MainClass.objLoginForm.jLabel14.setText("LOADING...");
         String username = MainClass.objLoginForm.username.getText();
         String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
 
+
+    private void login(String username, String password) {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("users");
-        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        usersRef.orderByKey().equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.exists()) {
