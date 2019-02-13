@@ -6,9 +6,8 @@
 package dev.primakara;
 
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
+import com.google.firebase.database.*;
+import dev.primakara.model.User;
 
 import java.awt.*;
 
@@ -239,34 +238,38 @@ public class LoginForm extends javax.swing.JFrame {
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         String username = MainClass.objLoginForm.username.getText();
         String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
-        try {
-            UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(username);
-            if (!userRecord.getUid().equals(password)) {
-                throw new FirebaseAuthException("password-or-uid-wrong", "Wrong Password or UID :v");
-            }
-            MainClass.isLogin = true;
-            MainClass.loginCheck();
-        } catch (FirebaseAuthException e) {
-            // TODO: Change with UI output
-            System.out.println("Email atau Password salah");
-            System.out.println(e.getMessage());
-            System.out.println(e.getErrorCode());
-        }
 
-//        CreateRequest request = new CreateRequest()
-//                .setEmail("admin@kostpedia.id")
-//                .setPassword("kostpediamantap")
-//                .setUid("kostpediamantap")
-//                .setDisplayName("Admin Kostpedia");
-//
-//        try {
-//            UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
-//            System.out.println("Successfully created new user: " + userRecord.getUid());
-//        } catch (FirebaseAuthException e) {
-//            e.printStackTrace();
-//        }
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("users");
+        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
+                    User user = selectedUser.getValue(User.class);
+                    if (!user.getPassword().equals(password)) {
+                        loginErrorMessage("Username atau Password salah");
+                    } else {
+                        MainClass.isLogin = true;
+                        MainClass.loginCheck();
+                    }
+                } else {
+                    loginErrorMessage("Username atau Password salah");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                loginErrorMessage("The read failed: " + error.getMessage());
+            }
+        });
 
     }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void loginErrorMessage(String errorMessage) {
+        // TODO: Please someone implement this
+        System.out.println(errorMessage);
+    }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         mouseDownCompCoords = evt.getPoint();
