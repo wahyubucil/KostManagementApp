@@ -5,7 +5,12 @@
  */
 package dev.primakara;
 
-import java.awt.Point;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.UserRecord;
+
+import java.awt.*;
 
 /**
  *
@@ -224,7 +229,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
-        MainClass.objLoginForm.username.setText("");
+        MainClass.objLoginForm.username.setText(""); // TODO: WHAT THE PURPOSE OF THIS FUNCTION!!
     }//GEN-LAST:event_usernameFocusGained
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
@@ -232,8 +237,35 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        MainClass.isLogin = true;
-        MainClass.loginCheck();
+        String username = MainClass.objLoginForm.username.getText();
+        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
+        try {
+            UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(username);
+            if (!userRecord.getUid().equals(password)) {
+                throw new FirebaseAuthException("password-or-uid-wrong", "Wrong Password or UID :v");
+            }
+            MainClass.isLogin = true;
+            MainClass.loginCheck();
+        } catch (FirebaseAuthException e) {
+            // TODO: Change with UI output
+            System.out.println("Email atau Password salah");
+            System.out.println(e.getMessage());
+            System.out.println(e.getErrorCode());
+        }
+
+//        CreateRequest request = new CreateRequest()
+//                .setEmail("admin@kostpedia.id")
+//                .setPassword("kostpediamantap")
+//                .setUid("kostpediamantap")
+//                .setDisplayName("Admin Kostpedia");
+//
+//        try {
+//            UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
+//            System.out.println("Successfully created new user: " + userRecord.getUid());
+//        } catch (FirebaseAuthException e) {
+//            e.printStackTrace();
+//        }
+
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
