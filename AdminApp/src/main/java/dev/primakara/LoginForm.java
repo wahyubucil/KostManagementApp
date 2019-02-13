@@ -6,9 +6,8 @@
 package dev.primakara;
 
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
+import com.google.firebase.database.*;
+import dev.primakara.model.User;
 
 import java.awt.*;
 import javax.swing.JOptionPane;
@@ -247,26 +246,39 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        if(checkInputs()) {
-            String uname = MainClass.objLoginForm.username.getText();
-            String pass = String.valueOf(MainClass.objLoginForm.password.getPassword());
-            try {
-                UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(uname);
-                if (!userRecord.getUid().equals(pass)) {
-                    throw new FirebaseAuthException("password-or-uid-wrong", "Wrong Password or UID :v");
+        String username = MainClass.objLoginForm.username.getText();
+        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("users");
+        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
+                    User user = selectedUser.getValue(User.class);
+                    if (!user.getPassword().equals(password)) {
+                        loginErrorMessage("Username atau Password salah");
+                    } else {
+                        MainClass.isLogin = true;
+                        MainClass.loginCheck();
+                    }
+                } else {
+                    loginErrorMessage("Username atau Password salah");
                 }
-                MainClass.isLogin = true;
-                MainClass.loginCheck();
-            } catch (FirebaseAuthException e) {
-                // TODO: Change with UI output
-                System.out.println("Email atau Password salah");
-                System.out.println(e.getMessage());
-                System.out.println(e.getErrorCode());
-            }   
-        } else {
-            JOptionPane.showMessageDialog(null, "Username atau password tidak sesuai!");
-        }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                loginErrorMessage("The read failed: " + error.getMessage());
+            }
+        });
     }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void loginErrorMessage(String errorMessage) {
+        // TODO: Please someone implement this
+        System.out.println(errorMessage);
+    }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         mouseDownCompCoords = evt.getPoint();
