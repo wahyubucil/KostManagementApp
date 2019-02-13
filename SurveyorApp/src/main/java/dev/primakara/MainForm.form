@@ -494,50 +494,44 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="deskripsiScrollPane2" pref="608" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="insertNamaLengkapPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="insertNomorTeleponPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
-                                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="deskripsiScrollPane" alignment="0" pref="586" max="32767" attributes="0"/>
-                                                      <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="biayaPdamBelumTermasuk" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="biayaPdamSudahTermasuk" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="biayaBelumTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="biayaListrikSudahTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
-                                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                          <Component id="insertHargaBulanan" alignment="0" pref="180" max="32767" attributes="0"/>
-                                                          <Component id="insertJumlahKamar" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="insertAlamatKost" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="insertNamaKost" alignment="0" max="32767" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                          <Component id="insertNamaLengkapPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="insertNomorTeleponPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="deskripsiScrollPane" alignment="0" pref="586" max="32767" attributes="0"/>
+                                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="biayaPdamBelumTermasuk" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="biayaPdamSudahTermasuk" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="biayaBelumTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="biayaListrikSudahTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="insertHargaBulanan" alignment="0" pref="180" max="32767" attributes="0"/>
+                                                  <Component id="insertJumlahKamar" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="insertAlamatKost" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="insertNamaKost" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -566,10 +560,6 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="insertHargaBulanan" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="deskripsiScrollPane2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
@@ -601,7 +591,7 @@
                               <Component id="insertNomorTeleponPemilik" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="btnInsertKost" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -825,14 +815,6 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel21">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Semibold" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Penejalasan Fasilitas Kost"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel22">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -937,30 +919,6 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="deskripsiScrollPane2">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="insertFasilitasKost">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ee" green="ee" red="ee" type="rgb"/>
-                            </Property>
-                            <Property name="columns" type="int" value="20"/>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="14" style="0"/>
-                            </Property>
-                            <Property name="rows" type="int" value="5"/>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="null"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="editKost">
@@ -1001,8 +959,6 @@
                                       <Component id="editAlamatKost" alignment="0" max="32767" attributes="0"/>
                                       <Component id="editNamaKost" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel48" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="deskripsiScrollPane4" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1019,7 +975,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnInsertKost1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSaveUpdateKost" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1046,10 +1002,6 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="editHargaBulanan" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="deskripsiScrollPane4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
@@ -1080,7 +1032,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="editNomorTeleponPemilik" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="btnInsertKost1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSaveUpdateKost" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1197,7 +1149,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="btnInsertKost1">
+                    <Container class="javax.swing.JPanel" name="btnSaveUpdateKost">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="76" green="41" red="55" type="rgb"/>
@@ -1216,27 +1168,27 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnInsertKost1MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSaveUpdateKostMouseClicked"/>
                       </Events>
 
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="23" max="32767" attributes="0"/>
-                                  <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="btnUpdateKost" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="26" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel44" alignment="0" pref="33" max="32767" attributes="0"/>
+                              <Component id="btnUpdateKost" alignment="0" pref="33" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel44">
+                        <Component class="javax.swing.JLabel" name="btnUpdateKost">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="14" style="1"/>
@@ -1303,14 +1255,6 @@
                             </LineBorder>
                           </Border>
                         </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel48">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Semibold" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Penejalasan Fasilitas Kost"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel49">
@@ -1417,30 +1361,6 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="deskripsiScrollPane4">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="editFasilitasKost">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ee" green="ee" red="ee" type="rgb"/>
-                            </Property>
-                            <Property name="columns" type="int" value="20"/>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="14" style="0"/>
-                            </Property>
-                            <Property name="rows" type="int" value="5"/>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="null"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="listKost">
@@ -1560,7 +1480,7 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1177" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="1043" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -1590,7 +1510,7 @@
                                           <Component id="lblNamaKost" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="namaKost" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblAlamatLengkap" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="alamatLengkap" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="alamatLengkapKost" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblJumlahKamar" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jumlahKamar" min="-2" max="-2" attributes="0"/>
@@ -1603,8 +1523,6 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="lblHargaBulanan1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fasilitas" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblKetentuanKost" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -1617,16 +1535,16 @@
                                           </Group>
                                           <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblNamaLengkap" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="namaLengkap" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="namaLengkapPemilik" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblNomorTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="nomorTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nomorTeleponPemilik" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="397" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="393" max="32767" attributes="0"/>
                                       <Component id="btnEditKost" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnHapusKost" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1646,7 +1564,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblAlamatLengkap" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="alamatLengkap" min="-2" max="-2" attributes="0"/>
+                              <Component id="alamatLengkapKost" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblJumlahKamar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1661,11 +1579,7 @@
                                   <Component id="hargaBulanan" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblHargaBulanan1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fasilitas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="lblKetentuanKost" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="lblPDAM" min="-2" max="-2" attributes="0"/>
@@ -1677,27 +1591,22 @@
                               <Component id="ketentuanListrik" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblNamaLengkap" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="namaLengkap" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblNomorTelefon" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="nomorTelefon" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="btnHapusKost" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnEditKost" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblNamaLengkap" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="namaLengkapPemilik" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblNomorTelefon" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="nomorTeleponPemilik" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnHapusKost" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEditKost" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1727,7 +1636,7 @@
                         <Property name="text" type="java.lang.String" value="Nama Kost Disini"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="alamatLengkap">
+                    <Component class="javax.swing.JLabel" name="alamatLengkapKost">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Semilight" size="14" style="0"/>
@@ -1791,22 +1700,6 @@
                         <Property name="text" type="java.lang.String" value="Kamar"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblHargaBulanan1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Semibold" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Fasilitas"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="fasilitas">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI Semilight" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Fasilitas1,Fasilitas2,Fasilitas3"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="lblKetentuanKost">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1865,7 +1758,7 @@
                         <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="namaLengkap">
+                    <Component class="javax.swing.JLabel" name="namaLengkapPemilik">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Semilight" size="14" style="0"/>
@@ -1881,7 +1774,7 @@
                         <Property name="text" type="java.lang.String" value="Nomor Telefon"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="nomorTelefon">
+                    <Component class="javax.swing.JLabel" name="nomorTeleponPemilik">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Semilight" size="14" style="0"/>
@@ -1907,6 +1800,9 @@
                           <Color id="Hand Cursor"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEditKostMouseClicked"/>
+                      </Events>
 
                       <Layout>
                         <DimensionLayout dim="0">
