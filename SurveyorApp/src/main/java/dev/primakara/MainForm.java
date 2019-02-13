@@ -104,7 +104,6 @@ public class MainForm extends javax.swing.JFrame {
         editAlamatKost = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
         editHargaBulanan = new javax.swing.JFormattedTextField();
-        jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         editBiayaPdamSudahTermasuk = new javax.swing.JRadioButton();
@@ -116,8 +115,6 @@ public class MainForm extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         editNomorTeleponPemilik = new javax.swing.JTextField();
-        deskripsiScrollPane4 = new javax.swing.JScrollPane();
-        editFasilitasKost = new javax.swing.JTextArea();
         listKost = new javax.swing.JPanel();
         listKostTableJScroll = new javax.swing.JScrollPane();
         tableListKost = new javax.swing.JTable();
@@ -707,9 +704,6 @@ public class MainForm extends javax.swing.JFrame {
         editHargaBulanan.setBackground(new java.awt.Color(238, 238, 238));
         editHargaBulanan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        jLabel48.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel48.setText("Penejalasan Fasilitas Kost");
-
         jLabel49.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel49.setText("Ketentuan Kost");
 
@@ -746,13 +740,6 @@ public class MainForm extends javax.swing.JFrame {
         editNomorTeleponPemilik.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         editNomorTeleponPemilik.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        editFasilitasKost.setBackground(new java.awt.Color(238, 238, 238));
-        editFasilitasKost.setColumns(20);
-        editFasilitasKost.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        editFasilitasKost.setRows(5);
-        editFasilitasKost.setBorder(null);
-        deskripsiScrollPane4.setViewportView(editFasilitasKost);
-
         javax.swing.GroupLayout editKostLayout = new javax.swing.GroupLayout(editKost);
         editKost.setLayout(editKostLayout);
         editKostLayout.setHorizontalGroup(
@@ -779,8 +766,6 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(editJumlahKamar, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(editAlamatKost, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(editNamaKost, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jLabel48)
-                    .addComponent(deskripsiScrollPane4)
                     .addGroup(editKostLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -818,10 +803,6 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(editHargaBulanan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jLabel48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskripsiScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel49)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel50)
@@ -1292,7 +1273,6 @@ public class MainForm extends javax.swing.JFrame {
         objKost.setName("Ini contoh nama kost");
         objKost.setAddress("Jln. Groove Street, Los Santos");
         objKost.setPrice(100000);
-        objKost.setFacilities("ada kolam renang, ada dapur, dll");
         objKost.setElectricityCost("Sudah Termasuk Biaya Listrik");
         objKost.setWaterCost("Sudah Termasuk Biaya PDAM");
         objKost.setDescription("Blaah blaah blaaah blaaaah blaaaah");
@@ -1499,7 +1479,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane deskripsiScrollPane;
     private javax.swing.JScrollPane deskripsiScrollPane2;
     private javax.swing.JScrollPane deskripsiScrollPane3;
-    private javax.swing.JScrollPane deskripsiScrollPane4;
     private javax.swing.JPanel detailKost;
     private javax.swing.JTextField editAlamatKost;
     private javax.swing.JRadioButton editBiayaBelumTermasuk;
@@ -1507,7 +1486,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton editBiayaPdamBelumTermasuk;
     private javax.swing.JRadioButton editBiayaPdamSudahTermasuk;
     private javax.swing.JTextArea editDeskripsiKost;
-    private javax.swing.JTextArea editFasilitasKost;
     private javax.swing.JFormattedTextField editHargaBulanan;
     private javax.swing.JTextField editJumlahKamar;
     private javax.swing.JPanel editKost;
@@ -1554,7 +1532,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
