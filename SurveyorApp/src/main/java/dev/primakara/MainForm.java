@@ -906,6 +906,9 @@ public class MainForm extends javax.swing.JFrame {
 
         listKostTableJScroll.setBackground(new java.awt.Color(255, 255, 255));
         listKostTableJScroll.setBorder(null);
+        listKostTableJScroll.setAutoscrolls(true);
+        listKostTableJScroll.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        listKostTableJScroll.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         listKostTableJScroll.setOpaque(false);
         listKostTableJScroll.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -939,6 +942,11 @@ public class MainForm extends javax.swing.JFrame {
         });
         tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
         tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListKost.setShowHorizontalLines(false);
+        tableListKost.setShowVerticalLines(false);
+        tableListKost.getTableHeader().setResizingAllowed(false);
+        tableListKost.getTableHeader().setReorderingAllowed(false);
         tableListKost.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableListKostMouseClicked(evt);
@@ -957,14 +965,17 @@ public class MainForm extends javax.swing.JFrame {
         listKost.setLayout(listKostLayout);
         listKostLayout.setHorizontalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(listKostTableJScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(listKostLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(listKostTableJScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         listKostLayout.setVerticalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listKostLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(listKostTableJScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(20, 20, 20)
+                .addComponent(listKostTableJScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         mainContent.add(listKost, "card2");
