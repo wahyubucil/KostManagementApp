@@ -22,8 +22,9 @@ public class MainClass {
     static MainForm objMainForm = new MainForm();
     
     public static void main(String []args){
-        MainClass.firebaseInit();
-        MainClass.loginCheck();
+          MainClass.objMainForm.setVisible(true);
+//        MainClass.firebaseInit();
+//        MainClass.loginCheck();
     }
     
     public static void loginCheck() {
