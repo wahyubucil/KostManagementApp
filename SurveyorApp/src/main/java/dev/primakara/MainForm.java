@@ -7,6 +7,7 @@ package dev.primakara;
 
 import dev.primakara.model.Kost;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -128,8 +129,11 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         listKost = new javax.swing.JPanel();
-        listKostTableJScroll = new javax.swing.JScrollPane();
         tableListKost = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         about = new javax.swing.JPanel();
         detailKost = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
@@ -901,18 +905,6 @@ public class MainForm extends javax.swing.JFrame {
 
         listKost.setBackground(new java.awt.Color(255, 255, 255));
 
-        listKostTableJScroll.setBackground(new java.awt.Color(255, 255, 255));
-        listKostTableJScroll.setBorder(null);
-        listKostTableJScroll.setAutoscrolls(true);
-        listKostTableJScroll.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        listKostTableJScroll.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        listKostTableJScroll.setOpaque(false);
-        listKostTableJScroll.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listKostTableJScrollMouseClicked(evt);
-            }
-        });
-
         tableListKost.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         tableListKost.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -926,7 +918,7 @@ public class MainForm extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -939,6 +931,7 @@ public class MainForm extends javax.swing.JFrame {
         });
         tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
         tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tableListKost.setRowHeight(50);
         tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableListKost.setShowHorizontalLines(false);
         tableListKost.setShowVerticalLines(false);
@@ -949,31 +942,73 @@ public class MainForm extends javax.swing.JFrame {
                 tableListKostMouseClicked(evt);
             }
         });
-        listKostTableJScroll.setViewportView(tableListKost);
-        if (tableListKost.getColumnModel().getColumnCount() > 0) {
-            tableListKost.getColumnModel().getColumn(0).setPreferredWidth(10);
-            tableListKost.getColumnModel().getColumn(1).setResizable(false);
-            tableListKost.getColumnModel().getColumn(1).setPreferredWidth(10);
-            tableListKost.getColumnModel().getColumn(2).setResizable(false);
-            tableListKost.getColumnModel().getColumn(2).setPreferredWidth(10);
-        }
+
+        jPanel1.setBackground(new java.awt.Color(110, 89, 222));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("KOST");
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("PEMILIK KOST");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("ALAMAT LENGKAP");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(156, 156, 156)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addGap(78, 78, 78))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout listKostLayout = new javax.swing.GroupLayout(listKost);
         listKost.setLayout(listKostLayout);
         listKostLayout.setHorizontalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listKostLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(listKostTableJScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         listKostLayout.setVerticalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listKostLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listKostLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(listKostTableJScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(tableListKost, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                .addGap(34, 34, 34))
         );
+
+        if (tableListKost.getColumnModel().getColumnCount() > 0) {
+            tableListKost.getColumnModel().getColumn(0).setResizable(false);
+            tableListKost.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tableListKost.getColumnModel().getColumn(1).setPreferredWidth(10);
+            tableListKost.getColumnModel().getColumn(2).setPreferredWidth(10);
+        }
 
         mainContent.add(listKost, "card2");
 
@@ -1303,10 +1338,6 @@ public class MainForm extends javax.swing.JFrame {
         showDetailKost(selectedRowIndex);
     }//GEN-LAST:event_tableListKostMouseClicked
 
-    private void listKostTableJScrollMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listKostTableJScrollMouseClicked
-        showListKost();
-    }//GEN-LAST:event_listKostTableJScrollMouseClicked
-
     private void btnInsertKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertKostMouseClicked
         insertData();
     }//GEN-LAST:event_btnInsertKostMouseClicked
@@ -1351,7 +1382,6 @@ public class MainForm extends javax.swing.JFrame {
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
-        tableListKost.setRowHeight(30);
         ArrayList<Kost> list = getKostList();
         DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
         // clear jtable content
@@ -1649,9 +1679,12 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField insertNomorTeleponPemilik;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1683,6 +1716,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1713,7 +1747,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblPDAM;
     private javax.swing.JPanel listKost;
     private javax.swing.JPanel listKostBtn;
-    private javax.swing.JScrollPane listKostTableJScroll;
     private javax.swing.JPanel mainContent;
     private javax.swing.JScrollPane mainContentScroll;
     private javax.swing.JPanel mainHeader;
