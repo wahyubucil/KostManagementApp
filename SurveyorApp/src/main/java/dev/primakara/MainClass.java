@@ -11,6 +11,7 @@ package dev.primakara;
  */
 public class MainClass {
     static MainForm objMainForm = new MainForm();
+    static LoginForm objLoginForm = new LoginForm();
     
     public static void main(String []args){
         MainClass.objMainForm.setVisible(true);
