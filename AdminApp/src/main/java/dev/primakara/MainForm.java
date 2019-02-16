@@ -5,15 +5,20 @@
  */
 package dev.primakara;
 
+import dev.primakara.model.Kost;
+import dev.primakara.model.User;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -1065,7 +1070,10 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        
+        String surveyorUsername = txtSurveyorUsername.getText();
+        String surveyorEmail = txtSurveyorEmail.getText();
+        String surveyorPassword = txtSurveyorPassword.getText();
+        String surveyorDisplayName = txtSurveyorDisplayName.getText();
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void tableListKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListKostMouseClicked
@@ -1101,6 +1109,71 @@ public class MainForm extends javax.swing.JFrame {
     void resetColor(JPanel panel)
     {
         panel.setBackground(new Color(64,43,100));
+    }
+    
+    ArrayList<Kost> getKostList() {
+        ArrayList<Kost> kostList = new ArrayList<>();
+        
+        //  nanti try catch disini
+        Kost objKost = new Kost();
+        objKost.setName("Ini contoh nama kost");
+        objKost.setAddress("Jln. Groove Street, Los Santos");
+        objKost.setPrice(100000);
+        objKost.setElectricityCost("Sudah Termasuk");
+        objKost.setWaterCost("Sudah Termasuk");
+        objKost.setDescription("Blaah blaah blaaah blaaaah blaaaah");
+        objKost.setOwnerName("Mr. Bean");
+        objKost.setOwnerPhoneNumber("0827223891");
+        kostList.add(objKost);
+        
+        return kostList;
+    }
+    
+    // Method for fill listKost JTable with Kost List
+    void Show_Kosts_In_JTable() {
+        ArrayList<Kost> list = getKostList();
+        DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
+        // clear jtable content
+        model.setRowCount(0);
+        Object[] row = new Object[4];
+        for(int i = 0; i < list.size(); i++)
+        {
+            row[0] = list.get(i).getName();
+            row[1] = list.get(i).getOwnerName();
+            row[2] = list.get(i).getAddress();
+            
+            model.addRow(row);
+        }
+    }
+    
+    ArrayList<User> getUserList() {
+        ArrayList<User> userList = new ArrayList<>();
+        
+        //  nanti try catch disini
+        User objUser = new User();
+        objUser.setUsername("admoon");
+        objUser.setEmail("admoon@admoon.com");
+        objUser.setDisplayName("admoon");
+        userList.add(objUser);
+        
+        return userList;
+    }
+    
+    // Method for fill listKost JTable with Kost List
+    void Show_Users_In_JTable() {
+        ArrayList<User> list = getUserList();
+        DefaultTableModel model = (DefaultTableModel)tableListSurveyor.getModel();
+        // clear jtable content
+        model.setRowCount(0);
+        Object[] row = new Object[4];
+        for(int i = 0; i < list.size(); i++)
+        {
+            row[0] = list.get(i).getUsername();
+            row[1] = list.get(i).getEmail();
+            row[2] = list.get(i).getDisplayName();
+            
+            model.addRow(row);
+        }
     }
     
     /**
