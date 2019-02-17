@@ -170,11 +170,12 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         listKost = new javax.swing.JPanel();
-        tableListKost = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        scrollPaneListKost = new javax.swing.JScrollPane();
+        tableListKost = new javax.swing.JTable();
         detailKost = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         lblNamaKost = new javax.swing.JLabel();
@@ -693,11 +694,10 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(biayaListrikSudahTermasuk)
                                     .addComponent(jLabel23)))
                             .addComponent(jSeparator9)
-                            .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(jSeparator16, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
                         .addGap(0, 25, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
@@ -1030,45 +1030,6 @@ public class MainForm extends javax.swing.JFrame {
 
         listKost.setBackground(new java.awt.Color(255, 255, 255));
 
-        tableListKost.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        tableListKost.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "KOST", "PEMILIK", "ALAMAT", "id"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
-        tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tableListKost.setRowHeight(50);
-        tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tableListKost.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        tableListKost.setShowHorizontalLines(false);
-        tableListKost.setShowVerticalLines(false);
-        tableListKost.getTableHeader().setResizingAllowed(false);
-        tableListKost.getTableHeader().setReorderingAllowed(false);
-        tableListKost.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableListKostMouseClicked(evt);
-            }
-        });
-
         jPanel1.setBackground(new java.awt.Color(110, 89, 222));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -1108,27 +1069,49 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout listKostLayout = new javax.swing.GroupLayout(listKost);
-        listKost.setLayout(listKostLayout);
-        listKostLayout.setHorizontalGroup(
-            listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listKostLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
-        );
-        listKostLayout.setVerticalGroup(
-            listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listKostLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-        );
+        scrollPaneListKost.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPaneListKost.setBorder(null);
+        scrollPaneListKost.setOpaque(false);
 
+        tableListKost.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        tableListKost.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", "", ""
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
+        tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tableListKost.setRowHeight(50);
+        tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListKost.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tableListKost.setShowHorizontalLines(false);
+        tableListKost.setShowVerticalLines(false);
+        tableListKost.getTableHeader().setResizingAllowed(false);
+        tableListKost.getTableHeader().setReorderingAllowed(false);
+        tableListKost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableListKostMouseClicked(evt);
+            }
+        });
+        scrollPaneListKost.setViewportView(tableListKost);
         if (tableListKost.getColumnModel().getColumnCount() > 0) {
             tableListKost.getColumnModel().getColumn(0).setResizable(false);
             tableListKost.getColumnModel().getColumn(0).setPreferredWidth(10);
@@ -1137,6 +1120,30 @@ public class MainForm extends javax.swing.JFrame {
             tableListKost.getColumnModel().getColumn(3).setResizable(false);
             tableListKost.getColumnModel().getColumn(3).setPreferredWidth(0);
         }
+
+        javax.swing.GroupLayout listKostLayout = new javax.swing.GroupLayout(listKost);
+        listKost.setLayout(listKostLayout);
+        listKostLayout.setHorizontalGroup(
+            listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listKostLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(listKostLayout.createSequentialGroup()
+                        .addComponent(scrollPaneListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(listKostLayout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(20, 20, 20))))
+        );
+        listKostLayout.setVerticalGroup(
+            listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listKostLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPaneListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(896, 896, 896))
+        );
 
         mainContent.add(listKost, "card2");
 
@@ -1776,6 +1783,10 @@ public class MainForm extends javax.swing.JFrame {
     void showListKost() {
     //  Show Data
 //        Show_Kosts_In_JTable();
+    
+    scrollPaneListKost.getViewport().setBackground(Color.WHITE);
+    scrollPaneListKost.setBorder(BorderFactory.createEmptyBorder());
+    tableListKost.setTableHeader(null);
 
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
@@ -2039,6 +2050,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel namaKost;
     private javax.swing.JLabel namaLengkapPemilik;
     private javax.swing.JLabel nomorTeleponPemilik;
+    private javax.swing.JScrollPane scrollPaneListKost;
     private javax.swing.JPanel sidebar;
     private javax.swing.JLabel sidebarTitle;
     private javax.swing.JTable tableListKost;
