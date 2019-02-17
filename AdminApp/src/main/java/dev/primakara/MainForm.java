@@ -38,7 +38,6 @@ public class MainForm extends javax.swing.JFrame {
 
         // Remove column that contain Unique ID
         tableListKost.removeColumn(tableListKost.getColumnModel().getColumn(3));
-        tableListSurveyor.removeColumn(tableListSurveyor.getColumnModel().getColumn(3));
         
         showHome();
     }
@@ -1827,6 +1826,20 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.add(detailKost);
         mainContent.repaint();
         mainContent.revalidate();
+
+
+        namaKost.setText(selectedKost.getName());
+        alamatLengkapKost.setText(selectedKost.getAddress());
+        jumlahKamar.setText(Integer.toString(selectedKost.getRooms()));
+        hargaBulanan.setText(Integer.toString(selectedKost.getPrice()));
+        namaLengkapPemilik.setText(selectedKost.getOwnerName());
+        nomorTeleponPemilik.setText(selectedKost.getOwnerPhoneNumber());
+
+        if (selectedKost.getElectricityCost()) ketentuanListrik.setText("Sudah Termasuk");
+        else ketentuanListrik.setText("Belum Termasuk");
+
+        if (selectedKost.getWaterCost()) ketentuanPDAM.setText("Sudah Termasuk");
+        else ketentuanPDAM.setText("Belum Termasuk");
     }
     
     // DETAIL SURVEYOR
