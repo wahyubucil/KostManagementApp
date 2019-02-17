@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -88,6 +89,9 @@ public class MainForm extends javax.swing.JFrame {
         aboutBtn = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         mainHeader = new javax.swing.JPanel();
         menuTitle = new javax.swing.JLabel();
         menuDesc = new javax.swing.JLabel();
@@ -355,6 +359,45 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
+        btnLogout.setBackground(new java.awt.Color(64, 43, 100));
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.setPreferredSize(new java.awt.Dimension(240, 66));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
+
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-exit-24.png"))); // NOI18N
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Logout");
+
+        javax.swing.GroupLayout btnLogoutLayout = new javax.swing.GroupLayout(btnLogout);
+        btnLogout.setLayout(btnLogoutLayout);
+        btnLogoutLayout.setHorizontalGroup(
+            btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogoutLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        btnLogoutLayout.setVerticalGroup(
+            btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogoutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLogoutLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel30)
+                .addGap(19, 19, 19))
+        );
+
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
         sidebarLayout.setHorizontalGroup(
@@ -369,6 +412,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addComponent(listSurveyorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,7 +429,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(listSurveyorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         mainHeader.setBackground(new java.awt.Color(110, 89, 222));
@@ -1238,6 +1284,16 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.repaint();
         mainContent.revalidate();
     }//GEN-LAST:event_aboutBtnMouseClicked
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        // Kode Logout Disini
+        int confirmStatus = JOptionPane.showConfirmDialog(this, "Anda yakin ingin logout?", 
+                "Confirmation Message", JOptionPane.YES_NO_OPTION);
+        
+        if(confirmStatus == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnLogoutMouseClicked
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
     {
@@ -1358,6 +1414,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.ButtonGroup biayalistrik;
     private javax.swing.ButtonGroup biayapam;
+    private javax.swing.JPanel btnLogout;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JPanel detailKost;
     private javax.swing.JLabel devOne;
@@ -1389,6 +1446,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
