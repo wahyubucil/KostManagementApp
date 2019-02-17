@@ -190,7 +190,7 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         info.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        info.setText("Created by Primakara Developers");
+        info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rsz_logo-gradient.png"))); // NOI18N
         info.setToolTipText("");
         info.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1056,7 +1056,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(info)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                         .addComponent(closeBtn)
                         .addContainerGap())
                     .addComponent(mainHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1073,7 +1073,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(closeBtn)
                     .addComponent(info))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

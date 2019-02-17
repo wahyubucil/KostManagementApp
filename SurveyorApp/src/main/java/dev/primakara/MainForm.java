@@ -207,7 +207,7 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         info.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        info.setText("Created by Primakara Developers");
+        info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rsz_logo-gradient.png"))); // NOI18N
         info.setToolTipText("");
         info.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1371,7 +1371,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(info)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 437, Short.MAX_VALUE)
                         .addComponent(closeBtn)
                         .addContainerGap())
                     .addComponent(mainHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1388,7 +1388,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(closeBtn)
                     .addComponent(info))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
@@ -1414,10 +1414,6 @@ public class MainForm extends javax.swing.JFrame {
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
         this.dispose();
     }//GEN-LAST:event_closeBtnMouseClicked
-
-    private void infoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoMouseClicked
 
     private void homeBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMousePressed
         showHome();
@@ -1461,6 +1457,10 @@ public class MainForm extends javax.swing.JFrame {
     private void aboutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMouseClicked
         showAbout();
     }//GEN-LAST:event_aboutBtnMouseClicked
+
+    private void infoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_infoMouseClicked
     
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
