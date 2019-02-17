@@ -1843,6 +1843,7 @@ public class MainForm extends javax.swing.JFrame {
 
 
         User user = users.get(uniqueId);
+        editUsername.setText(uniqueId);
         editEmail.setText(user.getEmail());
         editDisplayName.setText(user.getDisplayName());
     }
