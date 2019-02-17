@@ -614,12 +614,10 @@
                                                   <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jSeparator8" alignment="0" pref="185" max="32767" attributes="0"/>
-                                              <Component id="insertNomorTeleponPemilik" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="insertNamaLengkapPemilik" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="jSeparator8" alignment="0" pref="185" max="32767" attributes="0"/>
+                                          <Component id="insertNomorTeleponPemilik" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="insertNamaLengkapPemilik" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jSeparator9" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
@@ -1168,7 +1166,7 @@
                               <Component id="deskripsiScrollPane3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
@@ -1184,7 +1182,7 @@
                               <Component id="jSeparator15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="btnSaveUpdateKost" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace pref="19" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

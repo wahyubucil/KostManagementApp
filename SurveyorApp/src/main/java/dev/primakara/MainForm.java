@@ -30,9 +30,7 @@ public class MainForm extends javax.swing.JFrame {
 
         initComponents();
         
-        //  Atur mainHeader content
-        menuTitle.setText("TAMBAH KOST BARU");
-        menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
+        showListKost();
     }
     
     @SuppressWarnings("unchecked")
@@ -950,7 +948,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(deskripsiScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel45)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel43)
@@ -966,7 +964,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(btnSaveUpdateKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         mainContent.add(editKost, "card2");
