@@ -44,6 +44,7 @@ public class MainForm extends javax.swing.JFrame {
         super.setVisible(visible);
         if (visible) {
             listenToKostData();
+            currentUserLoggedIn.setText(MainClass.authUser.getDisplayName());
         }
     }
 

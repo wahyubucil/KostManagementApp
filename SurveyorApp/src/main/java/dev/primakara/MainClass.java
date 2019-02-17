@@ -8,6 +8,7 @@ package dev.primakara;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import dev.primakara.model.User;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class MainClass {
     static boolean isLogin = false;
     static MainForm objMainForm = new MainForm();
     static LoginForm objLoginForm = new LoginForm();
+    static User authUser;
     
     public static void main(String []args){
         MainClass.firebaseInit();

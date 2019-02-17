@@ -326,6 +326,7 @@ public class LoginForm extends javax.swing.JFrame {
                         loginErrorHandler("Username atau Password salah");
                     } else {
                         MainClass.isLogin = true;
+                        MainClass.authUser = user;
                         MainClass.loginCheck();
                     }
                 } else {

@@ -26,6 +26,7 @@ public class MainClass {
     static boolean isLogin = false;
     static LoginForm objLoginForm = new LoginForm();
     static MainForm objMainForm = new MainForm();
+    static User authUser;
     
     public static void main(String []args){
         MainClass.firebaseInit();
