@@ -676,10 +676,10 @@ public class MainForm extends javax.swing.JFrame {
                                 .addGroup(addKostLayout.createSequentialGroup()
                                     .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(insertAlamatKost, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                        .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                        .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                                         .addComponent(insertHargaBulanan, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSeparator5)
+                                        .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                                         .addComponent(insertJumlahKamar, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGap(135, 135, 135))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -695,10 +695,11 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(biayaListrikSudahTermasuk)
                                     .addComponent(jLabel23)))
                             .addComponent(jSeparator9)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                            .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                            .addComponent(jSeparator16, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                            .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                            .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(0, 25, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
@@ -712,25 +713,25 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertNamaKost, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertAlamatKost, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertJumlahKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertHargaBulanan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -758,13 +759,13 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(btnInsertKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
@@ -946,16 +947,19 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(editBiayaListrikBelumTermasuk)
                                 .addComponent(editBiayaListrikSudahTermasuk)
                                 .addComponent(jLabel50)))
-                        .addComponent(editHargaBulanan, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                        .addComponent(editJumlahKamar)
-                        .addComponent(editAlamatKost)
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator4)
-                        .addComponent(editNamaKost, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editNamaKost, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(editAlamatKost, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(editJumlahKamar, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(editHargaBulanan, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -1024,7 +1028,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(btnSaveUpdateKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
 
         mainContent.add(editKost, "card2");
@@ -1098,8 +1102,10 @@ public class MainForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableListKost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
         tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tableListKost.setPreferredSize(new java.awt.Dimension(610, 372));
         tableListKost.setRowHeight(50);
         tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableListKost.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -1142,8 +1148,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPaneListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(896, 896, 896))
+                .addComponent(scrollPaneListKost, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mainContent.add(listKost, "card2");
@@ -1247,6 +1253,11 @@ public class MainForm extends javax.swing.JFrame {
         btnHapusKost.setForeground(new java.awt.Color(255, 255, 255));
         btnHapusKost.setToolTipText("");
         btnHapusKost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHapusKost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHapusKostMouseClicked(evt);
+            }
+        });
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
@@ -1617,6 +1628,10 @@ public class MainForm extends javax.swing.JFrame {
     private void minimizeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeBtnMouseClicked
         this.setState(MainForm.ICONIFIED);
     }//GEN-LAST:event_minimizeBtnMouseClicked
+
+    private void btnHapusKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusKostMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHapusKostMouseClicked
     
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
@@ -1631,6 +1646,7 @@ public class MainForm extends javax.swing.JFrame {
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
+       
         DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
         // clear jtable content
         model.setRowCount(0);
@@ -1643,6 +1659,8 @@ public class MainForm extends javax.swing.JFrame {
 
             model.addRow(row);
         });
+    
+        tableListKost.setModel(model);
     }
     
     // Method for collects inputs and then send to firebase    
@@ -1858,13 +1876,10 @@ public class MainForm extends javax.swing.JFrame {
     
     // LIST KOST   
     void showListKost() {
-    //  Show Data
-//        Show_Kosts_In_JTable();
-    
-    scrollPaneListKost.getViewport().setBackground(Color.WHITE);
+    scrollPaneListKost.getViewport().setForeground(Color.BLACK);
     scrollPaneListKost.setBorder(BorderFactory.createEmptyBorder());
-    tableListKost.setTableHeader(null);
-
+    tableListKost.setTableHeader(null);    
+        
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
         setColor(listKostBtn);
