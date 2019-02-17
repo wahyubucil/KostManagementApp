@@ -1314,7 +1314,7 @@ public class MainForm extends javax.swing.JFrame {
             tableListSurveyor.getColumnModel().getColumn(0).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(0).setPreferredWidth(10);
             tableListSurveyor.getColumnModel().getColumn(1).setResizable(false);
-            tableListSurveyor.getColumnModel().getColumn(1).setPreferredWidth(10);
+            tableListSurveyor.getColumnModel().getColumn(1).setPreferredWidth(50);
             tableListSurveyor.getColumnModel().getColumn(2).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(2).setPreferredWidth(10);
             tableListSurveyor.getColumnModel().getColumn(3).setResizable(false);
@@ -1331,7 +1331,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(listSurveyorLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(scrollPaneListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(listSurveyorLayout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(20, 20, 20))))
