@@ -416,11 +416,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        jLabel34.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("You logged in as,");
 
-        currentUserLoggedIn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        currentUserLoggedIn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         currentUserLoggedIn.setForeground(new java.awt.Color(255, 255, 255));
         currentUserLoggedIn.setText("User");
 
@@ -460,7 +460,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                 .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
                     .addComponent(currentUserLoggedIn))
@@ -521,6 +521,7 @@ public class MainForm extends javax.swing.JFrame {
         insertNamaKost.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         insertNamaKost.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         insertNamaKost.setBorder(null);
+        insertNamaKost.setMaximumSize(new java.awt.Dimension(185, 130));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel4.setText("Alamat Kost");
@@ -535,6 +536,7 @@ public class MainForm extends javax.swing.JFrame {
         insertNamaLengkapPemilik.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         insertNamaLengkapPemilik.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         insertNamaLengkapPemilik.setBorder(null);
+        insertNamaLengkapPemilik.setMaximumSize(new java.awt.Dimension(185, 130));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         jLabel5.setText("Nama Lengkap");
@@ -627,6 +629,7 @@ public class MainForm extends javax.swing.JFrame {
         insertNomorTeleponPemilik.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         insertNomorTeleponPemilik.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         insertNomorTeleponPemilik.setBorder(null);
+        insertNomorTeleponPemilik.setMaximumSize(new java.awt.Dimension(185, 130));
 
         jSeparator5.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator5.setForeground(new java.awt.Color(110, 89, 222));
@@ -639,9 +642,11 @@ public class MainForm extends javax.swing.JFrame {
 
         jSeparator16.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator16.setForeground(new java.awt.Color(110, 89, 222));
+        jSeparator16.setMaximumSize(new java.awt.Dimension(185, 10));
 
         jSeparator8.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator8.setForeground(new java.awt.Color(110, 89, 222));
+        jSeparator8.setMaximumSize(new java.awt.Dimension(185, 10));
 
         jSeparator9.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator9.setForeground(new java.awt.Color(110, 89, 222));
@@ -697,9 +702,9 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jSeparator9)
                             .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 25, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
@@ -751,8 +756,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deskripsiScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel5)
@@ -951,15 +956,12 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSeparator4)
                         .addComponent(editNamaKost, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(editAlamatKost, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(editJumlahKamar, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(editHargaBulanan, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
+                        .addComponent(editAlamatKost)
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                        .addComponent(editJumlahKamar)
+                        .addComponent(jSeparator12, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                        .addComponent(editHargaBulanan)
+                        .addComponent(jSeparator13, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -1034,6 +1036,7 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.add(editKost, "card2");
 
         listKost.setBackground(new java.awt.Color(255, 255, 255));
+        listKost.setPreferredSize(new java.awt.Dimension(639, 473));
 
         jPanel1.setBackground(new java.awt.Color(110, 89, 222));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1077,6 +1080,7 @@ public class MainForm extends javax.swing.JFrame {
         scrollPaneListKost.setBackground(new java.awt.Color(255, 255, 255));
         scrollPaneListKost.setBorder(null);
         scrollPaneListKost.setOpaque(false);
+        scrollPaneListKost.setPreferredSize(new java.awt.Dimension(450, 473));
 
         tableListKost.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         tableListKost.setModel(new javax.swing.table.DefaultTableModel(
@@ -1105,7 +1109,7 @@ public class MainForm extends javax.swing.JFrame {
         tableListKost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
         tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        tableListKost.setPreferredSize(new java.awt.Dimension(610, 372));
+        tableListKost.setPreferredSize(new java.awt.Dimension(610, 473));
         tableListKost.setRowHeight(50);
         tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tableListKost.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -1148,7 +1152,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPaneListKost, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
+                .addComponent(scrollPaneListKost, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
