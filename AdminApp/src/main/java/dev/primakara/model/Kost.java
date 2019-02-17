@@ -5,8 +5,8 @@ public class Kost {
     private String address;
     private int rooms;
     private int price;
-    private String electricityCost;
-    private String waterCost;
+    private boolean electricityCost;
+    private boolean waterCost;
     private String description;
     private String ownerName;
     private String ownerPhoneNumber;
@@ -14,7 +14,7 @@ public class Kost {
     public Kost() {
     }
 
-    public Kost(String name, String address, int rooms, int price, String electricityCost, String waterCost, String description, String ownerName, String ownerPhoneNumber) {
+    public Kost(String name, String address, int rooms, int price, boolean electricityCost, boolean waterCost, String description, String ownerName, String ownerPhoneNumber) {
         this.name = name;
         this.address = address;
         this.rooms = rooms;
@@ -58,19 +58,19 @@ public class Kost {
         this.price = price;
     }
 
-    public String getElectricityCost() {
+    public boolean getElectricityCost() {
         return electricityCost;
     }
 
-    public void setElectricityCost(String electricityCost) {
+    public void setElectricityCost(boolean electricityCost) {
         this.electricityCost = electricityCost;
     }
 
-    public String getWaterCost() {
+    public boolean getWaterCost() {
         return waterCost;
     }
 
-    public void setWaterCost(String waterCost) {
+    public void setWaterCost(boolean waterCost) {
         this.waterCost = waterCost;
     }
 

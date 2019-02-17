@@ -74,8 +74,8 @@ public class MainClass {
         kost.setAddress("Jl. Gunung Agung No. 1");
         kost.setRooms(10);
         kost.setPrice(750000);
-        kost.setElectricityCost("Sudah Termasuk");
-        kost.setWaterCost("Belum Termasuk");
+        kost.setElectricityCost(true);
+        kost.setWaterCost(false);
         kost.setDescription("Kost yang sangat keren dan murah luar biasa");
         kost.setOwnerName("Pak Sugeng");
         kost.setOwnerName("085777090331");
@@ -94,8 +94,8 @@ public class MainClass {
         kost.setAddress("Jl. Gunung Agung No. 1");
         kost.setRooms(10);
         kost.setPrice(750000);
-        kost.setElectricityCost("Sudah Termasuk");
-        kost.setWaterCost("Belum Termasuk");
+        kost.setElectricityCost(false);
+        kost.setWaterCost(true);
         kost.setDescription("Kost yang sangat keren dan murah luar biasa");
         kost.setOwnerName("Pak Sugeng");
         kost.setOwnerName("085777090331");

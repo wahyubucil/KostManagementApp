@@ -17,9 +17,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -1323,8 +1320,8 @@ public class MainForm extends javax.swing.JFrame {
         objKost.setName("Ini contoh nama kost");
         objKost.setAddress("Jln. Groove Street, Los Santos");
         objKost.setPrice(100000);
-        objKost.setElectricityCost("Sudah Termasuk");
-        objKost.setWaterCost("Sudah Termasuk");
+        objKost.setElectricityCost(true);
+        objKost.setWaterCost(false);
         objKost.setDescription("Blaah blaah blaaah blaaaah blaaaah");
         objKost.setOwnerName("Mr. Bean");
         objKost.setOwnerPhoneNumber("0827223891");

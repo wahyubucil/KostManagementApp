@@ -11,9 +11,7 @@ import dev.primakara.model.Kost;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -1575,25 +1573,6 @@ public class MainForm extends javax.swing.JFrame {
     {
         panel.setBackground(new Color(64,43,100));
     }
-
-    //Array List Data Kost from Model
-    List<Kost> getKostList() {
-        ArrayList<Kost> kostList = new ArrayList<>();
-
-        //  nanti try catch disini
-        Kost objKost = new Kost();
-        objKost.setName("Ini contoh nama kost");
-        objKost.setAddress("Jln. Groove Street, Los Santos");
-        objKost.setPrice(100000);
-        objKost.setElectricityCost("Sudah Termasuk");
-        objKost.setWaterCost("Sudah Termasuk");
-        objKost.setDescription("Blaah blaah blaaah blaaaah blaaaah");
-        objKost.setOwnerName("Mr. Bean");
-        objKost.setOwnerPhoneNumber("0827223891");
-        kostList.add(objKost);
-
-        return kostList;
-    }
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
@@ -1681,16 +1660,17 @@ public class MainForm extends javax.swing.JFrame {
         editDeskripsiKost.setText(selectedKost.getDescription());
         editNamaLengkapPemilik.setText(selectedKost.getOwnerName());
         editNomorTeleponPemilik.setText(selectedKost.getOwnerPhoneNumber());
+
         
-        if (selectedKost.getWaterCost().equals("Sudah Termasuk")) {
+        if (selectedKost.getWaterCost()) {
             btnGroupEditBiayaPdam.setSelected(editBiayaPdamSudahTermasuk.getModel(), true);
-        } else if (selectedKost.getWaterCost().equals("Belum Termasuk")) {
+        } else {
             btnGroupEditBiayaPdam.setSelected(editBiayaPdamBelumTermasuk.getModel(), true);
         }
         
-        if (selectedKost.getElectricityCost().equals("Sudah Termasuk")) {
+        if (selectedKost.getElectricityCost()) {
             btnGroupEditBiayaListrik.setSelected(editBiayaListrikSudahTermasuk.getModel(), true);
-        } else if (selectedKost.getElectricityCost().equals("Belum Termasuk")) {
+        } else {
             btnGroupEditBiayaListrik.setSelected(editBiayaListrikBelumTermasuk.getModel(), true);
         }
     }
@@ -1733,9 +1713,6 @@ public class MainForm extends javax.swing.JFrame {
     
     // LIST KOST   
     void showListKost() {
-    //  Show Data
-//        Show_Kosts_In_JTable();
-
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
         setColor(listKostBtn);
