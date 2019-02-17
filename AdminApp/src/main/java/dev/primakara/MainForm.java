@@ -1152,6 +1152,7 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator10.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator10.setForeground(new java.awt.Color(110, 89, 222));
 
+        editUsername.setEditable(false);
         editUsername.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         editUsername.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         editUsername.setBorder(null);
@@ -1312,7 +1313,9 @@ public class MainForm extends javax.swing.JFrame {
         if (tableListSurveyor.getColumnModel().getColumnCount() > 0) {
             tableListSurveyor.getColumnModel().getColumn(0).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tableListSurveyor.getColumnModel().getColumn(1).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(1).setPreferredWidth(10);
+            tableListSurveyor.getColumnModel().getColumn(2).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(2).setPreferredWidth(10);
             tableListSurveyor.getColumnModel().getColumn(3).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(3).setPreferredWidth(0);
