@@ -11,6 +11,7 @@ import dev.primakara.model.User;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -106,6 +107,11 @@ public class LoginForm extends javax.swing.JFrame {
                 usernameFocusLost(evt);
             }
         });
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
+            }
+        });
 
         separatorUsername.setBackground(new java.awt.Color(110, 89, 222));
         separatorUsername.setForeground(new java.awt.Color(110, 89, 222));
@@ -121,6 +127,11 @@ public class LoginForm extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 passwordFocusLost(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
 
@@ -158,7 +169,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Kost Management App");
+        jLabel1.setText("Surveyor Login");
 
         loginBackgroundImage.setBackground(new java.awt.Color(255, 255, 255));
         loginBackgroundImage.setLayout(new javax.swing.OverlayLayout(loginBackgroundImage));
@@ -216,7 +227,7 @@ public class LoginForm extends javax.swing.JFrame {
                                         .addComponent(separatorPassword))))
                             .addGap(40, 40, 40)))
                     .addGroup(loginFrameLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
+                        .addGap(133, 133, 133)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -224,15 +235,12 @@ public class LoginForm extends javax.swing.JFrame {
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(loginFrameLayout.createSequentialGroup()
-                        .addComponent(closeBtn)
-                        .addGap(96, 96, 96))
-                    .addGroup(loginFrameLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addGap(10, 10, 10)))
+                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(closeBtn)
+                    .addComponent(jLabel2))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginFrameLayout.createSequentialGroup()
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,6 +380,18 @@ public class LoginForm extends javax.swing.JFrame {
             MainClass.objLoginForm.password.setText("Password");
         }
     }//GEN-LAST:event_passwordFocusLost
+
+    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            // TODO: Login Method here
+        }
+    }//GEN-LAST:event_usernameKeyPressed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            // TODO: Login Method here
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments

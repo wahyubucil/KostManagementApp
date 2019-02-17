@@ -439,13 +439,13 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+            .addComponent(listSurveyorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
             .addGroup(sidebarLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addComponent(jLabel34)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(currentUserLoggedIn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(listSurveyorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,11 +464,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
                     .addComponent(currentUserLoggedIn))
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         mainHeader.setBackground(new java.awt.Color(110, 89, 222));
@@ -954,29 +954,41 @@ public class MainForm extends javax.swing.JFrame {
 
         devTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devTwo.png"))); // NOI18N
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("Wahyu Budi Saputra");
+        jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("1701020002");
+        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("1701020041");
+        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("Marvel Alexius");
+        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("1701020017");
+        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Dody Prasetyo");
+        jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout aboutLayout = new javax.swing.GroupLayout(about);
         about.setLayout(aboutLayout);
@@ -986,36 +998,28 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(aboutLayout.createSequentialGroup()
-                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(devOne, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(aboutLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel21))
-                            .addGroup(aboutLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel27)))
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(devOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(82, 82, 82)
                         .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(aboutLayout.createSequentialGroup()
-                                .addGap(82, 82, 82)
                                 .addComponent(devTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82)
                                 .addComponent(devThree, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(aboutLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29)
-                                    .addComponent(jLabel28))
-                                .addGap(136, 136, 136)
-                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel31)
-                                    .addComponent(jLabel30))
-                                .addGap(80, 80, 80))))
-                    .addGroup(aboutLayout.createSequentialGroup()
-                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))))
+                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(82, 82, 82)
+                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         aboutLayout.setVerticalGroup(
             aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1038,14 +1042,14 @@ public class MainForm extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(jLabel27))
                     .addGroup(aboutLayout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel28))
-                    .addGroup(aboutLayout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addGap(0, 0, 0)
-                        .addComponent(jLabel30)))
-                .addGap(0, 0, 0))
+                        .addComponent(jLabel30))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel28)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainContent.add(about, "card2");
@@ -1305,7 +1309,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPaneListSurveyor, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addComponent(scrollPaneListSurveyor, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1825,7 +1829,6 @@ public class MainForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel about;
     private javax.swing.JPanel aboutBtn;
-    private javax.swing.JPanel aboutBtn1;
     private javax.swing.JLabel aboutDesc;
     private javax.swing.JPanel addSurveyor;
     private javax.swing.JLabel alamatLengkapKost;
@@ -1874,7 +1877,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -1886,7 +1888,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
