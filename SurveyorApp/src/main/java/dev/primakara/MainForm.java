@@ -7,17 +7,14 @@ package dev.primakara;
 
 import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -26,9 +23,9 @@ import java.util.List;
 public class MainForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
-    private int selectedRowIndex;
 
-    private ArrayList<Kost> kosts = new ArrayList<>();
+    private Map<String, Kost> kosts = new HashMap<>();
+    private String selectedKostId;
 
     /**
      * Creates new form Main_Form
@@ -36,6 +33,9 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
 
         initComponents();
+
+        // Remove column that contain Unique ID
+        tableListKost.removeColumn(tableListKost.getColumnModel().getColumn(3));
         
         showListKost();
     }
@@ -58,8 +58,9 @@ public class MainForm extends javax.swing.JFrame {
                 kosts.clear();
                 for (DataSnapshot kostData : snapshot.getChildren()) {
                     Kost kost = kostData.getValue(Kost.class);
-                    kosts.add(kost);
+                    kosts.put(kostData.getKey(), kost);
                 }
+
                 Show_Kosts_In_JTable();
             }
 
@@ -1530,8 +1531,8 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void tableListKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListKostMouseClicked
-        selectedRowIndex = tableListKost.getSelectedRow();
-        showDetailKost(selectedRowIndex);
+        selectedKostId = tableListKost.getModel().getValueAt(tableListKost.getSelectedRow(), 3).toString();
+        showDetailKost(selectedKostId);
     }//GEN-LAST:event_tableListKostMouseClicked
 
     private void btnInsertKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertKostMouseClicked
@@ -1543,7 +1544,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveUpdateKostMouseClicked
 
     private void btnEditKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditKostMouseClicked
-        showEditKost(selectedRowIndex);
+        showEditKost(selectedKostId);
     }//GEN-LAST:event_btnEditKostMouseClicked
 
     private void aboutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMouseClicked
@@ -1600,14 +1601,14 @@ public class MainForm extends javax.swing.JFrame {
         // clear jtable content
         model.setRowCount(0);
         Object[] row = new Object[4];
-        for(int i = 0; i < kosts.size(); i++)
-        {
-            row[0] = kosts.get(i).getName();
-            row[1] = kosts.get(i).getOwnerName();
-            row[2] = kosts.get(i).getAddress();
-            
+        kosts.forEach((key, value) -> {
+            row[0] = value.getName();
+            row[1] = value.getOwnerName();
+            row[2] = value.getAddress();
+            row[3] = key;
+
             model.addRow(row);
-        }
+        });
     }
     
     // Method for collects inputs and then send to firebase    
@@ -1670,36 +1671,40 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     //Method for send data to inputs in editKost
-    void sendDataToEditKost(int index) {
-        editNamaKost.setText(kosts.get(index).getName());
-        editAlamatKost.setText(kosts.get(index).getAddress());
-        editJumlahKamar.setText(Integer.toString(kosts.get(index).getRooms()));
-        editHargaBulanan.setText(Integer.toString(kosts.get(index).getPrice()));
-        editDeskripsiKost.setText(kosts.get(index).getDescription());
-        editNamaLengkapPemilik.setText(kosts.get(index).getOwnerName());
-        editNomorTeleponPemilik.setText(kosts.get(index).getOwnerPhoneNumber());
+    void sendDataToEditKost(String uniqueId) {
+        Kost selectedKost = kosts.get(uniqueId);
+
+        editNamaKost.setText(selectedKost.getName());
+        editAlamatKost.setText(selectedKost.getAddress());
+        editJumlahKamar.setText(Integer.toString(selectedKost.getRooms()));
+        editHargaBulanan.setText(Integer.toString(selectedKost.getPrice()));
+        editDeskripsiKost.setText(selectedKost.getDescription());
+        editNamaLengkapPemilik.setText(selectedKost.getOwnerName());
+        editNomorTeleponPemilik.setText(selectedKost.getOwnerPhoneNumber());
         
-        if (kosts.get(index).getWaterCost().equals("Sudah Termasuk")) {
+        if (selectedKost.getWaterCost().equals("Sudah Termasuk")) {
             btnGroupEditBiayaPdam.setSelected(editBiayaPdamSudahTermasuk.getModel(), true);
-        } else if (kosts.get(index).getWaterCost().equals("Belum Termasuk")) {
+        } else if (selectedKost.getWaterCost().equals("Belum Termasuk")) {
             btnGroupEditBiayaPdam.setSelected(editBiayaPdamBelumTermasuk.getModel(), true);
         }
         
-        if (kosts.get(index).getElectricityCost().equals("Sudah Termasuk")) {
+        if (selectedKost.getElectricityCost().equals("Sudah Termasuk")) {
             btnGroupEditBiayaListrik.setSelected(editBiayaListrikSudahTermasuk.getModel(), true);
-        } else if (kosts.get(index).getElectricityCost().equals("Belum Termasuk")) {
+        } else if (selectedKost.getElectricityCost().equals("Belum Termasuk")) {
             btnGroupEditBiayaListrik.setSelected(editBiayaListrikBelumTermasuk.getModel(), true);
         }
     }
     
     //Method for send data to labels
-    void sendDataToDetailKost(int index){
-        namaKost.setText(kosts.get(index).getName());
-        alamatLengkapKost.setText(kosts.get(index).getAddress());
-        jumlahKamar.setText(Integer.toString(kosts.get(index).getRooms()));
-        hargaBulanan.setText(Integer.toString(kosts.get(index).getPrice()));
-        namaLengkapPemilik.setText(kosts.get(index).getOwnerName());
-        nomorTeleponPemilik.setText(kosts.get(index).getOwnerPhoneNumber());
+    void sendDataToDetailKost(String uniqueId){
+        Kost selectedKost = kosts.get(uniqueId);
+
+        namaKost.setText(selectedKost.getName());
+        alamatLengkapKost.setText(selectedKost.getAddress());
+        jumlahKamar.setText(Integer.toString(selectedKost.getRooms()));
+        hargaBulanan.setText(Integer.toString(selectedKost.getPrice()));
+        namaLengkapPemilik.setText(selectedKost.getOwnerName());
+        nomorTeleponPemilik.setText(selectedKost.getOwnerPhoneNumber());
     }
     
     // VIEWS
@@ -1752,7 +1757,7 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     // EDIT KOST
-    void showEditKost(int index){
+    void showEditKost(String uniqueId){
         //  Atur mainHeader content
         menuTitle.setText("EDIT DATA KOST");
         menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
@@ -1767,17 +1772,18 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.repaint();
         mainContent.revalidate();
         
-        sendDataToEditKost(index);
+        sendDataToEditKost(uniqueId);
     }
     
     // DETAIL KOST
-    void showDetailKost(int index) {
+    void showDetailKost(String uniqueId) {
+        Kost selectedKost = kosts.get(uniqueId);
         // Send Data to Detail Labels
-        sendDataToDetailKost(index);
+        sendDataToDetailKost(uniqueId);
 
         //  Atur mainHeader content
         menuTitle.setText("DETAIL KOST");
-        menuDesc.setText(kosts.get(index).getDescription());
+        menuDesc.setText(selectedKost.getName());
         
         //  Remove content sblmnya jika ada
         mainContent.removeAll();
