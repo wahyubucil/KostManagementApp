@@ -1058,6 +1058,7 @@ public class MainForm extends javax.swing.JFrame {
         tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
         tableListKost.setRowHeight(50);
         tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListKost.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tableListKost.setShowHorizontalLines(false);
         tableListKost.setShowVerticalLines(false);
         tableListKost.getTableHeader().setResizingAllowed(false);

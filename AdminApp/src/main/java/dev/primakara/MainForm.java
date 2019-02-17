@@ -790,6 +790,7 @@ public class MainForm extends javax.swing.JFrame {
         tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
         tableListKost.setRowHeight(50);
         tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListKost.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tableListKost.setShowHorizontalLines(false);
         tableListKost.setShowVerticalLines(false);
         tableListKost.getTableHeader().setResizingAllowed(false);
@@ -856,8 +857,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         if (tableListKost.getColumnModel().getColumnCount() > 0) {
@@ -1055,6 +1056,7 @@ public class MainForm extends javax.swing.JFrame {
         tableListSurveyor.setIntercellSpacing(new java.awt.Dimension(5, 5));
         tableListSurveyor.setRowHeight(50);
         tableListSurveyor.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListSurveyor.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tableListSurveyor.setShowHorizontalLines(false);
         tableListSurveyor.setShowVerticalLines(false);
         tableListSurveyor.getTableHeader().setResizingAllowed(false);
