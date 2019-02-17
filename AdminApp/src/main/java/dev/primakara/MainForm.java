@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 public class MainForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
-    static int selectedRowIndex;
+    private int selectedRowIndex;
 
     /**
      * Creates new form Main_Form

@@ -293,7 +293,6 @@ public class LoginForm extends javax.swing.JFrame {
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         if (!btnLogin.isEnabled()) return;
 
-        System.out.println("Test");
         btnLogin.setEnabled(false);
         jLabel14.setText("LOADING...");
         String usernameValue = username.getText();

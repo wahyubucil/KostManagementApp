@@ -21,7 +21,7 @@ import java.util.List;
 public class MainForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
-    static int selectedRowIndex;
+    private int selectedRowIndex;
 
     private ArrayList<Kost> kosts = new ArrayList<>();
 
@@ -1602,35 +1602,35 @@ public class MainForm extends javax.swing.JFrame {
 
     //Method for send data to inputs in editKost
     void sendDataToEditKost(int index) {
-        editNamaKost.setText(getKostList().get(index).getName());
-        editAlamatKost.setText(getKostList().get(index).getAddress());
-        editJumlahKamar.setText(Integer.toString(getKostList().get(index).getRooms()));
-        editHargaBulanan.setText(Integer.toString(getKostList().get(index).getPrice()));
-        editDeskripsiKost.setText(getKostList().get(index).getDescription());
-        editNamaLengkapPemilik.setText(getKostList().get(index).getOwnerName());
-        editNomorTeleponPemilik.setText(getKostList().get(index).getOwnerPhoneNumber());
+        editNamaKost.setText(kosts.get(index).getName());
+        editAlamatKost.setText(kosts.get(index).getAddress());
+        editJumlahKamar.setText(Integer.toString(kosts.get(index).getRooms()));
+        editHargaBulanan.setText(Integer.toString(kosts.get(index).getPrice()));
+        editDeskripsiKost.setText(kosts.get(index).getDescription());
+        editNamaLengkapPemilik.setText(kosts.get(index).getOwnerName());
+        editNomorTeleponPemilik.setText(kosts.get(index).getOwnerPhoneNumber());
         
-        if (getKostList().get(index).getWaterCost().equals("Sudah Termasuk")) {
+        if (kosts.get(index).getWaterCost().equals("Sudah Termasuk")) {
             btnGroupEditBiayaPdam.setSelected(editBiayaPdamSudahTermasuk.getModel(), true);
-        } else if (getKostList().get(index).getWaterCost().equals("Belum Termasuk")) {
+        } else if (kosts.get(index).getWaterCost().equals("Belum Termasuk")) {
             btnGroupEditBiayaPdam.setSelected(editBiayaPdamBelumTermasuk.getModel(), true);
         }
         
-        if (getKostList().get(index).getElectricityCost().equals("Sudah Termasuk")) {
+        if (kosts.get(index).getElectricityCost().equals("Sudah Termasuk")) {
             btnGroupEditBiayaListrik.setSelected(editBiayaListrikSudahTermasuk.getModel(), true);
-        } else if (getKostList().get(index).getElectricityCost().equals("Belum Termasuk")) {
+        } else if (kosts.get(index).getElectricityCost().equals("Belum Termasuk")) {
             btnGroupEditBiayaListrik.setSelected(editBiayaListrikBelumTermasuk.getModel(), true);
         }
     }
     
     //Method for send data to labels
     void sendDataToDetailKost(int index){
-        namaKost.setText(getKostList().get(index).getName());
-        alamatLengkapKost.setText(getKostList().get(index).getAddress());
-        jumlahKamar.setText(Integer.toString(getKostList().get(index).getRooms()));
-        hargaBulanan.setText(Integer.toString(getKostList().get(index).getPrice()));
-        namaLengkapPemilik.setText(getKostList().get(index).getOwnerName());
-        nomorTeleponPemilik.setText(getKostList().get(index).getOwnerPhoneNumber());
+        namaKost.setText(kosts.get(index).getName());
+        alamatLengkapKost.setText(kosts.get(index).getAddress());
+        jumlahKamar.setText(Integer.toString(kosts.get(index).getRooms()));
+        hargaBulanan.setText(Integer.toString(kosts.get(index).getPrice()));
+        namaLengkapPemilik.setText(kosts.get(index).getOwnerName());
+        nomorTeleponPemilik.setText(kosts.get(index).getOwnerPhoneNumber());
     }
     
     // VIEWS
