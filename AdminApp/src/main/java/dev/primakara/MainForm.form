@@ -2021,7 +2021,7 @@
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="250" resizable="false">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="false">
                                   <Title/>
                                   <Editor/>
                                   <Renderer/>
