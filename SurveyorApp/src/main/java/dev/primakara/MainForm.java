@@ -7,7 +7,12 @@ package dev.primakara;
 
 import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
-
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -32,9 +37,7 @@ public class MainForm extends javax.swing.JFrame {
 
         initComponents();
         
-        //  Atur mainHeader content
-        menuTitle.setText("TAMBAH KOST BARU");
-        menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
+        showListKost();
     }
 
     @Override
@@ -88,6 +91,9 @@ public class MainForm extends javax.swing.JFrame {
         aboutBtn = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         mainHeader = new javax.swing.JPanel();
         menuTitle = new javax.swing.JLabel();
         menuDesc = new javax.swing.JLabel();
@@ -124,9 +130,9 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
         jSeparator16 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
         editKost = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
         editNamaKost = new javax.swing.JTextField();
@@ -160,7 +166,7 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
         listKost = new javax.swing.JPanel();
         tableListKost = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -279,7 +285,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         homeBtnLayout.setVerticalGroup(
             homeBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +322,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         listKostBtnLayout.setVerticalGroup(
             listKostBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +360,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
         aboutBtnLayout.setVerticalGroup(
             aboutBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,6 +370,45 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
                 .addContainerGap())
+        );
+
+        btnLogout.setBackground(new java.awt.Color(64, 43, 100));
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.setPreferredSize(new java.awt.Dimension(240, 66));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
+
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-exit-24.png"))); // NOI18N
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Logout");
+
+        javax.swing.GroupLayout btnLogoutLayout = new javax.swing.GroupLayout(btnLogout);
+        btnLogout.setLayout(btnLogoutLayout);
+        btnLogoutLayout.setHorizontalGroup(
+            btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogoutLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
+        );
+        btnLogoutLayout.setVerticalGroup(
+            btnLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnLogoutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnLogoutLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel32)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
@@ -379,6 +424,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(sidebarTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
             .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,7 +439,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(listKostBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         mainHeader.setBackground(new java.awt.Color(110, 89, 222));
@@ -473,8 +521,9 @@ public class MainForm extends javax.swing.JFrame {
 
         insertDeskripsiKost.setColumns(20);
         insertDeskripsiKost.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        insertDeskripsiKost.setLineWrap(true);
         insertDeskripsiKost.setRows(5);
-        insertDeskripsiKost.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(110, 89, 222), 2));
+        insertDeskripsiKost.setBorder(null);
         deskripsiScrollPane.setViewportView(insertDeskripsiKost);
 
         btnInsertKost.setBackground(new java.awt.Color(85, 65, 118));
@@ -574,6 +623,9 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator8.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator8.setForeground(new java.awt.Color(110, 89, 222));
 
+        jSeparator9.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator9.setForeground(new java.awt.Color(110, 89, 222));
+
         javax.swing.GroupLayout addKostLayout = new javax.swing.GroupLayout(addKost);
         addKost.setLayout(addKostLayout);
         addKostLayout.setHorizontalGroup(
@@ -619,11 +671,11 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(biayaListrikBelumTermasuk)
                                     .addComponent(biayaListrikSudahTermasuk)
                                     .addComponent(jLabel23)))
-                            .addComponent(jSeparator4)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                            .addComponent(jSeparator16)
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                             .addComponent(insertNomorTeleponPemilik)
-                            .addComponent(insertNamaLengkapPemilik))
+                            .addComponent(jSeparator16)
+                            .addComponent(insertNamaLengkapPemilik)
+                            .addComponent(jSeparator9))
                         .addGap(0, 35, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -674,9 +726,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deskripsiScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel7)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel5)
@@ -689,7 +741,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(btnInsertKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
@@ -727,8 +779,10 @@ public class MainForm extends javax.swing.JFrame {
 
         editDeskripsiKost.setColumns(20);
         editDeskripsiKost.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        editDeskripsiKost.setLineWrap(true);
         editDeskripsiKost.setRows(5);
-        editDeskripsiKost.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(110, 89, 222), 2));
+        editDeskripsiKost.setWrapStyleWord(true);
+        editDeskripsiKost.setBorder(null);
         deskripsiScrollPane3.setViewportView(editDeskripsiKost);
 
         btnSaveUpdateKost.setBackground(new java.awt.Color(85, 65, 118));
@@ -832,6 +886,9 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator15.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator15.setForeground(new java.awt.Color(110, 89, 222));
 
+        jSeparator4.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator4.setForeground(new java.awt.Color(110, 89, 222));
+
         javax.swing.GroupLayout editKostLayout = new javax.swing.GroupLayout(editKost);
         editKost.setLayout(editKostLayout);
         editKostLayout.setHorizontalGroup(
@@ -875,7 +932,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1))
+                    .addComponent(jSeparator4))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         editKostLayout.setVerticalGroup(
@@ -925,9 +982,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel42)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deskripsiScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel45)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel43)
@@ -943,7 +1000,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(btnSaveUpdateKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         mainContent.add(editKost, "card2");
@@ -956,14 +1013,14 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "KOST", "PEMILIK", "ALAMAT"
+                "KOST", "PEMILIK", "ALAMAT", "id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1045,7 +1102,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(0, 0, 0))
         );
 
         if (tableListKost.getColumnModel().getColumnCount() > 0) {
@@ -1053,6 +1110,8 @@ public class MainForm extends javax.swing.JFrame {
             tableListKost.getColumnModel().getColumn(0).setPreferredWidth(10);
             tableListKost.getColumnModel().getColumn(1).setPreferredWidth(10);
             tableListKost.getColumnModel().getColumn(2).setPreferredWidth(10);
+            tableListKost.getColumnModel().getColumn(3).setResizable(false);
+            tableListKost.getColumnModel().getColumn(3).setPreferredWidth(0);
         }
 
         mainContent.add(listKost, "card2");
@@ -1494,6 +1553,16 @@ public class MainForm extends javax.swing.JFrame {
     private void infoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_infoMouseClicked
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        // Kode Logout Disini
+        int confirmStatus = JOptionPane.showConfirmDialog(this, "Anda yakin ingin logout?", 
+                "Confirmation Message", JOptionPane.YES_NO_OPTION);
+        
+        if(confirmStatus == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnLogoutMouseClicked
     
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
@@ -1801,6 +1870,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btnGroupEditBiayaPdam;
     private javax.swing.JPanel btnHapusKost;
     private javax.swing.JPanel btnInsertKost;
+    private javax.swing.JPanel btnLogout;
     private javax.swing.JPanel btnSaveUpdateKost;
     private javax.swing.JLabel btnUpdateKost;
     private javax.swing.JLabel closeBtn;
@@ -1857,6 +1927,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -1880,7 +1952,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -1895,6 +1966,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel jumlahKamar;
     private javax.swing.JLabel ketentuanListrik;
     private javax.swing.JLabel ketentuanPDAM;
