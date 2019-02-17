@@ -1605,7 +1605,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeBtnMouseClicked
 
     private void btnUpdateSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateSurveyorMouseClicked
-        // TODO add your handling code here:
+        updateData(selectedSurveyorId);
     }//GEN-LAST:event_btnUpdateSurveyorMouseClicked
 
     private void tableListSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListSurveyorMouseClicked
@@ -1716,8 +1716,34 @@ public class MainForm extends javax.swing.JFrame {
                 "Whoops! something were wrong!", HEIGHT);
     }
     
-    void updateData() {
-        
+    void updateData(String uniqueId) {
+        String email = editEmail.getText().trim();
+        String displayName = editDisplayName.getText().trim();
+
+        if (email.length() < 1 || displayName.length() < 1) {
+            inputError("Mohon mengisi seluruh field yang ada!");
+            return;
+        }
+
+        User surveyor = new User();
+        surveyor.setEmail(email);
+        surveyor.setDisplayName(displayName);
+        surveyor.setType("surveyor");
+
+        Map<String, Object> userUpdate = new HashMap<>();
+        userUpdate.put(uniqueId, surveyor);
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+        DatabaseReference usersRef = ref.child("users");
+
+        usersRef.updateChildren(userUpdate, (error, ref1) -> {
+            if (error != null) {
+                inputError("Data could not be saved " + error.getMessage());
+            } else {
+                showDetailSurveyor(uniqueId);
+            }
+        });
     }
     
     // VIEWS
@@ -1817,7 +1843,6 @@ public class MainForm extends javax.swing.JFrame {
 
 
         User user = users.get(uniqueId);
-        editUsername.setText(uniqueId);
         editEmail.setText(user.getEmail());
         editDisplayName.setText(user.getDisplayName());
     }

@@ -1810,7 +1810,11 @@ public class MainForm extends javax.swing.JFrame {
         DatabaseReference kostsRef = ref.child("kosts");
 
         kostsRef.updateChildren(kostUpdate, (error, ref1) -> {
-            showDetailKost(selectedKostId);
+            if (error != null) {
+                inputError("Data could not be saved " + error.getMessage());
+            } else {
+                showDetailKost(selectedKostId);
+            }
         });
     }
 
