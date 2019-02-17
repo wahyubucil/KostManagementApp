@@ -659,15 +659,17 @@
                                               </Group>
                                           </Group>
                                           <Component id="jSeparator9" max="32767" attributes="0"/>
-                                          <Component id="jSeparator8" alignment="0" pref="586" max="32767" attributes="0"/>
-                                          <Component id="insertNomorTeleponPemilik" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="insertNamaLengkapPemilik" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jSeparator8" alignment="0" pref="185" max="32767" attributes="0"/>
+                                              <Component id="insertNomorTeleponPemilik" alignment="0" pref="185" max="32767" attributes="0"/>
+                                              <Component id="jSeparator16" alignment="0" pref="185" max="32767" attributes="0"/>
+                                              <Component id="insertNamaLengkapPemilik" alignment="0" pref="185" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -727,7 +729,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="insertNamaLengkapPemilik" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator16" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSeparator16" min="-2" pref="2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1120,42 +1122,44 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="editNamaLengkapPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editNomorTeleponPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="deskripsiScrollPane3" alignment="0" pref="586" max="32767" attributes="0"/>
-                                  <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="editBiayaPdamBelumTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editBiayaPdamSudahTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editBiayaListrikBelumTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editBiayaListrikSudahTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="editNamaLengkapPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                                      <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editNomorTeleponPemilik" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                                      <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="deskripsiScrollPane3" alignment="0" pref="586" max="32767" attributes="0"/>
+                                      <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="editBiayaPdamBelumTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="editBiayaPdamSudahTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="editBiayaListrikBelumTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="editBiayaListrikSudahTermasuk" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
+                                      <Component id="editHargaBulanan" alignment="0" pref="185" max="32767" attributes="0"/>
+                                      <Component id="editJumlahKamar" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="editAlamatKost" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jSeparator11" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="jSeparator12" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="jSeparator13" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="jSeparator14" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                                      <Component id="jSeparator15" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
+                                      <Component id="jSeparator4" max="32767" attributes="0"/>
+                                      <Component id="editNamaKost" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="editHargaBulanan" alignment="0" pref="185" max="32767" attributes="0"/>
-                                  <Component id="editJumlahKamar" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="editAlamatKost" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="editNamaKost" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jSeparator10" min="-2" pref="185" max="-2" attributes="0"/>
-                                  <Component id="jSeparator11" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                                  <Component id="jSeparator12" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                                  <Component id="jSeparator13" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                                  <Component id="jSeparator14" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <Component id="jSeparator15" alignment="0" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <Component id="jSeparator4" max="32767" attributes="0"/>
+                                  <Component id="jSeparator2" min="-2" pref="185" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="45" max="32767" attributes="0"/>
                           </Group>
@@ -1171,7 +1175,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="editNamaKost" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator10" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1526,16 +1530,6 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator10">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="de" green="59" red="6e" type="rgb"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="de" green="59" red="6e" type="rgb"/>
-                        </Property>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator11">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1587,6 +1581,16 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator4">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="de" green="59" red="6e" type="rgb"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="de" green="59" red="6e" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparator2">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="de" green="59" red="6e" type="rgb"/>
@@ -2400,6 +2404,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="__"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="verticalAlignment" type="int" value="3"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
