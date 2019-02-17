@@ -147,7 +147,7 @@ public class MainForm extends javax.swing.JFrame {
         editSurveyor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         editEmail = new javax.swing.JTextField();
-        btnInsertKost1 = new javax.swing.JPanel();
+        btnEditKost = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -1064,14 +1064,14 @@ public class MainForm extends javax.swing.JFrame {
         editEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         editEmail.setBorder(null);
 
-        btnInsertKost1.setBackground(new java.awt.Color(85, 65, 118));
-        btnInsertKost1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnInsertKost1.setForeground(new java.awt.Color(255, 255, 255));
-        btnInsertKost1.setToolTipText("");
-        btnInsertKost1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnInsertKost1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEditKost.setBackground(new java.awt.Color(85, 65, 118));
+        btnEditKost.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnEditKost.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditKost.setToolTipText("");
+        btnEditKost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditKost.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnInsertKost1MouseClicked(evt);
+                btnEditKostMouseClicked(evt);
             }
         });
 
@@ -1079,17 +1079,17 @@ public class MainForm extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("SIMPAN");
 
-        javax.swing.GroupLayout btnInsertKost1Layout = new javax.swing.GroupLayout(btnInsertKost1);
-        btnInsertKost1.setLayout(btnInsertKost1Layout);
-        btnInsertKost1Layout.setHorizontalGroup(
-            btnInsertKost1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnInsertKost1Layout.createSequentialGroup()
+        javax.swing.GroupLayout btnEditKostLayout = new javax.swing.GroupLayout(btnEditKost);
+        btnEditKost.setLayout(btnEditKostLayout);
+        btnEditKostLayout.setHorizontalGroup(
+            btnEditKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnEditKostLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel19)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
-        btnInsertKost1Layout.setVerticalGroup(
-            btnInsertKost1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btnEditKostLayout.setVerticalGroup(
+            btnEditKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
@@ -1153,7 +1153,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(446, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editSurveyorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnInsertKost1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
         editSurveyorLayout.setVerticalGroup(
@@ -1186,7 +1186,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(btnInsertKost1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1574,9 +1574,9 @@ public class MainForm extends javax.swing.JFrame {
         this.setState(MainForm.ICONIFIED);
     }//GEN-LAST:event_minimizeBtnMouseClicked
 
-    private void btnInsertKost1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertKost1MouseClicked
+    private void btnEditKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditKostMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnInsertKost1MouseClicked
+    }//GEN-LAST:event_btnEditKostMouseClicked
 
     private void tableListSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListSurveyorMouseClicked
         selectedSurveyorId = tableListSurveyor.getModel().getValueAt(tableListSurveyor.getSelectedRow(), 3).toString();
@@ -1833,12 +1833,12 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel addSurveyor;
     private javax.swing.JLabel alamatLengkapKost;
     private javax.swing.JPanel bg;
+    private javax.swing.JPanel btnEditKost;
     private javax.swing.JPanel btnEditSurveyor;
     private javax.swing.ButtonGroup btnGroupEditBiayaListrik;
     private javax.swing.ButtonGroup btnGroupEditBiayaPdam;
     private javax.swing.JPanel btnHapusSurveyor;
     private javax.swing.JPanel btnInsertKost;
-    private javax.swing.JPanel btnInsertKost1;
     private javax.swing.JPanel btnLogout;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JLabel currentUserLoggedIn;
