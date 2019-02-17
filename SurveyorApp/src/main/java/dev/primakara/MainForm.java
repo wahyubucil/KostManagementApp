@@ -1594,54 +1594,78 @@ public class MainForm extends javax.swing.JFrame {
     void insertData() {
         String namaKost = insertNamaKost.getText();
         String alamatKost = insertAlamatKost.getText();
-        String jumlahKamar = insertJumlahKamar.getText();
-        String hargaBulanan = insertHargaBulanan.getText();
+        int jumlahKamar = Integer.parseInt(insertJumlahKamar.getText());
+        int hargaBulanan = Integer.parseInt(insertHargaBulanan.getText());
         String deskripsiKost = insertDeskripsiKost.getText();
         String pemilikKost = insertNamaLengkapPemilik.getText();
         String telponPemilik = insertNomorTeleponPemilik.getText();
-        String biayalistrik, biayapam;
-        boolean insertSuccess = true;
-        
+        boolean biayalistrik = false;
+        boolean biayapam = false;
         
         if (biayaListrikSudahTermasuk.isSelected()) {
-            biayalistrik = "Sudah Termasuk";
+            biayalistrik = true;
         } else if (biayaListrikBelumTermasuk.isSelected()) {
-            biayalistrik = "Belum Termasuk";
+            biayalistrik = false;
         }
         
         if (biayaPdamSudahTermasuk.isSelected()) {
-            biayapam = "Sudah Termasuk";
+            biayapam = true;
         } else if (biayaPdamBelumTermasuk.isSelected()) {
-            biayapam = "Belum Termasuk";
+            biayapam = false;
         }
+
+
+        Kost kost = new Kost();
+        kost.setName(namaKost);
+        kost.setAddress(alamatKost);
+        kost.setRooms(jumlahKamar);
+        kost.setPrice(hargaBulanan);
+        kost.setElectricityCost(biayalistrik);
+        kost.setWaterCost(biayapam);
+        kost.setDescription(deskripsiKost);
+        kost.setOwnerName(pemilikKost);
+        kost.setOwnerPhoneNumber(telponPemilik);
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+
+        DatabaseReference kostsRef = ref.child("kosts");
+        kostsRef.push().setValue(kost, (error, ref1) -> {
+            if (error != null) {
+                JOptionPane.showMessageDialog(rootPane, "Data could not be saved " + error.getMessage(),
+                        "Whoops! something were wrong!", HEIGHT);
+            } else {
+                showListKost();
+            }
+        });
+    }
+
+    private void clearInput_InsertKost() {
         
-        if(insertSuccess){
-            showListKost();
-        }
     }
     
     void updateData() {
         String namaKost = editNamaKost.getText();
         String alamatKost = editAlamatKost.getText();
         String jumlahKamar = editJumlahKamar.getText();
-        String hargaBulanan = editHargaBulanan.getText();
+        int hargaBulanan = Integer.parseInt(editHargaBulanan.getText());
         String deskripsiKost = editDeskripsiKost.getText();
         String pemilikKost = editNamaLengkapPemilik.getText();
         String telponPemilik = editNomorTeleponPemilik.getText();
-        String biayalistrik, biayapam;
+        boolean biayalistrik, biayapam;
         boolean insertSuccess = true;
-        
-        
+
+
         if (editBiayaListrikSudahTermasuk.isSelected()) {
-            biayalistrik = "Sudah Termasuk";
+            biayalistrik = true;
         } else if (editBiayaListrikBelumTermasuk.isSelected()) {
-            biayalistrik = "Belum Termasuk";
+            biayalistrik = false;
         }
-        
+
         if (editBiayaPdamSudahTermasuk.isSelected()) {
-            biayapam = "Sudah Termasuk";
+            biayapam = true;
         } else if (editBiayaPdamBelumTermasuk.isSelected()) {
-            biayapam = "Belum Termasuk";
+            biayapam = false;
         }
         
         if(insertSuccess){
