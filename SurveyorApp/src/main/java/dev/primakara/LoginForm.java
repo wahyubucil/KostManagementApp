@@ -19,7 +19,6 @@ import java.awt.*;
 public class LoginForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
-    private boolean btnLoginClicked = false;
     
     /**
      * Creates new form LoginForm
@@ -292,9 +291,10 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        if (btnLoginClicked) return;
+        if (!btnLogin.isEnabled()) return;
 
-        btnLoginClicked = true;
+        System.out.println("Test");
+        btnLogin.setEnabled(false);
         jLabel14.setText("LOADING...");
         String usernameValue = username.getText();
         String passwordValue = String.valueOf(password.getPassword());
@@ -344,7 +344,7 @@ public class LoginForm extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, errorMessage, 
             "Whoops! something were wrong!", HEIGHT);
         jLabel14.setText("LOGIN");
-        btnLoginClicked = false;
+        btnLogin.setEnabled(true);
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
