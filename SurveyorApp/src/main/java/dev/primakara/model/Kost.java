@@ -1,13 +1,10 @@
 package dev.primakara.model;
 
-import java.util.List;
-
 public class Kost {
     private String name;
     private String address;
     private int rooms;
     private int price;
-    private String facilities;
     private String electricityCost;
     private String waterCost;
     private String description;
@@ -17,18 +14,17 @@ public class Kost {
     public Kost() {
     }
 
-//    public Kost(String name, String address, int rooms, int price, String facilities, String electricityCost, String waterCost, String description, String ownerName, String ownerPhoneNumber) {
-//        this.name = name;
-//        this.address = address;
-//        this.rooms = rooms;
-//        this.price = price;
-//        this.facilities = facilities;
-//        this.electricityCost = electricityCost;
-//        this.waterCost = waterCost;
-//        this.description = description;
-//        this.ownerName = ownerName;
-//        this.ownerPhoneNumber = ownerPhoneNumber;
-//    }
+    public Kost(String name, String address, int rooms, int price, String electricityCost, String waterCost, String description, String ownerName, String ownerPhoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.rooms = rooms;
+        this.price = price;
+        this.electricityCost = electricityCost;
+        this.waterCost = waterCost;
+        this.description = description;
+        this.ownerName = ownerName;
+        this.ownerPhoneNumber = ownerPhoneNumber;
+    }
 
     public String getName() {
         return name;
@@ -60,14 +56,6 @@ public class Kost {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public String getFacilities() {
-        return facilities;
-    }
-
-    public void setFacilities(String facilities) {
-        this.facilities = facilities;
     }
 
     public String getElectricityCost() {

@@ -5,11 +5,12 @@
  */
 package dev.primakara;
 
-//import com.google.firebase.database.*;
-//import dev.primakara.model.User;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.google.firebase.database.*;
+import dev.primakara.model.User;
 
+import javax.swing.*;
 import java.awt.*;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
 public class LoginForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
+    private boolean btnLoginClicked = false;
     
     /**
      * Creates new form LoginForm
@@ -30,23 +32,6 @@ public class LoginForm extends javax.swing.JFrame {
         
         //prevent default focus to JTextField
         btnLogin.requestFocusInWindow();
-    }
-    
-    public boolean checkInputs()
-    {
-        String defaultUsername = "Username";
-        String emptyUsername = "";
-        String defaultPassword = "Password";
-        String emptyPassword = "";
-        
-        if(defaultUsername.equals(username.getText())
-                || emptyUsername.equals(username.getText())
-                || defaultPassword.equals(new String(password.getPassword()))
-                || emptyPassword.equals(new String(password.getPassword()))){
-            return false;
-        } else{
-            return true;
-        }
     }
 
     /**
@@ -307,45 +292,59 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        if(checkInputs()){
-            MainClass.isLogin = true;
-            MainClass.loginCheck();   
-        }else{
-            loginErrorMessage("Mohon masukkan username dan password terlebih dahulu!");
-        }
-        
-//        String username = MainClass.objLoginForm.username.getText();
-//        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
+        if (btnLoginClicked) return;
 
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference usersRef = database.getReference("users");
-//        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
-//                    User user = selectedUser.getValue(User.class);
-//                    if (!user.getPassword().equals(password)) {
-//                        loginErrorMessage("Username atau Password salah");
-//                    } else {
-//                        MainClass.isLogin = true;
-//                        MainClass.loginCheck();
-//                    }
-//                } else {
-//                    loginErrorMessage("Username atau Password salah");
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                loginErrorMessage("The read failed: " + error.getMessage());
-//            }
-//        });
+        btnLoginClicked = true;
+        jLabel14.setText("LOADING...");
+        String usernameValue = username.getText();
+        String passwordValue = String.valueOf(password.getPassword());
+
+        if (isInputEmpty(usernameValue, passwordValue)) {
+            loginErrorHandler("Mohon mengisi username dan password dengan benar!");
+        } else {
+            login(usernameValue, passwordValue);
+        }
     }//GEN-LAST:event_btnLoginMouseClicked
 
-    private void loginErrorMessage(String errorMessage) {
+    private boolean isInputEmpty(String username, String password) {
+        return username.trim().length() < 1 || password.trim().length() < 1;
+    }
+
+    private void login(String username, String password) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("users");
+        usersRef.orderByKey().equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
+                    User user = selectedUser.getValue(User.class);
+
+                    BCrypt.Result passwordCheck = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
+                    boolean isAdmin = user.getType().equals("surveyor");
+                    if (!passwordCheck.verified || !isAdmin) {
+                        loginErrorHandler("Username atau Password salah");
+                    } else {
+                        MainClass.isLogin = true;
+                        MainClass.loginCheck();
+                    }
+                } else {
+                    loginErrorHandler("Username atau Password salah");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                loginErrorHandler("The read failed: " + error.getMessage());
+            }
+        });
+    }
+
+    private void loginErrorHandler(String errorMessage) {
         JOptionPane.showMessageDialog(rootPane, errorMessage, 
             "Whoops! something were wrong!", HEIGHT);
+        jLabel14.setText("LOGIN");
+        btnLoginClicked = false;
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed

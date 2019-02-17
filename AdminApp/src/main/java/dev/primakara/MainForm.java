@@ -8,17 +8,15 @@ package dev.primakara;
 import dev.primakara.model.Kost;
 import dev.primakara.model.User;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -1289,7 +1287,7 @@ public class MainForm extends javax.swing.JFrame {
         
         //  nanti try catch disini
         User objUser = new User();
-        objUser.setUsername("admoon");
+        objUser.setType("admin");
         objUser.setEmail("admoon@admoon.com");
         objUser.setDisplayName("admoon");
         userList.add(objUser);
@@ -1306,10 +1304,10 @@ public class MainForm extends javax.swing.JFrame {
         Object[] row = new Object[4];
         for(int i = 0; i < list.size(); i++)
         {
-            row[0] = list.get(i).getUsername();
+            row[0] = list.get(i).getType();
             row[1] = list.get(i).getEmail();
             row[2] = list.get(i).getDisplayName();
-            
+
             model.addRow(row);
         }
     }

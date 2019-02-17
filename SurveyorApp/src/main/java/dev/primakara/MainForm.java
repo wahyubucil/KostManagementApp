@@ -5,13 +5,14 @@
  */
 package dev.primakara;
 
+import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.util.ArrayList;
-import javax.swing.JPanel;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,6 +22,8 @@ public class MainForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
     static int selectedRowIndex;
+
+    private ArrayList<Kost> kosts = new ArrayList<>();
 
     /**
      * Creates new form Main_Form
@@ -32,6 +35,36 @@ public class MainForm extends javax.swing.JFrame {
         //  Atur mainHeader content
         menuTitle.setText("TAMBAH KOST BARU");
         menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
+    }
+
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        if (visible) {
+            listenToKostData();
+        }
+    }
+
+    public void listenToKostData() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("kosts");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                kosts.clear();
+                for (DataSnapshot kostData : snapshot.getChildren()) {
+                    Kost kost = kostData.getValue(Kost.class);
+                    kosts.add(kost);
+                }
+                Show_Kosts_In_JTable();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                JOptionPane.showMessageDialog(null, error.getMessage());
+            }
+        });
     }
     
     @SuppressWarnings("unchecked")
@@ -1472,11 +1505,11 @@ public class MainForm extends javax.swing.JFrame {
     {
         panel.setBackground(new Color(64,43,100));
     }
-    
-    //Array List Data Kost from Model    
-    ArrayList<Kost> getKostList() {
+
+    //Array List Data Kost from Model
+    List<Kost> getKostList() {
         ArrayList<Kost> kostList = new ArrayList<>();
-        
+
         //  nanti try catch disini
         Kost objKost = new Kost();
         objKost.setName("Ini contoh nama kost");
@@ -1488,22 +1521,21 @@ public class MainForm extends javax.swing.JFrame {
         objKost.setOwnerName("Mr. Bean");
         objKost.setOwnerPhoneNumber("0827223891");
         kostList.add(objKost);
-        
+
         return kostList;
     }
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
-        ArrayList<Kost> list = getKostList();
         DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
         // clear jtable content
         model.setRowCount(0);
         Object[] row = new Object[4];
-        for(int i = 0; i < list.size(); i++)
+        for(int i = 0; i < kosts.size(); i++)
         {
-            row[0] = list.get(i).getName();
-            row[1] = list.get(i).getOwnerName();
-            row[2] = list.get(i).getAddress();
+            row[0] = kosts.get(i).getName();
+            row[1] = kosts.get(i).getOwnerName();
+            row[2] = kosts.get(i).getAddress();
             
             model.addRow(row);
         }
@@ -1628,7 +1660,7 @@ public class MainForm extends javax.swing.JFrame {
     // LIST KOST   
     void showListKost() {
     //  Show Data
-        Show_Kosts_In_JTable();
+//        Show_Kosts_In_JTable();
 
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
@@ -1676,7 +1708,7 @@ public class MainForm extends javax.swing.JFrame {
 
         //  Atur mainHeader content
         menuTitle.setText("DETAIL KOST");
-        menuDesc.setText(getKostList().get(index).getDescription());
+        menuDesc.setText(kosts.get(index).getDescription());
         
         //  Remove content sblmnya jika ada
         mainContent.removeAll();
