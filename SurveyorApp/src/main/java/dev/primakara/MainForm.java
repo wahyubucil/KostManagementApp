@@ -695,11 +695,11 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jSeparator9)
                             .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 35, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
+                        .addGap(0, 25, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
         );
         addKostLayout.setVerticalGroup(
             addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1479,6 +1479,7 @@ public class MainForm extends javax.swing.JFrame {
         minimizeBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         minimizeBtn.setText("__");
         minimizeBtn.setToolTipText("");
+        minimizeBtn.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         minimizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

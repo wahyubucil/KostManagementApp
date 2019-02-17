@@ -154,6 +154,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="__"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="verticalAlignment" type="int" value="3"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -715,8 +716,8 @@
                                   <Component id="txtSurveyorUsername" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jSeparator2" max="32767" attributes="0"/>
-                                  <Component id="jSeparator3" max="32767" attributes="0"/>
                                   <Component id="jSeparator4" max="32767" attributes="0"/>
+                                  <Component id="jSeparator6" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="446" max="32767" attributes="0"/>
                           </Group>
@@ -744,7 +745,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtSurveyorPassword" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator3" min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="jSeparator6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -910,7 +911,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator3">
+                    <Component class="javax.swing.JSeparator" name="jSeparator4">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="de" green="59" red="6e" type="rgb"/>
@@ -920,7 +921,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator4">
+                    <Component class="javax.swing.JSeparator" name="jSeparator6">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="de" green="59" red="6e" type="rgb"/>
