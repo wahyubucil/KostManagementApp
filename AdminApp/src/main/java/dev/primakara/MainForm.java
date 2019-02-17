@@ -130,11 +130,12 @@ public class MainForm extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         listKost = new javax.swing.JPanel();
-        tableListKost = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        scrollPaneListKost = new javax.swing.JScrollPane();
+        tableListKost = new javax.swing.JTable();
         detailKost = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         lblNamaKost = new javax.swing.JLabel();
@@ -159,11 +160,12 @@ public class MainForm extends javax.swing.JFrame {
         lblNomorTelefon = new javax.swing.JLabel();
         nomorTeleponPemilik = new javax.swing.JLabel();
         listSurveyor = new javax.swing.JPanel();
-        tableListSurveyor = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        scrollPaneListSurveyor = new javax.swing.JScrollPane();
+        tableListSurveyor = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -607,7 +609,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator4)
                     .addComponent(jSeparator6))
-                .addGap(0, 446, Short.MAX_VALUE))
+                .addGap(0, 471, Short.MAX_VALUE))
         );
         addSurveyorLayout.setVerticalGroup(
             addSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -762,13 +764,57 @@ public class MainForm extends javax.swing.JFrame {
 
         listKost.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel1.setBackground(new java.awt.Color(110, 89, 222));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("KOST");
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("PEMILIK KOST");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("ALAMAT LENGKAP");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(156, 156, 156)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addGap(78, 78, 78))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addContainerGap())
+        );
+
+        scrollPaneListKost.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPaneListKost.setBorder(null);
+        scrollPaneListKost.setOpaque(false);
+        scrollPaneListKost.setRequestFocusEnabled(false);
+
         tableListKost.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         tableListKost.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "KOST", "PEMILIK", "ALAMAT", "id"
+                "", "", "", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -800,55 +846,21 @@ public class MainForm extends javax.swing.JFrame {
                 tableListKostMouseClicked(evt);
             }
         });
-
-        jPanel1.setBackground(new java.awt.Color(110, 89, 222));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("KOST");
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("PEMILIK KOST");
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("ALAMAT LENGKAP");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addGap(156, 156, 156)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(78, 78, 78))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addContainerGap())
-        );
+        scrollPaneListKost.setViewportView(tableListKost);
+        if (tableListKost.getColumnModel().getColumnCount() > 0) {
+            tableListKost.getColumnModel().getColumn(3).setResizable(false);
+            tableListKost.getColumnModel().getColumn(3).setPreferredWidth(0);
+        }
 
         javax.swing.GroupLayout listKostLayout = new javax.swing.GroupLayout(listKost);
         listKost.setLayout(listKostLayout);
         listKostLayout.setHorizontalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listKostLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPaneListKost)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         listKostLayout.setVerticalGroup(
@@ -857,14 +869,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPaneListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
-
-        if (tableListKost.getColumnModel().getColumnCount() > 0) {
-            tableListKost.getColumnModel().getColumn(3).setResizable(false);
-            tableListKost.getColumnModel().getColumn(3).setPreferredWidth(0);
-        }
 
         mainContent.add(listKost, "card2");
 
@@ -971,7 +978,7 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(namaLengkapPemilik)
                             .addComponent(lblNomorTelefon)
                             .addComponent(nomorTeleponPemilik))
-                        .addGap(0, 453, Short.MAX_VALUE)))
+                        .addGap(0, 478, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         detailKostLayout.setVerticalGroup(
@@ -1028,13 +1035,52 @@ public class MainForm extends javax.swing.JFrame {
 
         listSurveyor.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel2.setBackground(new java.awt.Color(110, 89, 222));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("USERNAME");
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("EMAIL");
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("DISPLAY NAME");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21)
+                .addGap(120, 120, 120)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addGap(91, 91, 91))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
+                .addContainerGap())
+        );
+
         tableListSurveyor.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         tableListSurveyor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "USERNAME", "EMAIL", "DISPLAY NAME", "id"
+                "", "", "", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -1066,55 +1112,21 @@ public class MainForm extends javax.swing.JFrame {
                 tableListSurveyorMouseClicked(evt);
             }
         });
-
-        jPanel2.setBackground(new java.awt.Color(110, 89, 222));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("USERNAME");
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("EMAIL");
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("DISPLAY NAME");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel21)
-                .addGap(120, 120, 120)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel23)
-                .addGap(91, 91, 91))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23))
-                .addContainerGap())
-        );
+        scrollPaneListSurveyor.setViewportView(tableListSurveyor);
+        if (tableListSurveyor.getColumnModel().getColumnCount() > 0) {
+            tableListSurveyor.getColumnModel().getColumn(3).setResizable(false);
+            tableListSurveyor.getColumnModel().getColumn(3).setPreferredWidth(0);
+        }
 
         javax.swing.GroupLayout listSurveyorLayout = new javax.swing.GroupLayout(listSurveyor);
         listSurveyor.setLayout(listSurveyorLayout);
         listSurveyorLayout.setHorizontalGroup(
             listSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listSurveyorLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listSurveyorLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(listSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(listSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tableListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollPaneListSurveyor))
                 .addGap(20, 20, 20))
         );
         listSurveyorLayout.setVerticalGroup(
@@ -1122,15 +1134,10 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listSurveyorLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(tableListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPaneListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
-
-        if (tableListSurveyor.getColumnModel().getColumnCount() > 0) {
-            tableListSurveyor.getColumnModel().getColumn(3).setResizable(false);
-            tableListSurveyor.getColumnModel().getColumn(3).setPreferredWidth(0);
-        }
 
         mainContent.add(listSurveyor, "card2");
 
@@ -1223,6 +1230,10 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnMousePressed
 
     private void listKostBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listKostBtnMousePressed
+    scrollPaneListKost.getViewport().setBackground(Color.WHITE);
+    scrollPaneListKost.setBorder(BorderFactory.createEmptyBorder());
+    tableListKost.setTableHeader(null);
+
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
         setColor(listKostBtn);
@@ -1244,6 +1255,10 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_listKostBtnMousePressed
 
     private void listSurveyorBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listSurveyorBtnMousePressed
+    scrollPaneListSurveyor.getViewport().setBackground(Color.WHITE);
+    scrollPaneListSurveyor.setBorder(BorderFactory.createEmptyBorder());
+    tableListSurveyor.setTableHeader(null);
+
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
         resetColor(listKostBtn);
@@ -1547,6 +1562,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel namaKost;
     private javax.swing.JLabel namaLengkapPemilik;
     private javax.swing.JLabel nomorTeleponPemilik;
+    private javax.swing.JScrollPane scrollPaneListKost;
+    private javax.swing.JScrollPane scrollPaneListSurveyor;
     private javax.swing.JPanel sidebar;
     private javax.swing.JLabel sidebarTitle;
     private javax.swing.JTable tableListKost;
