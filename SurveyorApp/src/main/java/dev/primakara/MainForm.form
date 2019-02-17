@@ -631,10 +631,6 @@
                                           <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jSeparator2" alignment="0" pref="185" max="32767" attributes="0"/>
-                                                  <Component id="insertNamaKost" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                       <Component id="insertAlamatKost" alignment="0" pref="185" max="32767" attributes="0"/>
@@ -645,6 +641,10 @@
                                                       <Component id="insertJumlahKamar" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="insertNamaKost" alignment="0" pref="185" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" attributes="0">
@@ -659,12 +659,10 @@
                                               </Group>
                                           </Group>
                                           <Component id="jSeparator9" max="32767" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jSeparator8" alignment="0" pref="185" max="32767" attributes="0"/>
-                                              <Component id="insertNomorTeleponPemilik" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="insertNamaLengkapPemilik" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="jSeparator8" alignment="0" pref="586" max="32767" attributes="0"/>
+                                          <Component id="insertNomorTeleponPemilik" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="insertNamaLengkapPemilik" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
                                   </Group>
@@ -683,7 +681,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="insertNamaKost" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator2" min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1028,16 +1026,6 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator2">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="de" green="59" red="6e" type="rgb"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="de" green="59" red="6e" type="rgb"/>
-                        </Property>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator5">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1089,6 +1077,16 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator9">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="de" green="59" red="6e" type="rgb"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="de" green="59" red="6e" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSeparator1">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="de" green="59" red="6e" type="rgb"/>
