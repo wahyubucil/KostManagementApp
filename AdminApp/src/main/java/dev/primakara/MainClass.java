@@ -68,6 +68,16 @@ public class MainClass {
         }
     }
 
+    public static void logout() {
+        MainClass.isLogin = false;
+        MainClass.objMainForm.dispose();
+
+        MainClass.objLoginForm = new LoginForm();
+        MainClass.objMainForm = new MainForm();
+
+        loginCheck();
+    }
+
     public static void saveKostData() {
         System.out.println("Save Data");
         Kost kost = new Kost();
