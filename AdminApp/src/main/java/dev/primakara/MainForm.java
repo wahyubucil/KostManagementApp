@@ -1629,7 +1629,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditKostMouseClicked
 
     private void tableListSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListSurveyorMouseClicked
-        selectedSurveyorId = tableListSurveyor.getModel().getValueAt(tableListSurveyor.getSelectedRow(), 3).toString();
+        selectedSurveyorId = tableListSurveyor.getModel().getValueAt(tableListSurveyor.getSelectedRow(), 0).toString();
         showDetailSurveyor(selectedSurveyorId);
     }//GEN-LAST:event_tableListSurveyorMouseClicked
 
@@ -1802,6 +1802,12 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.add(editSurveyor);
         mainContent.repaint();
         mainContent.revalidate();
+
+
+        User user = users.get(uniqueId);
+        editUsername.setText(uniqueId);
+        editEmail.setText(user.getEmail());
+        editDisplayName.setText(user.getDisplayName());
     }
     
     // DETAIL KOST
@@ -1838,6 +1844,12 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.add(detailSurveyor);
         mainContent.repaint();
         mainContent.revalidate();
+
+
+        User user = users.get(uniqueId);
+        usernameSurveyor.setText(uniqueId);
+        emailSurveyor.setText(user.getEmail());
+        emailSurveyor1.setText(user.getDisplayName());
     }
     
     // ABOUT
