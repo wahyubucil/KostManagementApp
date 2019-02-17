@@ -162,13 +162,13 @@ public class MainForm extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         editNomorTeleponPemilik = new javax.swing.JTextField();
-        jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         listKost = new javax.swing.JPanel();
         tableListKost = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -693,12 +693,13 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(biayaListrikSudahTermasuk)
                                     .addComponent(jLabel23)))
                             .addComponent(jSeparator9)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                            .addComponent(insertNomorTeleponPemilik)
-                            .addComponent(jSeparator16)
-                            .addComponent(insertNamaLengkapPemilik))
-                        .addGap(0, 35, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
+                        .addGap(0, 25, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
         );
         addKostLayout.setVerticalGroup(
             addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -756,7 +757,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -889,9 +890,6 @@ public class MainForm extends javax.swing.JFrame {
         editNomorTeleponPemilik.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         editNomorTeleponPemilik.setBorder(null);
 
-        jSeparator10.setBackground(new java.awt.Color(110, 89, 222));
-        jSeparator10.setForeground(new java.awt.Color(110, 89, 222));
-
         jSeparator11.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator11.setForeground(new java.awt.Color(110, 89, 222));
 
@@ -910,6 +908,9 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator4.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator4.setForeground(new java.awt.Color(110, 89, 222));
 
+        jSeparator2.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator2.setForeground(new java.awt.Color(110, 89, 222));
+
         javax.swing.GroupLayout editKostLayout = new javax.swing.GroupLayout(editKost);
         editKost.setLayout(editKostLayout);
         editKostLayout.setHorizontalGroup(
@@ -920,40 +921,41 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(editKostLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(editNamaLengkapPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43)
-                    .addComponent(editNomorTeleponPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel53)
-                    .addComponent(jLabel52)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel49)
-                    .addComponent(jLabel42)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel40)
-                    .addComponent(deskripsiScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                    .addComponent(jLabel46)
-                    .addComponent(jLabel47)
-                    .addGroup(editKostLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editBiayaPdamBelumTermasuk)
-                            .addComponent(editBiayaPdamSudahTermasuk)
-                            .addComponent(jLabel51)
-                            .addComponent(editBiayaListrikBelumTermasuk)
-                            .addComponent(editBiayaListrikSudahTermasuk)
-                            .addComponent(jLabel50)))
-                    .addComponent(editHargaBulanan, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(editJumlahKamar)
-                    .addComponent(editAlamatKost)
-                    .addComponent(editNamaKost)
-                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator4))
+                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(editNamaLengkapPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel43)
+                        .addComponent(editNomorTeleponPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel53)
+                        .addComponent(jLabel52)
+                        .addComponent(jLabel45)
+                        .addComponent(jLabel49)
+                        .addComponent(jLabel42)
+                        .addComponent(jLabel41)
+                        .addComponent(jLabel40)
+                        .addComponent(deskripsiScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                        .addComponent(jLabel46)
+                        .addComponent(jLabel47)
+                        .addGroup(editKostLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(editBiayaPdamBelumTermasuk)
+                                .addComponent(editBiayaPdamSudahTermasuk)
+                                .addComponent(jLabel51)
+                                .addComponent(editBiayaListrikBelumTermasuk)
+                                .addComponent(editBiayaListrikSudahTermasuk)
+                                .addComponent(jLabel50)))
+                        .addComponent(editHargaBulanan, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                        .addComponent(editJumlahKamar)
+                        .addComponent(editAlamatKost)
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator4)
+                        .addComponent(editNamaKost, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         editKostLayout.setVerticalGroup(
@@ -966,7 +968,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(editNamaKost, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel41)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1477,6 +1479,7 @@ public class MainForm extends javax.swing.JFrame {
         minimizeBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         minimizeBtn.setText("__");
         minimizeBtn.setToolTipText("");
+        minimizeBtn.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         minimizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2041,13 +2044,13 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;

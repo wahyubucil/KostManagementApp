@@ -111,8 +111,8 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         txtSurveyorPassword = new javax.swing.JPasswordField();
-        jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         about = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         aboutDesc = new javax.swing.JLabel();
@@ -205,6 +205,7 @@ public class MainForm extends javax.swing.JFrame {
         minimizeBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         minimizeBtn.setText("__");
         minimizeBtn.setToolTipText("");
+        minimizeBtn.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         minimizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimizeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -573,11 +574,11 @@ public class MainForm extends javax.swing.JFrame {
         txtSurveyorPassword.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         txtSurveyorPassword.setBorder(null);
 
-        jSeparator3.setBackground(new java.awt.Color(110, 89, 222));
-        jSeparator3.setForeground(new java.awt.Color(110, 89, 222));
-
         jSeparator4.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator4.setForeground(new java.awt.Color(110, 89, 222));
+
+        jSeparator6.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator6.setForeground(new java.awt.Color(110, 89, 222));
 
         javax.swing.GroupLayout addSurveyorLayout = new javax.swing.GroupLayout(addSurveyor);
         addSurveyor.setLayout(addSurveyorLayout);
@@ -601,8 +602,8 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(txtSurveyorUsername)
                     .addComponent(jSeparator1)
                     .addComponent(jSeparator2)
-                    .addComponent(jSeparator3)
-                    .addComponent(jSeparator4))
+                    .addComponent(jSeparator4)
+                    .addComponent(jSeparator6))
                 .addGap(0, 446, Short.MAX_VALUE))
         );
         addSurveyorLayout.setVerticalGroup(
@@ -627,7 +628,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSurveyorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1512,9 +1513,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel jumlahKamar;
     private javax.swing.JLabel ketentuanListrik;
     private javax.swing.JLabel ketentuanPDAM;
