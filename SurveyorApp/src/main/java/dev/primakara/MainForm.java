@@ -7,9 +7,10 @@ package dev.primakara;
 
 import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1520,7 +1521,6 @@ public class MainForm extends javax.swing.JFrame {
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
-        ArrayList<Kost> list = getKostList();
         DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
         // clear jtable content
         model.setRowCount(0);
