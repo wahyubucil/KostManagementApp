@@ -5,25 +5,20 @@
  */
 package dev.primakara;
 
+import dev.primakara.model.Kost;
+import dev.primakara.model.User;
+
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.*;
-import java.awt.*;
-
-import dev.primakara.model.Kost;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeListener;
 
 /**
  *
@@ -32,6 +27,7 @@ import java.beans.PropertyChangeListener;
 public class MainForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
+    static int selectedRowIndex;
 
     /**
      * Creates new form Main_Form
@@ -41,8 +37,18 @@ public class MainForm extends javax.swing.JFrame {
         initComponents();
         
         //  Atur mainHeader content
-        menuTitle.setText("TAMBAH KOST BARU");
-        menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
+        menuTitle.setText("TAMBAH SURVEYOR BARU");
+        menuDesc.setText("Silahkan isi secara lengkap data surveyor yang ingin di tambahkan");
+        
+        //  Remove content sblmnya jika ada
+        mainContent.removeAll();
+        mainContent.repaint();
+        mainContent.revalidate();
+        
+        //  Munculkan konten halaman ke mainContent
+        mainContent.add(addSurveyor);
+        mainContent.repaint();
+        mainContent.revalidate();
     }
     
     public Connection getConnection()
@@ -58,53 +64,6 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
     
-    
-//    public ArrayList<Kost> getKostList()
-//    {
-//            ArrayList<Kost> kostList  = new ArrayList<Kost>();
-//            Connection con = getConnection();
-//            String query = "SELECT * FROM produk";
-//            
-//            Statement st;
-//            ResultSet rs;
-//            
-//        try {
-//            
-//            st = con.createStatement();
-//            rs = st.executeQuery(query);
-//            produk produk;
-//            
-//            while(rs.next())
-//            {
-//                produk = new produk(rs.getString("ID_Barang"),rs.getString("Produk"),rs.getInt("Harga"),rs.getString("tgl_masuk"),
-//                        rs.getString("tgl_keluar"), rs.getString("ID_Lokasi"));
-//                kostList.add(produk);
-//            }
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-//        return kostList; 
-//                
-//    }
-
-//    public void Show_Kost_in_JTable()
-//    {
-//        ArrayList<Kost> list = getKostList();
-//        DefaultTableModel model = (DefaultTableModel)kostList.getModel();
-//        // clear jtable content
-//        model.setRowCount(0);
-//        Object[] row = new Object[3];
-//        for(int i = 0; i < list.size(); i++)
-//        {
-//            row[0] = list.get(i).getName();
-//            row[1] = list.get(i).getAddress();
-//            row[2] = list.get(i).getOwnerName();
-//            
-//            model.addRow(row);
-//        }
-//    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -123,104 +82,81 @@ public class MainForm extends javax.swing.JFrame {
         listKostBtn = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        aboutBtn = new javax.swing.JPanel();
+        listSurveyorBtn = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        aboutBtn = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         mainHeader = new javax.swing.JPanel();
         menuTitle = new javax.swing.JLabel();
         menuDesc = new javax.swing.JLabel();
         mainContentScroll = new javax.swing.JScrollPane();
         mainContent = new javax.swing.JPanel();
-        addKost = new javax.swing.JPanel();
+        addSurveyor = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        nama_kost = new javax.swing.JTextField();
+        txtSurveyorUsername = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jumlah_kamar = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        pemilik_kost = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        deskripsiScrollPane = new javax.swing.JScrollPane();
-        deskripsi_kost = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        alamat_kost = new javax.swing.JTextField();
+        txtSurveyorEmail = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        harga_bulanan = new javax.swing.JFormattedTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
-        jCheckBox12 = new javax.swing.JCheckBox();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel24 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        txtSurveyorDisplayName = new javax.swing.JFormattedTextField();
         jLabel25 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        txtSurveyorPassword = new javax.swing.JPasswordField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        about = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        aboutDesc = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        devThree = new javax.swing.JLabel();
+        devOne = new javax.swing.JLabel();
+        devTwo = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        telpon_pemilik = new javax.swing.JTextField();
-        editKost = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        nama_kost1 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        alamat_kost1 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        pemilik_kost1 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        deskripsiScrollPane1 = new javax.swing.JScrollPane();
-        deskripsi_kost1 = new javax.swing.JTextArea();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        alamat_kost3 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jCheckBox15 = new javax.swing.JCheckBox();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jCheckBox21 = new javax.swing.JCheckBox();
-        jCheckBox22 = new javax.swing.JCheckBox();
-        jCheckBox23 = new javax.swing.JCheckBox();
-        jCheckBox24 = new javax.swing.JCheckBox();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jLabel33 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        pemilik_kost3 = new javax.swing.JTextField();
         listKost = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        editBtn = new javax.swing.JPanel();
-        ed = new javax.swing.JLabel();
-        deleteBtn = new javax.swing.JPanel();
+        tableListKost = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        detailKost = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        lblNamaKost = new javax.swing.JLabel();
+        namaKost = new javax.swing.JLabel();
+        alamatLengkapKost = new javax.swing.JLabel();
+        lblAlamatLengkap = new javax.swing.JLabel();
+        jumlahKamar = new javax.swing.JLabel();
+        lblJumlahKamar = new javax.swing.JLabel();
+        lblHargaBulanan = new javax.swing.JLabel();
+        hargaBulanan = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        about = new javax.swing.JPanel();
+        lblKamar = new javax.swing.JLabel();
+        lblKetentuanKost = new javax.swing.JLabel();
+        lblPDAM = new javax.swing.JLabel();
+        lblListrik = new javax.swing.JLabel();
+        ketentuanPDAM = new javax.swing.JLabel();
+        ketentuanListrik = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel37 = new javax.swing.JLabel();
+        lblNamaLengkap = new javax.swing.JLabel();
+        namaLengkapPemilik = new javax.swing.JLabel();
+        lblNomorTelefon = new javax.swing.JLabel();
+        nomorTeleponPemilik = new javax.swing.JLabel();
+        listSurveyor = new javax.swing.JPanel();
+        tableListSurveyor = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -254,7 +190,7 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         info.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        info.setText("Created by Primakara Developers");
+        info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rsz_logo-gradient.png"))); // NOI18N
         info.setToolTipText("");
         info.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -282,7 +218,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Tambah Kost Baru");
+        jLabel2.setText("Tambah Surveyor Baru");
 
         javax.swing.GroupLayout homeBtnLayout = new javax.swing.GroupLayout(homeBtn);
         homeBtn.setLayout(homeBtnLayout);
@@ -344,20 +280,57 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        aboutBtn.setBackground(new java.awt.Color(64, 43, 100));
-        aboutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        aboutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        listSurveyorBtn.setBackground(new java.awt.Color(64, 43, 100));
+        listSurveyorBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listSurveyorBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                aboutBtnMousePressed(evt);
+                listSurveyorBtnMousePressed(evt);
             }
         });
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-info-filled-24.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-contact-us-24.png"))); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Tentang Kami");
+        jLabel13.setText("Daftar Surveyor");
+
+        javax.swing.GroupLayout listSurveyorBtnLayout = new javax.swing.GroupLayout(listSurveyorBtn);
+        listSurveyorBtn.setLayout(listSurveyorBtnLayout);
+        listSurveyorBtnLayout.setHorizontalGroup(
+            listSurveyorBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listSurveyorBtnLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        listSurveyorBtnLayout.setVerticalGroup(
+            listSurveyorBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listSurveyorBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(listSurveyorBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        aboutBtn.setBackground(new java.awt.Color(64, 43, 100));
+        aboutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        aboutBtn.setPreferredSize(new java.awt.Dimension(240, 66));
+        aboutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutBtnMouseClicked(evt);
+            }
+        });
+
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-info-filled-24.png"))); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Tentang Kami");
 
         javax.swing.GroupLayout aboutBtnLayout = new javax.swing.GroupLayout(aboutBtn);
         aboutBtn.setLayout(aboutBtnLayout);
@@ -365,34 +338,37 @@ public class MainForm extends javax.swing.JFrame {
             aboutBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutBtnLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         aboutBtnLayout.setVerticalGroup(
             aboutBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aboutBtnLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(aboutBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutBtnLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
         sidebarLayout.setHorizontalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-            .addComponent(listKostBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+            .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+            .addComponent(listKostBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidebarLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(titleSeparator)
                     .addComponent(sidebarTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
-            .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(listSurveyorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,8 +382,10 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(listKostBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
+                .addComponent(listSurveyorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         mainHeader.setBackground(new java.awt.Color(110, 89, 222));
@@ -450,46 +428,23 @@ public class MainForm extends javax.swing.JFrame {
         mainContentScroll.setBackground(new java.awt.Color(255, 255, 255));
         mainContentScroll.setBorder(null);
         mainContentScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        mainContentScroll.setPreferredSize(new java.awt.Dimension(636, 658));
 
         mainContent.setBackground(new java.awt.Color(255, 255, 255));
         mainContent.setEnabled(false);
         mainContent.setLayout(new java.awt.CardLayout());
 
-        addKost.setBackground(new java.awt.Color(255, 255, 255));
+        addSurveyor.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel3.setText("Nama Kost");
+        jLabel3.setText("Username");
 
-        nama_kost.setBackground(new java.awt.Color(238, 238, 238));
-        nama_kost.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        nama_kost.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        nama_kost.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtSurveyorUsername.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        txtSurveyorUsername.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtSurveyorUsername.setBorder(null);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel4.setText("Alamat Kost");
-
-        jumlah_kamar.setBackground(new java.awt.Color(238, 238, 238));
-        jumlah_kamar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jumlah_kamar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jumlah_kamar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel6.setText("Deskripsi Kost");
-
-        pemilik_kost.setBackground(new java.awt.Color(238, 238, 238));
-        pemilik_kost.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        pemilik_kost.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pemilik_kost.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jLabel5.setText("Nama Lengkap");
-
-        deskripsi_kost.setBackground(new java.awt.Color(238, 238, 238));
-        deskripsi_kost.setColumns(20);
-        deskripsi_kost.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deskripsi_kost.setRows(5);
-        deskripsi_kost.setBorder(null);
-        deskripsiScrollPane.setViewportView(deskripsi_kost);
+        jLabel4.setText("Email");
 
         jPanel4.setBackground(new java.awt.Color(85, 65, 118));
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -520,600 +475,219 @@ public class MainForm extends javax.swing.JFrame {
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel7.setText("INFORMASI PEMILIK");
-
         jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel19.setText("Jumlah Kamar");
+        jLabel19.setText("Password");
 
-        alamat_kost.setBackground(new java.awt.Color(238, 238, 238));
-        alamat_kost.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        alamat_kost.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        alamat_kost.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtSurveyorEmail.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        txtSurveyorEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtSurveyorEmail.setBorder(null);
 
         jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel20.setText("Harga Bulanan");
+        jLabel20.setText("Display Name");
 
-        harga_bulanan.setBackground(new java.awt.Color(238, 238, 238));
-        harga_bulanan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel21.setText("Fasilitas");
-
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox1.setText("Kolam Renang");
-
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox2.setText("Spring Bed");
-
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox3.setText("Televisi");
-
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox4.setText("Dapur Mini");
-
-        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox5.setText("Dapur Umum");
-
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox6.setText("CCTV");
-
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox7.setText("Security");
-
-        jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox8.setText("Parkir Motor");
-
-        jCheckBox9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox9.setText("Parkir Mobil");
-
-        jCheckBox10.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox10.setText("AC");
-
-        jCheckBox11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox11.setText("PDAM");
-
-        jCheckBox12.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox12.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox12.setText("Area Santai");
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel22.setText("Ketentuan Kost");
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jLabel23.setText("Biaya Listrik");
-
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        biayalistrik.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton1.setText("Sudah Termasuk");
-
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        biayalistrik.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton2.setText("Belum  Termasuk");
-
-        jLabel24.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jLabel24.setText("Biaya Listrik");
-
-        jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
-        biayapam.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton3.setText("Sudah Termasuk");
-
-        jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
-        biayapam.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton4.setText("Belum  Termasuk");
+        txtSurveyorDisplayName.setBorder(null);
 
         jLabel25.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel25.setText("INFORMASI KOST");
+        jLabel25.setText("DATA DIRI SURVEYOR");
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jLabel26.setText("Nomor Telepon");
+        jSeparator1.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator1.setForeground(new java.awt.Color(110, 89, 222));
 
-        telpon_pemilik.setBackground(new java.awt.Color(238, 238, 238));
-        telpon_pemilik.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        telpon_pemilik.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        telpon_pemilik.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jSeparator2.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator2.setForeground(new java.awt.Color(110, 89, 222));
 
-        javax.swing.GroupLayout addKostLayout = new javax.swing.GroupLayout(addKost);
-        addKost.setLayout(addKostLayout);
-        addKostLayout.setHorizontalGroup(
-            addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addKostLayout.createSequentialGroup()
+        txtSurveyorPassword.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        txtSurveyorPassword.setBorder(null);
+
+        jSeparator3.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator3.setForeground(new java.awt.Color(110, 89, 222));
+
+        jSeparator4.setBackground(new java.awt.Color(110, 89, 222));
+        jSeparator4.setForeground(new java.awt.Color(110, 89, 222));
+
+        javax.swing.GroupLayout addSurveyorLayout = new javax.swing.GroupLayout(addSurveyor);
+        addSurveyor.setLayout(addSurveyorLayout);
+        addSurveyorLayout.setHorizontalGroup(
+            addSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addSurveyorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(addKostLayout.createSequentialGroup()
+            .addGroup(addSurveyorLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addKostLayout.createSequentialGroup()
-                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pemilik_kost, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(addKostLayout.createSequentialGroup()
-                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(telpon_pemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel22)
-                            .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel4)
-                                .addComponent(nama_kost, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3)
-                                .addComponent(deskripsiScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                                .addComponent(jLabel19)
-                                .addComponent(jLabel20)
-                                .addGroup(addKostLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton2)
-                                        .addComponent(jRadioButton1)
-                                        .addComponent(jLabel24)
-                                        .addComponent(jRadioButton4)
-                                        .addComponent(jRadioButton3)))
-                                .addComponent(jSeparator1)
-                                .addComponent(harga_bulanan)
-                                .addComponent(jumlah_kamar)
-                                .addComponent(alamat_kost, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
-                            .addGroup(addKostLayout.createSequentialGroup()
-                                .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox1)
-                                    .addComponent(jCheckBox2)
-                                    .addComponent(jCheckBox3)
-                                    .addComponent(jLabel21)
-                                    .addGroup(addKostLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel23)))
-                                .addGap(40, 40, 40)
-                                .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox4)
-                                    .addComponent(jCheckBox5)
-                                    .addComponent(jCheckBox6))
-                                .addGap(28, 28, 28)
-                                .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(addKostLayout.createSequentialGroup()
-                                        .addComponent(jCheckBox9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCheckBox12))
-                                    .addGroup(addKostLayout.createSequentialGroup()
-                                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox7)
-                                            .addComponent(jCheckBox8))
-                                        .addGap(16, 16, 16)
-                                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox11)
-                                            .addComponent(jCheckBox10))))))
-                        .addGap(0, 32, Short.MAX_VALUE))))
+                .addGroup(addSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSurveyorPassword)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(txtSurveyorDisplayName, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(txtSurveyorEmail)
+                    .addComponent(txtSurveyorUsername)
+                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSeparator4))
+                .addGap(0, 446, Short.MAX_VALUE))
         );
-        addKostLayout.setVerticalGroup(
-            addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addKostLayout.createSequentialGroup()
+        addSurveyorLayout.setVerticalGroup(
+            addSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addSurveyorLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel25)
-                .addGap(20, 20, 20)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nama_kost, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSurveyorUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alamat_kost, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSurveyorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jumlah_kamar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSurveyorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(harga_bulanan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(addKostLayout.createSequentialGroup()
-                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox7)
-                            .addComponent(jCheckBox10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox5)
-                            .addComponent(jCheckBox8)
-                            .addComponent(jCheckBox11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox6)
-                            .addComponent(jCheckBox9)
-                            .addComponent(jCheckBox12)))
-                    .addGroup(addKostLayout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox3)))
-                .addGap(20, 20, 20)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(txtSurveyorDisplayName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deskripsiScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel7)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pemilik_kost, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(telpon_pemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
-        mainContent.add(addKost, "card2");
+        mainContent.add(addSurveyor, "card2");
 
-        editKost.setBackground(new java.awt.Color(255, 255, 255));
+        about.setBackground(new java.awt.Color(255, 255, 255));
+        about.setPreferredSize(new java.awt.Dimension(649, 466));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel11.setText("Nama Kost");
+        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel5.setText("About App");
 
-        nama_kost1.setBackground(new java.awt.Color(238, 238, 238));
-        nama_kost1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        nama_kost1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        nama_kost1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        aboutDesc.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        aboutDesc.setText("Silahkan di run app nya untuk melihat teks disini (convert from HTML for wrap)");
+        aboutDesc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel15.setText("Alamat Kost");
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel6.setText("Development Team");
 
-        alamat_kost1.setBackground(new java.awt.Color(238, 238, 238));
-        alamat_kost1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        alamat_kost1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        alamat_kost1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        devThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devThree.png"))); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel16.setText("Deskripsi Kost");
+        devOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devOne.png"))); // NOI18N
 
-        pemilik_kost1.setBackground(new java.awt.Color(238, 238, 238));
-        pemilik_kost1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        pemilik_kost1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pemilik_kost1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        devTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devTwo.png"))); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jLabel17.setText("Nama Lengkap");
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel7.setText("Wahyu Budi Saputra");
 
-        deskripsi_kost1.setBackground(new java.awt.Color(238, 238, 238));
-        deskripsi_kost1.setColumns(20);
-        deskripsi_kost1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deskripsi_kost1.setRows(5);
-        deskripsi_kost1.setBorder(null);
-        deskripsiScrollPane1.setViewportView(deskripsi_kost1);
+        jLabel24.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel24.setText("1701020002");
 
-        jPanel5.setBackground(new java.awt.Color(85, 65, 118));
-        jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.setToolTipText("");
-        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel26.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel26.setText("1701020041");
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("SIMPAN");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel18)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-        );
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel27.setText("INFORMASI PEMILIK");
+        jLabel27.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel27.setText("Marvel Alexius");
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel28.setText("Jumlah Kamar");
+        jLabel28.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel28.setText("1701020017");
 
-        alamat_kost3.setBackground(new java.awt.Color(238, 238, 238));
-        alamat_kost3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        alamat_kost3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        alamat_kost3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel29.setText("Dody Prasetyo");
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel29.setText("Harga Bulanan");
-
-        jFormattedTextField2.setBackground(new java.awt.Color(238, 238, 238));
-        jFormattedTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel30.setText("Fasilitas");
-
-        jCheckBox13.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox13.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox13.setText("Kolam Renang");
-
-        jCheckBox14.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox14.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox14.setText("Spring Bed");
-
-        jCheckBox15.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox15.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox15.setText("Televisi");
-
-        jCheckBox16.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox16.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox16.setText("Dapur Mini");
-
-        jCheckBox17.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox17.setText("Dapur Umum");
-
-        jCheckBox18.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox18.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox18.setText("CCTV");
-
-        jCheckBox19.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox19.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox19.setText("Security");
-
-        jCheckBox20.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox20.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox20.setText("Parkir Motor");
-
-        jCheckBox21.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox21.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox21.setText("Parkir Mobil");
-
-        jCheckBox22.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox22.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox22.setText("AC");
-
-        jCheckBox23.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox23.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox23.setText("PDAM");
-
-        jCheckBox24.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox24.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jCheckBox24.setText("Area Santai");
-
-        jLabel31.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel31.setText("Ketentuan Kost");
-
-        jLabel32.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jLabel32.setText("Biaya Listrik");
-
-        jRadioButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton5.setText("Sudah Termasuk");
-
-        jRadioButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton6.setText("Belum  Termasuk");
-
-        jLabel33.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jLabel33.setText("Biaya Listrik");
-
-        jRadioButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton7.setText("Sudah Termasuk");
-
-        jRadioButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
-        jRadioButton8.setText("Belum  Termasuk");
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jLabel34.setText("INFORMASI KOST");
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        jLabel35.setText("Nomor Telepon");
-
-        pemilik_kost3.setBackground(new java.awt.Color(238, 238, 238));
-        pemilik_kost3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        pemilik_kost3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        pemilik_kost3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        javax.swing.GroupLayout editKostLayout = new javax.swing.GroupLayout(editKost);
-        editKost.setLayout(editKostLayout);
-        editKostLayout.setHorizontalGroup(
-            editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editKostLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(editKostLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(editKostLayout.createSequentialGroup()
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pemilik_kost1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(editKostLayout.createSequentialGroup()
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pemilik_kost3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel31)
-                            .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel16)
-                                .addComponent(jLabel15)
-                                .addComponent(nama_kost1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel11)
-                                .addComponent(deskripsiScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                                .addComponent(jLabel28)
-                                .addComponent(jLabel29)
-                                .addGroup(editKostLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton6)
-                                        .addComponent(jRadioButton5)
-                                        .addComponent(jLabel33)
-                                        .addComponent(jRadioButton8)
-                                        .addComponent(jRadioButton7)))
-                                .addComponent(jSeparator2)
-                                .addComponent(jFormattedTextField2)
-                                .addComponent(alamat_kost1)
-                                .addComponent(alamat_kost3, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
-                            .addGroup(editKostLayout.createSequentialGroup()
-                                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox13)
-                                    .addComponent(jCheckBox14)
-                                    .addComponent(jCheckBox15)
-                                    .addComponent(jLabel30)
-                                    .addGroup(editKostLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel32)))
-                                .addGap(40, 40, 40)
-                                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox16)
-                                    .addComponent(jCheckBox17)
-                                    .addComponent(jCheckBox18))
+        javax.swing.GroupLayout aboutLayout = new javax.swing.GroupLayout(about);
+        about.setLayout(aboutLayout);
+        aboutLayout.setHorizontalGroup(
+            aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(devOne, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel7))
+                            .addGroup(aboutLayout.createSequentialGroup()
                                 .addGap(28, 28, 28)
-                                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(editKostLayout.createSequentialGroup()
-                                        .addComponent(jCheckBox21)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCheckBox24))
-                                    .addGroup(editKostLayout.createSequentialGroup()
-                                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox19)
-                                            .addComponent(jCheckBox20))
-                                        .addGap(16, 16, 16)
-                                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox23)
-                                            .addComponent(jCheckBox22))))))
-                        .addGap(0, 32, Short.MAX_VALUE))))
+                                .addComponent(jLabel24)))
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(devTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(devThree, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel26))
+                                .addGap(136, 136, 136)
+                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel28))
+                                .addGap(80, 80, 80))))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))))
         );
-        editKostLayout.setVerticalGroup(
-            editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editKostLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel34)
+        aboutLayout.setVerticalGroup(
+            aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel11)
+                .addComponent(jLabel5)
+                .addGap(20, 20, 20)
+                .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel6)
+                .addGap(20, 20, 20)
+                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(devThree, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(devOne, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(devTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nama_kost1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alamat_kost3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alamat_kost1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel30)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(editKostLayout.createSequentialGroup()
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox16)
-                            .addComponent(jCheckBox19)
-                            .addComponent(jCheckBox22))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox17)
-                            .addComponent(jCheckBox20)
-                            .addComponent(jCheckBox23))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(editKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox18)
-                            .addComponent(jCheckBox21)
-                            .addComponent(jCheckBox24)))
-                    .addGroup(editKostLayout.createSequentialGroup()
-                        .addComponent(jCheckBox13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox15)))
-                .addGap(20, 20, 20)
-                .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton8)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deskripsiScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel27)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pemilik_kost1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel35)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pemilik_kost3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel24))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel26))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel28)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mainContent.add(editKost, "card2");
+        mainContent.add(about, "card2");
 
         listKost.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTable1.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableListKost.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        tableListKost.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "KOST", "PEMILIK", "ALAMAT"
@@ -1122,119 +696,353 @@ public class MainForm extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(10);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(10);
-        }
 
-        editBtn.setBackground(new java.awt.Color(85, 65, 118));
-        editBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        editBtn.setForeground(new java.awt.Color(255, 255, 255));
-        editBtn.setToolTipText("");
-        editBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        editBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableListKost.setGridColor(new java.awt.Color(0, 0, 0));
+        tableListKost.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tableListKost.setRowHeight(50);
+        tableListKost.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListKost.setShowHorizontalLines(false);
+        tableListKost.setShowVerticalLines(false);
+        tableListKost.getTableHeader().setResizingAllowed(false);
+        tableListKost.getTableHeader().setReorderingAllowed(false);
+        tableListKost.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editBtnMouseClicked(evt);
+                tableListKostMouseClicked(evt);
             }
         });
 
-        ed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ed.setForeground(new java.awt.Color(255, 255, 255));
-        ed.setText("EDIT");
+        jPanel1.setBackground(new java.awt.Color(110, 89, 222));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout editBtnLayout = new javax.swing.GroupLayout(editBtn);
-        editBtn.setLayout(editBtnLayout);
-        editBtnLayout.setHorizontalGroup(
-            editBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editBtnLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(ed)
-                .addContainerGap(35, Short.MAX_VALUE))
+        jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("KOST");
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("PEMILIK KOST");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("ALAMAT LENGKAP");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(156, 156, 156)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addGap(78, 78, 78))
         );
-        editBtnLayout.setVerticalGroup(
-            editBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ed, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-        );
-
-        deleteBtn.setBackground(new java.awt.Color(85, 65, 118));
-        deleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteBtn.setToolTipText("");
-        deleteBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteBtnMouseClicked(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("DELETE");
-
-        javax.swing.GroupLayout deleteBtnLayout = new javax.swing.GroupLayout(deleteBtn);
-        deleteBtn.setLayout(deleteBtnLayout);
-        deleteBtnLayout.setHorizontalGroup(
-            deleteBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deleteBtnLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel8)
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        deleteBtnLayout.setVerticalGroup(
-            deleteBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout listKostLayout = new javax.swing.GroupLayout(listKost);
         listKost.setLayout(listKostLayout);
         listKostLayout.setHorizontalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
             .addGroup(listKostLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         listKostLayout.setVerticalGroup(
             listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(listKostLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listKostLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(listKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(tableListKost, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addGap(34, 34, 34))
         );
 
         mainContent.add(listKost, "card2");
 
-        about.setBackground(new java.awt.Color(255, 255, 255));
+        detailKost.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout aboutLayout = new javax.swing.GroupLayout(about);
-        about.setLayout(aboutLayout);
-        aboutLayout.setHorizontalGroup(
-            aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 636, Short.MAX_VALUE)
+        jLabel36.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel36.setText("INFORMASI KOST");
+
+        lblNamaKost.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblNamaKost.setText("Nama Kost");
+
+        namaKost.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        namaKost.setText("Nama Kost Disini");
+
+        alamatLengkapKost.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        alamatLengkapKost.setText("Alamat Lengkap Disini");
+
+        lblAlamatLengkap.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblAlamatLengkap.setText("Alamat Lengkap");
+
+        jumlahKamar.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jumlahKamar.setText("0");
+
+        lblJumlahKamar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblJumlahKamar.setText("Jumlah Kamar");
+
+        lblHargaBulanan.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblHargaBulanan.setText("Harga Bulanan");
+
+        hargaBulanan.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        hargaBulanan.setText("RP. 000.000");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        jLabel8.setText("/bulan");
+
+        lblKamar.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        lblKamar.setText("Kamar");
+
+        lblKetentuanKost.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblKetentuanKost.setText("Ketentuan Kost");
+
+        lblPDAM.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        lblPDAM.setText("Biaya PDAM");
+
+        lblListrik.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        lblListrik.setText("Biaya Listrik");
+
+        ketentuanPDAM.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        ketentuanPDAM.setText("Blablaba Termasuk");
+
+        ketentuanListrik.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        ketentuanListrik.setText("Blablaba Termasuk");
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jLabel37.setText("INFORMASI PEMILIK");
+
+        lblNamaLengkap.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblNamaLengkap.setText("Nama Lengkap");
+
+        namaLengkapPemilik.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        namaLengkapPemilik.setText("Nama Lengkap Disini");
+
+        lblNomorTelefon.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblNomorTelefon.setText("Nomor Telefon");
+
+        nomorTeleponPemilik.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        nomorTeleponPemilik.setText("Nomor Telefon Disini");
+
+        javax.swing.GroupLayout detailKostLayout = new javax.swing.GroupLayout(detailKost);
+        detailKost.setLayout(detailKostLayout);
+        detailKostLayout.setHorizontalGroup(
+            detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(detailKostLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator5)
+                    .addGroup(detailKostLayout.createSequentialGroup()
+                        .addGroup(detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel36)
+                            .addComponent(lblNamaKost)
+                            .addComponent(namaKost)
+                            .addComponent(lblAlamatLengkap)
+                            .addComponent(alamatLengkapKost)
+                            .addComponent(lblJumlahKamar)
+                            .addGroup(detailKostLayout.createSequentialGroup()
+                                .addComponent(jumlahKamar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblKamar))
+                            .addComponent(lblHargaBulanan)
+                            .addGroup(detailKostLayout.createSequentialGroup()
+                                .addComponent(hargaBulanan)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8))
+                            .addComponent(lblKetentuanKost)
+                            .addGroup(detailKostLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblListrik)
+                                    .addComponent(lblPDAM)
+                                    .addComponent(ketentuanPDAM)
+                                    .addComponent(ketentuanListrik)))
+                            .addComponent(jLabel37)
+                            .addComponent(lblNamaLengkap)
+                            .addComponent(namaLengkapPemilik)
+                            .addComponent(lblNomorTelefon)
+                            .addComponent(nomorTeleponPemilik))
+                        .addGap(0, 453, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
         );
-        aboutLayout.setVerticalGroup(
-            aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1171, Short.MAX_VALUE)
+        detailKostLayout.setVerticalGroup(
+            detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(detailKostLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel36)
+                .addGap(18, 18, 18)
+                .addComponent(lblNamaKost)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaKost)
+                .addGap(18, 18, 18)
+                .addComponent(lblAlamatLengkap)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alamatLengkapKost)
+                .addGap(18, 18, 18)
+                .addComponent(lblJumlahKamar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jumlahKamar)
+                    .addComponent(lblKamar))
+                .addGap(18, 18, 18)
+                .addComponent(lblHargaBulanan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(detailKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hargaBulanan)
+                    .addComponent(jLabel8))
+                .addGap(20, 20, 20)
+                .addComponent(lblKetentuanKost)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPDAM)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ketentuanPDAM)
+                .addGap(20, 20, 20)
+                .addComponent(lblListrik)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ketentuanListrik)
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel37)
+                .addGap(18, 18, 18)
+                .addComponent(lblNamaLengkap)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaLengkapPemilik)
+                .addGap(18, 18, 18)
+                .addComponent(lblNomorTelefon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nomorTeleponPemilik)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mainContent.add(about, "card2");
+        mainContent.add(detailKost, "card3");
+
+        listSurveyor.setBackground(new java.awt.Color(255, 255, 255));
+
+        tableListSurveyor.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        tableListSurveyor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "USERNAME", "EMAIL", "DISPLAY NAME"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableListSurveyor.setGridColor(new java.awt.Color(0, 0, 0));
+        tableListSurveyor.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        tableListSurveyor.setRowHeight(50);
+        tableListSurveyor.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tableListSurveyor.setShowHorizontalLines(false);
+        tableListSurveyor.setShowVerticalLines(false);
+        tableListSurveyor.getTableHeader().setResizingAllowed(false);
+        tableListSurveyor.getTableHeader().setReorderingAllowed(false);
+        tableListSurveyor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableListSurveyorMouseClicked(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(110, 89, 222));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("USERNAME");
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("EMAIL");
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("DISPLAY NAME");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel21)
+                .addGap(120, 120, 120)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addGap(91, 91, 91))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout listSurveyorLayout = new javax.swing.GroupLayout(listSurveyor);
+        listSurveyor.setLayout(listSurveyorLayout);
+        listSurveyorLayout.setHorizontalGroup(
+            listSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listSurveyorLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(listSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tableListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
+        listSurveyorLayout.setVerticalGroup(
+            listSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listSurveyorLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(tableListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        mainContent.add(listSurveyor, "card2");
 
         mainContentScroll.setViewportView(mainContent);
 
@@ -1248,7 +1056,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(info)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                         .addComponent(closeBtn)
                         .addContainerGap())
                     .addComponent(mainHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1265,13 +1073,13 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(closeBtn)
                     .addComponent(info))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
                     .addGap(0, 179, Short.MAX_VALUE)
-                    .addComponent(mainContentScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(mainContentScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1289,7 +1097,7 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void infoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoMouseClicked
@@ -1300,11 +1108,11 @@ public class MainForm extends javax.swing.JFrame {
     //  Atur perubahan warna pada tombol sidebar
         setColor(homeBtn);
         resetColor(listKostBtn);
-        resetColor(aboutBtn);
+        resetColor(listSurveyorBtn);
         
     //  Atur mainHeader content
-        menuTitle.setText("TAMBAH KOST BARU");
-        menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
+        menuTitle.setText("TAMBAH SURVEYOR BARU");
+        menuDesc.setText("Silahkan isi secara lengkap data surveyor yang ingin di tambahkan");
         
     //  Remove content sblmnya jika ada
         mainContent.removeAll();
@@ -1312,7 +1120,7 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.revalidate();
         
     //  Munculkan konten halaman ke mainContent
-        mainContent.add(addKost);
+        mainContent.add(addSurveyor);
         mainContent.repaint();
         mainContent.revalidate();
     }//GEN-LAST:event_homeBtnMousePressed
@@ -1321,7 +1129,7 @@ public class MainForm extends javax.swing.JFrame {
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
         setColor(listKostBtn);
-        resetColor(aboutBtn);
+        resetColor(listSurveyorBtn);
     
     //  Atur mainHeader content
         menuTitle.setText("DAFTAR KOST");
@@ -1338,15 +1146,16 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.revalidate();
     }//GEN-LAST:event_listKostBtnMousePressed
 
-    private void aboutBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMousePressed
+    private void listSurveyorBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listSurveyorBtnMousePressed
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
         resetColor(listKostBtn);
-        setColor(aboutBtn);
+        setColor(listSurveyorBtn);
+        resetColor(aboutBtn);
         
     //  Atur mainHeader content
-        menuTitle.setText("TENTANG KAMI");
-        menuDesc.setText("Lorem ipsum sit dolor amet");
+        menuTitle.setText("DAFTAR SURVEYOR");
+        menuDesc.setText("Berikut adalah Daftar Nama yang telah terdaftar sebagai Surveyor");
         
     //  Remove content sblmnya jika ada
         mainContent.removeAll();
@@ -1354,10 +1163,10 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.revalidate();
         
     //  Munculkan konten halaman ke mainContent
-        mainContent.add(about);
+        mainContent.add(listSurveyor);
         mainContent.repaint();
         mainContent.revalidate();
-    }//GEN-LAST:event_aboutBtnMousePressed
+    }//GEN-LAST:event_listSurveyorBtnMousePressed
     
 //    Event Handler agar JFrame dapat di drag and drop
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
@@ -1373,30 +1182,62 @@ public class MainForm extends javax.swing.JFrame {
         MainClass.objMainForm.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
     }//GEN-LAST:event_formMouseDragged
 
-//    edit dan delete btn event handler pada halaman list kost
-    private void editBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editBtnMouseClicked
-    //  Atur mainHeader content
-        menuTitle.setText("NAMA KOST DARI DB");
-        menuDesc.setText("Deskripsi singkat kost dari db");
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        String surveyorUsername = txtSurveyorUsername.getText();
+        String surveyorEmail = txtSurveyorEmail.getText();
+        String surveyorPassword = txtSurveyorPassword.getText();
+        String surveyorDisplayName = txtSurveyorDisplayName.getText();
+    }//GEN-LAST:event_jPanel4MouseClicked
 
-    //  Remove content sblmnya jika ada
+    private void tableListKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListKostMouseClicked
+        selectedRowIndex = tableListKost.getSelectedRow();
+        //  Atur mainHeader content
+        menuTitle.setText("DETAIL KOST");
+        menuDesc.setText("DESKRIPSI KOST");
+        
+        //  Remove content sblmnya jika ada
         mainContent.removeAll();
         mainContent.repaint();
         mainContent.revalidate();
         
-    //  Munculkan konten halaman ke mainContent
-        mainContent.add(editKost);
+        //  Munculkan konten halaman ke mainContent
+        mainContent.add(detailKost);
         mainContent.repaint();
         mainContent.revalidate();
-    }//GEN-LAST:event_editBtnMouseClicked
+    }//GEN-LAST:event_tableListKostMouseClicked
 
-    private void deleteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseClicked
+    private void tableListSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListSurveyorMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteBtnMouseClicked
+    }//GEN-LAST:event_tableListSurveyorMouseClicked
 
-    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+    private void aboutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMouseClicked
+        StringBuilder objStringBuilder = new StringBuilder(64);
+        objStringBuilder.append("<html>Merupakan aplikasi yang berfungsi untuk pendataan kost atau hunian di seluruh Indonesia.")
+                .append(" Aplikasi ini memiliki misi sosial yaitu membantu perantau di Indonesia dalam mencari dan memesan hunian sewa, ")
+                .append("hingga menemukan jasa pindahan saat diperlukan</html>");
         
-    }//GEN-LAST:event_jPanel4MouseClicked
+        aboutDesc.setText(objStringBuilder.toString());
+        
+        //  Atur perubahan warna pada tombol sidebar
+        resetColor(homeBtn);
+        resetColor(listKostBtn);
+        resetColor(listSurveyorBtn);
+        setColor(aboutBtn);
+        
+        //  Atur mainHeader content
+        menuTitle.setText("TENTANG KAMI");
+        menuDesc.setText("Tentang Aplikasi dan Tim yang bekerja di belakang nya");
+        
+        //  Remove content sblmnya jika ada
+        mainContent.removeAll();
+        mainContent.repaint();
+        mainContent.revalidate();
+        
+        //  Munculkan konten halaman ke mainContent
+        mainContent.add(about);
+        mainContent.repaint();
+        mainContent.revalidate();
+    }//GEN-LAST:event_aboutBtnMouseClicked
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
     {
@@ -1406,6 +1247,71 @@ public class MainForm extends javax.swing.JFrame {
     void resetColor(JPanel panel)
     {
         panel.setBackground(new Color(64,43,100));
+    }
+    
+    ArrayList<Kost> getKostList() {
+        ArrayList<Kost> kostList = new ArrayList<>();
+        
+        //  nanti try catch disini
+        Kost objKost = new Kost();
+        objKost.setName("Ini contoh nama kost");
+        objKost.setAddress("Jln. Groove Street, Los Santos");
+        objKost.setPrice(100000);
+        objKost.setElectricityCost("Sudah Termasuk");
+        objKost.setWaterCost("Sudah Termasuk");
+        objKost.setDescription("Blaah blaah blaaah blaaaah blaaaah");
+        objKost.setOwnerName("Mr. Bean");
+        objKost.setOwnerPhoneNumber("0827223891");
+        kostList.add(objKost);
+        
+        return kostList;
+    }
+    
+    // Method for fill listKost JTable with Kost List
+    void Show_Kosts_In_JTable() {
+        ArrayList<Kost> list = getKostList();
+        DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
+        // clear jtable content
+        model.setRowCount(0);
+        Object[] row = new Object[4];
+        for(int i = 0; i < list.size(); i++)
+        {
+            row[0] = list.get(i).getName();
+            row[1] = list.get(i).getOwnerName();
+            row[2] = list.get(i).getAddress();
+            
+            model.addRow(row);
+        }
+    }
+    
+    ArrayList<User> getUserList() {
+        ArrayList<User> userList = new ArrayList<>();
+        
+        //  nanti try catch disini
+        User objUser = new User();
+        objUser.setUsername("admoon");
+        objUser.setEmail("admoon@admoon.com");
+        objUser.setDisplayName("admoon");
+        userList.add(objUser);
+        
+        return userList;
+    }
+    
+    // Method for fill listKost JTable with Kost List
+    void Show_Users_In_JTable() {
+        ArrayList<User> list = getUserList();
+        DefaultTableModel model = (DefaultTableModel)tableListSurveyor.getModel();
+        // clear jtable content
+        model.setRowCount(0);
+        Object[] row = new Object[4];
+        for(int i = 0; i < list.size(); i++)
+        {
+            row[0] = list.get(i).getUsername();
+            row[1] = list.get(i).getEmail();
+            row[2] = list.get(i).getDisplayName();
+            
+            model.addRow(row);
+        }
     }
     
     /**
@@ -1446,50 +1352,20 @@ public class MainForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel about;
     private javax.swing.JPanel aboutBtn;
-    private javax.swing.JPanel addKost;
-    private javax.swing.JTextField alamat_kost;
-    private javax.swing.JTextField alamat_kost1;
-    private javax.swing.JTextField alamat_kost3;
+    private javax.swing.JLabel aboutDesc;
+    private javax.swing.JPanel addSurveyor;
+    private javax.swing.JLabel alamatLengkapKost;
     private javax.swing.JPanel bg;
     private javax.swing.ButtonGroup biayalistrik;
     private javax.swing.ButtonGroup biayapam;
     private javax.swing.JLabel closeBtn;
-    private javax.swing.JPanel deleteBtn;
-    private javax.swing.JScrollPane deskripsiScrollPane;
-    private javax.swing.JScrollPane deskripsiScrollPane1;
-    private javax.swing.JTextArea deskripsi_kost;
-    private javax.swing.JTextArea deskripsi_kost1;
-    private javax.swing.JLabel ed;
-    private javax.swing.JPanel editBtn;
-    private javax.swing.JPanel editKost;
-    private javax.swing.JFormattedTextField harga_bulanan;
+    private javax.swing.JPanel detailKost;
+    private javax.swing.JLabel devOne;
+    private javax.swing.JLabel devThree;
+    private javax.swing.JLabel devTwo;
+    private javax.swing.JLabel hargaBulanan;
     private javax.swing.JPanel homeBtn;
     private javax.swing.JLabel info;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox22;
-    private javax.swing.JCheckBox jCheckBox23;
-    private javax.swing.JCheckBox jCheckBox24;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1513,48 +1389,55 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jumlah_kamar;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel jumlahKamar;
+    private javax.swing.JLabel ketentuanListrik;
+    private javax.swing.JLabel ketentuanPDAM;
+    private javax.swing.JLabel lblAlamatLengkap;
+    private javax.swing.JLabel lblHargaBulanan;
+    private javax.swing.JLabel lblJumlahKamar;
+    private javax.swing.JLabel lblKamar;
+    private javax.swing.JLabel lblKetentuanKost;
+    private javax.swing.JLabel lblListrik;
+    private javax.swing.JLabel lblNamaKost;
+    private javax.swing.JLabel lblNamaLengkap;
+    private javax.swing.JLabel lblNomorTelefon;
+    private javax.swing.JLabel lblPDAM;
     private javax.swing.JPanel listKost;
     private javax.swing.JPanel listKostBtn;
+    private javax.swing.JPanel listSurveyor;
+    private javax.swing.JPanel listSurveyorBtn;
     private javax.swing.JPanel mainContent;
     private javax.swing.JScrollPane mainContentScroll;
     private javax.swing.JPanel mainHeader;
     private javax.swing.JLabel menuDesc;
     private javax.swing.JLabel menuTitle;
-    private javax.swing.JTextField nama_kost;
-    private javax.swing.JTextField nama_kost1;
-    private javax.swing.JTextField pemilik_kost;
-    private javax.swing.JTextField pemilik_kost1;
-    private javax.swing.JTextField pemilik_kost3;
+    private javax.swing.JLabel namaKost;
+    private javax.swing.JLabel namaLengkapPemilik;
+    private javax.swing.JLabel nomorTeleponPemilik;
     private javax.swing.JPanel sidebar;
     private javax.swing.JLabel sidebarTitle;
-    private javax.swing.JTextField telpon_pemilik;
+    private javax.swing.JTable tableListKost;
+    private javax.swing.JTable tableListSurveyor;
     private javax.swing.JSeparator titleSeparator;
+    private javax.swing.JFormattedTextField txtSurveyorDisplayName;
+    private javax.swing.JTextField txtSurveyorEmail;
+    private javax.swing.JPasswordField txtSurveyorPassword;
+    private javax.swing.JTextField txtSurveyorUsername;
     // End of variables declaration//GEN-END:variables
 }

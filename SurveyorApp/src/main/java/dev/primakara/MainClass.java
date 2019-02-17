@@ -17,12 +17,13 @@ import java.io.IOException;
  * @author hellyeah
  */
 public class MainClass {
-    static MainForm objMainForm;
+    static boolean isLogin = false;
+    static MainForm objMainForm = new MainForm();
+    static LoginForm objLoginForm = new LoginForm();
     
     public static void main(String []args){
         MainClass.firebaseInit();
-        objMainForm = new MainForm();
-        MainClass.objMainForm.setVisible(true);
+        MainClass.loginCheck();
     }
 
     public static void firebaseInit() {
@@ -40,6 +41,16 @@ public class MainClass {
             System.out.println(e.getMessage());
 
             System.exit(1);
+        }
+    }
+    
+    public static void loginCheck() {
+        
+        if (MainClass.isLogin) {
+            MainClass.objMainForm.setVisible(true);
+            MainClass.objLoginForm.dispose();
+        } else {
+            MainClass.objLoginForm.setVisible(true);
         }
     }
 }
