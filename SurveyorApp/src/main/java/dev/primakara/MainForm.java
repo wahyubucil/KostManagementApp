@@ -1560,7 +1560,7 @@ public class MainForm extends javax.swing.JFrame {
                 "Confirmation Message", JOptionPane.YES_NO_OPTION);
         
         if(confirmStatus == JOptionPane.YES_OPTION){
-            System.exit(0);
+            MainClass.logout();
         }
     }//GEN-LAST:event_btnLogoutMouseClicked
     

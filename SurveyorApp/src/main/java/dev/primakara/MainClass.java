@@ -53,4 +53,14 @@ public class MainClass {
             MainClass.objLoginForm.setVisible(true);
         }
     }
+
+    public static void logout() {
+        MainClass.isLogin = false;
+        MainClass.objMainForm.dispose();
+
+        MainClass.objLoginForm = new LoginForm();
+        MainClass.objMainForm = new MainForm();
+
+        loginCheck();
+    }
 }
