@@ -7,6 +7,7 @@ package dev.primakara;
 
 import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
+import dev.primakara.model.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +25,7 @@ public class MainForm extends javax.swing.JFrame {
     static Point mouseDownCompCoords;
 
     private Map<String, Kost> kosts = new LinkedHashMap<>();
+    private Map<String, User> users = new LinkedHashMap<>();
     private String selectedKostId;
     private String selectedSurveyorId;
 
@@ -45,8 +47,56 @@ public class MainForm extends javax.swing.JFrame {
     public void setVisible(boolean visible) {
         super.setVisible(visible);
         if (visible) {
+            listenToKostData();
+            listenToUserData();
             currentUserLoggedIn.setText(MainClass.authUser.getDisplayName());
         }
+    }
+
+    private void listenToKostData() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("kosts");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                kosts.clear();
+                for (DataSnapshot kostData : snapshot.getChildren()) {
+                    Kost kost = kostData.getValue(Kost.class);
+                    kosts.put(kostData.getKey(), kost);
+                }
+
+                Show_Kosts_In_JTable();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                JOptionPane.showMessageDialog(null, error.getMessage());
+            }
+        });
+    }
+
+    private void listenToUserData() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users");
+
+        ref.orderByChild("type").equalTo("surveyor").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                users.clear();
+                for (DataSnapshot userData : snapshot.getChildren()) {
+                    User user = userData.getValue(User.class);
+                    users.put(userData.getKey(), user);
+                }
+
+                Show_Users_In_JTable();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                JOptionPane.showMessageDialog(null, error.getMessage());
+            }
+        });
     }
 
   
@@ -1608,7 +1658,36 @@ public class MainForm extends javax.swing.JFrame {
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
-       
+        DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
+        // clear jtable content
+        model.setRowCount(0);
+        Object[] row = new Object[4];
+        kosts.forEach((key, value) -> {
+            row[0] = value.getName();
+            row[1] = value.getOwnerName();
+            row[2] = value.getAddress();
+            row[3] = key;
+
+            model.addRow(row);
+        });
+
+        tableListKost.setModel(model);
+    }
+
+    private void Show_Users_In_JTable() {
+        DefaultTableModel model = (DefaultTableModel)tableListSurveyor.getModel();
+        // clear jtable content
+        model.setRowCount(0);
+        Object[] row = new Object[4];
+        users.forEach((key, value) -> {
+            row[0] = key;
+            row[1] = value.getEmail();
+            row[2] = value.getDisplayName();
+
+            model.addRow(row);
+        });
+
+        tableListSurveyor.setModel(model);
     }
     
     // Method for collects inputs and then send to firebase    
