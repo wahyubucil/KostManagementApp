@@ -5,6 +5,7 @@
  */
 package dev.primakara;
 
+import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,7 +13,11 @@ import java.awt.Point;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,6 +28,8 @@ public class MainForm extends javax.swing.JFrame {
     static Point mouseDownCompCoords;
     static int selectedRowIndex;
 
+    private ArrayList<Kost> kosts = new ArrayList<>();
+
     /**
      * Creates new form Main_Form
      */
@@ -31,6 +38,36 @@ public class MainForm extends javax.swing.JFrame {
         initComponents();
         
         showListKost();
+    }
+
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        if (visible) {
+            listenToKostData();
+        }
+    }
+
+    public void listenToKostData() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("kosts");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                kosts.clear();
+                for (DataSnapshot kostData : snapshot.getChildren()) {
+                    Kost kost = kostData.getValue(Kost.class);
+                    kosts.add(kost);
+                }
+                Show_Kosts_In_JTable();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                JOptionPane.showMessageDialog(null, error.getMessage());
+            }
+        });
     }
     
     @SuppressWarnings("unchecked")
@@ -634,11 +671,10 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(biayaListrikBelumTermasuk)
                                     .addComponent(biayaListrikSudahTermasuk)
                                     .addComponent(jLabel23)))
-                            .addGroup(addKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(insertNomorTeleponPemilik, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(insertNamaLengkapPemilik, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                            .addComponent(insertNomorTeleponPemilik)
+                            .addComponent(jSeparator16)
+                            .addComponent(insertNamaLengkapPemilik)
                             .addComponent(jSeparator9))
                         .addGap(0, 35, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -977,14 +1013,14 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "KOST", "PEMILIK", "ALAMAT"
+                "KOST", "PEMILIK", "ALAMAT", "id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1066,7 +1102,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(0, 0, 0))
         );
 
         if (tableListKost.getColumnModel().getColumnCount() > 0) {
@@ -1074,6 +1110,8 @@ public class MainForm extends javax.swing.JFrame {
             tableListKost.getColumnModel().getColumn(0).setPreferredWidth(10);
             tableListKost.getColumnModel().getColumn(1).setPreferredWidth(10);
             tableListKost.getColumnModel().getColumn(2).setPreferredWidth(10);
+            tableListKost.getColumnModel().getColumn(3).setResizable(false);
+            tableListKost.getColumnModel().getColumn(3).setPreferredWidth(0);
         }
 
         mainContent.add(listKost, "card2");
@@ -1536,11 +1574,11 @@ public class MainForm extends javax.swing.JFrame {
     {
         panel.setBackground(new Color(64,43,100));
     }
-    
-    //Array List Data Kost from Model    
-    ArrayList<Kost> getKostList() {
+
+    //Array List Data Kost from Model
+    List<Kost> getKostList() {
         ArrayList<Kost> kostList = new ArrayList<>();
-        
+
         //  nanti try catch disini
         Kost objKost = new Kost();
         objKost.setName("Ini contoh nama kost");
@@ -1552,22 +1590,21 @@ public class MainForm extends javax.swing.JFrame {
         objKost.setOwnerName("Mr. Bean");
         objKost.setOwnerPhoneNumber("0827223891");
         kostList.add(objKost);
-        
+
         return kostList;
     }
     
     // Method for fill listKost JTable with Kost List
     void Show_Kosts_In_JTable() {
-        ArrayList<Kost> list = getKostList();
         DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
         // clear jtable content
         model.setRowCount(0);
         Object[] row = new Object[4];
-        for(int i = 0; i < list.size(); i++)
+        for(int i = 0; i < kosts.size(); i++)
         {
-            row[0] = list.get(i).getName();
-            row[1] = list.get(i).getOwnerName();
-            row[2] = list.get(i).getAddress();
+            row[0] = kosts.get(i).getName();
+            row[1] = kosts.get(i).getOwnerName();
+            row[2] = kosts.get(i).getAddress();
             
             model.addRow(row);
         }
@@ -1692,7 +1729,7 @@ public class MainForm extends javax.swing.JFrame {
     // LIST KOST   
     void showListKost() {
     //  Show Data
-        Show_Kosts_In_JTable();
+//        Show_Kosts_In_JTable();
 
     //  Atur perubahan warna pada tombol sidebar
         resetColor(homeBtn);
@@ -1740,7 +1777,7 @@ public class MainForm extends javax.swing.JFrame {
 
         //  Atur mainHeader content
         menuTitle.setText("DETAIL KOST");
-        menuDesc.setText(getKostList().get(index).getDescription());
+        menuDesc.setText(kosts.get(index).getDescription());
         
         //  Remove content sblmnya jika ada
         mainContent.removeAll();

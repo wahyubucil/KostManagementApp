@@ -8,9 +8,9 @@ package dev.primakara;
 import dev.primakara.model.Kost;
 import dev.primakara.model.User;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -736,14 +736,14 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "KOST", "PEMILIK", "ALAMAT"
+                "KOST", "PEMILIK", "ALAMAT", "id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -823,10 +823,15 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listKostLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(tableListKost, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableListKost, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
+
+        if (tableListKost.getColumnModel().getColumnCount() > 0) {
+            tableListKost.getColumnModel().getColumn(3).setResizable(false);
+            tableListKost.getColumnModel().getColumn(3).setPreferredWidth(0);
+        }
 
         mainContent.add(listKost, "card2");
 
@@ -996,14 +1001,14 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "USERNAME", "EMAIL", "DISPLAY NAME"
+                "USERNAME", "EMAIL", "DISPLAY NAME", "id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1087,6 +1092,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(tableListSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
+
+        if (tableListSurveyor.getColumnModel().getColumnCount() > 0) {
+            tableListSurveyor.getColumnModel().getColumn(3).setResizable(false);
+            tableListSurveyor.getColumnModel().getColumn(3).setPreferredWidth(0);
+        }
 
         mainContent.add(listSurveyor, "card2");
 
@@ -1345,7 +1355,7 @@ public class MainForm extends javax.swing.JFrame {
         
         //  nanti try catch disini
         User objUser = new User();
-        objUser.setUsername("admoon");
+        objUser.setType("admin");
         objUser.setEmail("admoon@admoon.com");
         objUser.setDisplayName("admoon");
         userList.add(objUser);
@@ -1362,10 +1372,10 @@ public class MainForm extends javax.swing.JFrame {
         Object[] row = new Object[4];
         for(int i = 0; i < list.size(); i++)
         {
-            row[0] = list.get(i).getUsername();
+            row[0] = list.get(i).getType();
             row[1] = list.get(i).getEmail();
             row[2] = list.get(i).getDisplayName();
-            
+
             model.addRow(row);
         }
     }
