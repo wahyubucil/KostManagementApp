@@ -110,6 +110,18 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         about = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        aboutDesc = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        devThree = new javax.swing.JLabel();
+        devOne = new javax.swing.JLabel();
+        devTwo = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         listKost = new javax.swing.JPanel();
         tableListKost = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -308,8 +320,8 @@ public class MainForm extends javax.swing.JFrame {
         aboutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         aboutBtn.setPreferredSize(new java.awt.Dimension(240, 66));
         aboutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                aboutBtnMousePressed(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutBtnMouseClicked(evt);
             }
         });
 
@@ -556,16 +568,116 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.add(addSurveyor, "card2");
 
         about.setBackground(new java.awt.Color(255, 255, 255));
+        about.setPreferredSize(new java.awt.Dimension(649, 466));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel5.setText("About App");
+
+        aboutDesc.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        aboutDesc.setText("Silahkan di run app nya untuk melihat teks disini (convert from HTML for wrap)");
+        aboutDesc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel6.setText("Development Team");
+
+        devThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devThree.png"))); // NOI18N
+
+        devOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devOne.png"))); // NOI18N
+
+        devTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/devTwo.png"))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel7.setText("Wahyu Budi Saputra");
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel24.setText("1701020002");
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel26.setText("1701020041");
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel27.setText("Marvel Alexius");
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel28.setText("1701020017");
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(110, 89, 222));
+        jLabel29.setText("Dody Prasetyo");
 
         javax.swing.GroupLayout aboutLayout = new javax.swing.GroupLayout(about);
         about.setLayout(aboutLayout);
         aboutLayout.setHorizontalGroup(
             aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 649, Short.MAX_VALUE)
+            .addGroup(aboutLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(devOne, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel7))
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel24)))
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(devTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(devThree, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(aboutLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel26))
+                                .addGap(136, 136, 136)
+                                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel28))
+                                .addGap(80, 80, 80))))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))))
         );
         aboutLayout.setVerticalGroup(
             aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(aboutLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel5)
+                .addGap(20, 20, 20)
+                .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel6)
+                .addGap(20, 20, 20)
+                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(devThree, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(devOne, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(devTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel24))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel26))
+                    .addGroup(aboutLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel28)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainContent.add(about, "card2");
@@ -1039,6 +1151,7 @@ public class MainForm extends javax.swing.JFrame {
         resetColor(homeBtn);
         resetColor(listKostBtn);
         setColor(listSurveyorBtn);
+        resetColor(aboutBtn);
         
     //  Atur mainHeader content
         menuTitle.setText("DAFTAR SURVEYOR");
@@ -1093,13 +1206,38 @@ public class MainForm extends javax.swing.JFrame {
         mainContent.revalidate();
     }//GEN-LAST:event_tableListKostMouseClicked
 
-    private void aboutBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aboutBtnMousePressed
-
     private void tableListSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListSurveyorMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tableListSurveyorMouseClicked
+
+    private void aboutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutBtnMouseClicked
+        StringBuilder objStringBuilder = new StringBuilder(64);
+        objStringBuilder.append("<html>Merupakan aplikasi yang berfungsi untuk pendataan kost atau hunian di seluruh Indonesia.")
+                .append(" Aplikasi ini memiliki misi sosial yaitu membantu perantau di Indonesia dalam mencari dan memesan hunian sewa, ")
+                .append("hingga menemukan jasa pindahan saat diperlukan</html>");
+        
+        aboutDesc.setText(objStringBuilder.toString());
+        
+        //  Atur perubahan warna pada tombol sidebar
+        resetColor(homeBtn);
+        resetColor(listKostBtn);
+        resetColor(listSurveyorBtn);
+        setColor(aboutBtn);
+        
+        //  Atur mainHeader content
+        menuTitle.setText("TENTANG KAMI");
+        menuDesc.setText("Tentang Aplikasi dan Tim yang bekerja di belakang nya");
+        
+        //  Remove content sblmnya jika ada
+        mainContent.removeAll();
+        mainContent.repaint();
+        mainContent.revalidate();
+        
+        //  Munculkan konten halaman ke mainContent
+        mainContent.add(about);
+        mainContent.repaint();
+        mainContent.revalidate();
+    }//GEN-LAST:event_aboutBtnMouseClicked
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
     {
@@ -1214,6 +1352,7 @@ public class MainForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel about;
     private javax.swing.JPanel aboutBtn;
+    private javax.swing.JLabel aboutDesc;
     private javax.swing.JPanel addSurveyor;
     private javax.swing.JLabel alamatLengkapKost;
     private javax.swing.JPanel bg;
@@ -1221,6 +1360,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup biayapam;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JPanel detailKost;
+    private javax.swing.JLabel devOne;
+    private javax.swing.JLabel devThree;
+    private javax.swing.JLabel devTwo;
     private javax.swing.JLabel hargaBulanan;
     private javax.swing.JPanel homeBtn;
     private javax.swing.JLabel info;
@@ -1240,11 +1382,19 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
