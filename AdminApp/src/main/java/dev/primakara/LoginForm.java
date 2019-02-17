@@ -304,6 +304,10 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        loginHandler();
+    }//GEN-LAST:event_btnLoginMouseClicked
+
+    private void loginHandler() {
         if (!btnLogin.isEnabled()) return;
 
         btnLogin.setEnabled(false);
@@ -316,7 +320,7 @@ public class LoginForm extends javax.swing.JFrame {
         } else {
             login(usernameValue, passwordValue);
         }
-    }//GEN-LAST:event_btnLoginMouseClicked
+    }
 
     private boolean isInputEmpty(String username, String password) {
         return username.trim().length() < 1 || password.trim().length() < 1;
@@ -388,13 +392,13 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            // TODO: Login Method here
+            loginHandler();
         }
     }//GEN-LAST:event_usernameKeyPressed
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            // TODO: Login Method here
+            loginHandler();
         }
     }//GEN-LAST:event_passwordKeyPressed
 
