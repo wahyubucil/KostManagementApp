@@ -5,9 +5,8 @@
  */
 package dev.primakara;
 
-
-import com.google.firebase.database.*;
-import dev.primakara.model.User;
+//import com.google.firebase.database.*;
+//import dev.primakara.model.User;
 
 import java.awt.*;
 import javax.swing.JOptionPane;
@@ -19,19 +18,31 @@ import javax.swing.JOptionPane;
 public class LoginForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
-    static boolean isUsernameHaveFocused = false;
-    static boolean isPasswordHaveFocused = false;
     
     /**
      * Creates new form LoginForm
      */
     public LoginForm() {
         initComponents();
+        
+        //set overlay
+        loginBackgroundImageOverlay.setBackground(new Color(0,0,0,200));
+        
+        //prevent default focus to JTextField
+        btnLogin.requestFocusInWindow();
     }
     
     public boolean checkInputs()
     {
-        if(username.getText() == null || password.getText() == null){
+        String defaultUsername = "Username";
+        String emptyUsername = "";
+        String defaultPassword = "Password";
+        String emptyPassword = "";
+        
+        if(defaultUsername.equals(username.getText())
+                || emptyUsername.equals(username.getText())
+                || defaultPassword.equals(new String(password.getPassword()))
+                || emptyPassword.equals(new String(password.getPassword()))){
             return false;
         } else{
             return true;
@@ -59,6 +70,9 @@ public class LoginForm extends javax.swing.JFrame {
         btnLogin = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        loginBackgroundImage = new javax.swing.JPanel();
+        loginBackgroundImageOverlay = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("LoginFrame"); // NOI18N
@@ -103,6 +117,9 @@ public class LoginForm extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 usernameFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameFocusLost(evt);
+            }
         });
 
         separatorUsername.setBackground(new java.awt.Color(110, 89, 222));
@@ -116,6 +133,9 @@ public class LoginForm extends javax.swing.JFrame {
         password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFocusLost(evt);
             }
         });
 
@@ -155,43 +175,69 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Kost Management App");
 
+        loginBackgroundImage.setBackground(new java.awt.Color(255, 255, 255));
+        loginBackgroundImage.setLayout(new javax.swing.OverlayLayout(loginBackgroundImage));
+
+        loginBackgroundImageOverlay.setBackground(new java.awt.Color(0, 0, 0));
+        loginBackgroundImageOverlay.setPreferredSize(new java.awt.Dimension(400, 420));
+
+        javax.swing.GroupLayout loginBackgroundImageOverlayLayout = new javax.swing.GroupLayout(loginBackgroundImageOverlay);
+        loginBackgroundImageOverlay.setLayout(loginBackgroundImageOverlayLayout);
+        loginBackgroundImageOverlayLayout.setHorizontalGroup(
+            loginBackgroundImageOverlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        loginBackgroundImageOverlayLayout.setVerticalGroup(
+            loginBackgroundImageOverlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+
+        loginBackgroundImage.add(loginBackgroundImageOverlay);
+
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgLogin.jpg"))); // NOI18N
+        image.setMaximumSize(new java.awt.Dimension(400, 420));
+        image.setMinimumSize(new java.awt.Dimension(400, 420));
+        image.setPreferredSize(new java.awt.Dimension(400, 420));
+        loginBackgroundImage.add(image);
+
         javax.swing.GroupLayout loginFrameLayout = new javax.swing.GroupLayout(loginFrame);
         loginFrame.setLayout(loginFrameLayout);
         loginFrameLayout.setHorizontalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginFrameLayout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
+                .addComponent(loginBackgroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFrameLayout.createSequentialGroup()
-                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(loginFrameLayout.createSequentialGroup()
+                    .addGroup(loginFrameLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFrameLayout.createSequentialGroup()
                                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(usernameIcon)
-                                    .addComponent(passwordIcon))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(password)
-                                    .addComponent(username)
-                                    .addComponent(separatorUsername)
-                                    .addComponent(separatorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(108, 108, 108))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFrameLayout.createSequentialGroup()
-                        .addComponent(closeBtn)
-                        .addContainerGap())))
-            .addGroup(loginFrameLayout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(loginFrameLayout.createSequentialGroup()
+                                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(usernameIcon)
+                                            .addComponent(passwordIcon))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(password, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(username, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                                            .addComponent(separatorUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(separatorPassword))))
+                                .addGap(40, 40, 40))
+                            .addComponent(closeBtn, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(loginFrameLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         loginFrameLayout.setVerticalGroup(
             loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(closeBtn)
-                .addGap(19, 19, 19)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47)
+                .addGap(38, 38, 38)
                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginFrameLayout.createSequentialGroup()
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,9 +255,10 @@ public class LoginForm extends javax.swing.JFrame {
                     .addGroup(loginFrameLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(passwordIcon)))
-                .addGap(54, 54, 54)
+                .addGap(42, 42, 42)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
+            .addComponent(loginBackgroundImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         bg.add(loginFrame, "card2");
@@ -236,52 +283,58 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
-        if(!MainClass.objLoginForm.isUsernameHaveFocused){
-           MainClass.objLoginForm.username.setText("");
-           MainClass.objLoginForm.isUsernameHaveFocused = true;
+        if(MainClass.objLoginForm.username.getText().equals("Username")){
+            MainClass.objLoginForm.username.setText("");
         }
     }//GEN-LAST:event_usernameFocusGained
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
-        if(!MainClass.objLoginForm.isPasswordHaveFocused){
-           MainClass.objLoginForm.password.setText("");
-           MainClass.objLoginForm.isPasswordHaveFocused = true;
+        String defaultPass = "Password";
+        if(defaultPass.equals(new String(password.getPassword()))){
+            MainClass.objLoginForm.password.setText("");
         }
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        String username = MainClass.objLoginForm.username.getText();
-        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
+        if(checkInputs()){
+            MainClass.isLogin = true;
+            MainClass.loginCheck();   
+        }else{
+            loginErrorMessage("Mohon masukkan username dan password terlebih dahulu!");
+        }
+        
+//        String username = MainClass.objLoginForm.username.getText();
+//        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
 
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference usersRef = database.getReference("users");
-        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
-                    User user = selectedUser.getValue(User.class);
-                    if (!user.getPassword().equals(password)) {
-                        loginErrorMessage("Username atau Password salah");
-                    } else {
-                        MainClass.isLogin = true;
-                        MainClass.loginCheck();
-                    }
-                } else {
-                    loginErrorMessage("Username atau Password salah");
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                loginErrorMessage("The read failed: " + error.getMessage());
-            }
-        });
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference usersRef = database.getReference("users");
+//        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
+//                    User user = selectedUser.getValue(User.class);
+//                    if (!user.getPassword().equals(password)) {
+//                        loginErrorMessage("Username atau Password salah");
+//                    } else {
+//                        MainClass.isLogin = true;
+//                        MainClass.loginCheck();
+//                    }
+//                } else {
+//                    loginErrorMessage("Username atau Password salah");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                loginErrorMessage("The read failed: " + error.getMessage());
+//            }
+//        });
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void loginErrorMessage(String errorMessage) {
-        // TODO: Please someone implement this
-        System.out.println(errorMessage);
+        JOptionPane.showMessageDialog(rootPane, errorMessage, 
+            "Whoops! something were wrong!", HEIGHT);
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
@@ -296,6 +349,19 @@ public class LoginForm extends javax.swing.JFrame {
         Point currCoords = evt.getLocationOnScreen();
         MainClass.objLoginForm.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
     }//GEN-LAST:event_formMouseDragged
+
+    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+        if(MainClass.objLoginForm.username.getText().equals("")){
+            MainClass.objLoginForm.username.setText("Username");
+        }
+    }//GEN-LAST:event_usernameFocusLost
+
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        String emptyPassword = "";
+        if(emptyPassword.equals(new String(password.getPassword()))){
+            MainClass.objLoginForm.password.setText("Password");
+        }
+    }//GEN-LAST:event_passwordFocusLost
 
     /**
      * @param args the command line arguments
@@ -336,8 +402,11 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JPanel btnLogin;
     private javax.swing.JLabel closeBtn;
+    private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JPanel loginBackgroundImage;
+    private javax.swing.JPanel loginBackgroundImageOverlay;
     private javax.swing.JPanel loginFrame;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordIcon;

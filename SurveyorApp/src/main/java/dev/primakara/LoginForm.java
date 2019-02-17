@@ -5,6 +5,9 @@
  */
 package dev.primakara;
 
+//import com.google.firebase.database.*;
+//import dev.primakara.model.User;
+
 import java.awt.*;
 import javax.swing.JOptionPane;
 
@@ -31,8 +34,15 @@ public class LoginForm extends javax.swing.JFrame {
     
     public boolean checkInputs()
     {
+        String defaultUsername = "Username";
+        String emptyUsername = "";
+        String defaultPassword = "Password";
         String emptyPassword = "";
-        if(username.getText() == null || emptyPassword.equals(new String(password.getPassword()))){
+        
+        if(defaultUsername.equals(username.getText())
+                || emptyUsername.equals(username.getText())
+                || defaultPassword.equals(new String(password.getPassword()))
+                || emptyPassword.equals(new String(password.getPassword()))){
             return false;
         } else{
             return true;
@@ -163,7 +173,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Surveyor App");
+        jLabel1.setText("Kost Management App");
 
         loginBackgroundImage.setBackground(new java.awt.Color(255, 255, 255));
         loginBackgroundImage.setLayout(new javax.swing.OverlayLayout(loginBackgroundImage));
@@ -216,7 +226,7 @@ public class LoginForm extends javax.swing.JFrame {
                                 .addGap(40, 40, 40))
                             .addComponent(closeBtn, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(loginFrameLayout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(95, 95, 95)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -225,9 +235,9 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(loginFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(closeBtn)
-                .addGap(21, 21, 21)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addGap(45, 45, 45)
+                .addGap(38, 38, 38)
                 .addGroup(loginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginFrameLayout.createSequentialGroup()
                         .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,15 +296,45 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        if(checkInputs()){
+            MainClass.isLogin = true;
+            MainClass.loginCheck();   
+        }else{
+            loginErrorMessage("Mohon masukkan username dan password terlebih dahulu!");
+        }
+        
 //        String username = MainClass.objLoginForm.username.getText();
 //        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
-        MainClass.isLogin = true;
-        MainClass.loginCheck();
+
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference usersRef = database.getReference("users");
+//        usersRef.orderByChild("email").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    DataSnapshot selectedUser = snapshot.getChildren().iterator().next();
+//                    User user = selectedUser.getValue(User.class);
+//                    if (!user.getPassword().equals(password)) {
+//                        loginErrorMessage("Username atau Password salah");
+//                    } else {
+//                        MainClass.isLogin = true;
+//                        MainClass.loginCheck();
+//                    }
+//                } else {
+//                    loginErrorMessage("Username atau Password salah");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                loginErrorMessage("The read failed: " + error.getMessage());
+//            }
+//        });
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void loginErrorMessage(String errorMessage) {
-        // TODO: Please someone implement this
-        System.out.println(errorMessage);
+        JOptionPane.showMessageDialog(rootPane, errorMessage, 
+            "Whoops! something were wrong!", HEIGHT);
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
