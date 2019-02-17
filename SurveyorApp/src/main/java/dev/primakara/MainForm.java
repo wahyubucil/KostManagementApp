@@ -11,7 +11,7 @@ import dev.primakara.model.Kost;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -22,7 +22,7 @@ public class MainForm extends javax.swing.JFrame {
     
     static Point mouseDownCompCoords;
 
-    private Map<String, Kost> kosts = new HashMap<>();
+    private Map<String, Kost> kosts = new LinkedHashMap<>();
     private String selectedKostId;
 
     /**
@@ -1678,12 +1678,24 @@ public class MainForm extends javax.swing.JFrame {
                         "Whoops! something were wrong!", HEIGHT);
             } else {
                 showListKost();
+                clearInput_InsertKost();
             }
         });
     }
 
     private void clearInput_InsertKost() {
-        
+        insertNamaKost.setText("");
+        insertAlamatKost.setText("");
+        insertJumlahKamar.setText("");
+        insertHargaBulanan.setText("");
+        insertDeskripsiKost.setText("");
+        insertNamaLengkapPemilik.setText("");
+        insertNomorTeleponPemilik.setText("");
+
+        biayaListrikSudahTermasuk.setSelected(false);
+        biayaListrikBelumTermasuk.setSelected(false);
+        biayaPdamSudahTermasuk.setSelected(false);
+        biayaPdamBelumTermasuk.setSelected(false);
     }
     
     void updateData() {
