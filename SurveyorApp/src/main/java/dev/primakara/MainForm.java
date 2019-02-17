@@ -35,8 +35,14 @@ public class MainForm extends javax.swing.JFrame {
         //  Atur mainHeader content
         menuTitle.setText("TAMBAH KOST BARU");
         menuDesc.setText("Silahkan isi secara lengkap data kost yang ingin di tambahkan");
+    }
 
-        listenToKostData();
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        if (visible) {
+            listenToKostData();
+        }
     }
 
     public void listenToKostData() {

@@ -293,13 +293,13 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         MainClass.objLoginForm.jLabel14.setText("LOADING...");
-        String username = MainClass.objLoginForm.username.getText();
-        String password = String.valueOf(MainClass.objLoginForm.password.getPassword());
+        String usernameValue = username.getText();
+        String passwordValue = String.valueOf(password.getPassword());
 
-        if (isInputEmpty(username, password)) {
-            loginErrorMessage("Mohon mengisi field yang ada!");
+        if (isInputEmpty(usernameValue, passwordValue)) {
+            loginErrorMessage("Mohon mengisi username dan password dengan benar!");
         } else {
-            login(username, password);
+            login(usernameValue, passwordValue);
         }
     }//GEN-LAST:event_btnLoginMouseClicked
 
@@ -338,9 +338,8 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     private void loginErrorMessage(String errorMessage) {
-        JOptionPane.showMessageDialog(rootPane, errorMessage, 
+        JOptionPane.showMessageDialog(rootPane, errorMessage,
             "Whoops! something were wrong!", HEIGHT);
-        JOptionPane.showMessageDialog(null, errorMessage);
         MainClass.objLoginForm.jLabel14.setText("LOGIN");
     }
 
