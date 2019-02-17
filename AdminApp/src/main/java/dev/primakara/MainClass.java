@@ -30,7 +30,7 @@ public class MainClass {
     public static void main(String []args){
         MainClass.firebaseInit();
         MainClass.loginCheck();
-        MainClass.waitForData();
+//        MainClass.waitForData();
 //        MainClass.saveKostData();
 //        MainClass.updateKostData();
 //        MainClass.deleteKostData();

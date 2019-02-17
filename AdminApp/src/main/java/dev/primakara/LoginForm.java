@@ -275,7 +275,7 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
-        System.exit(0);
+        Utils.exitApp(this);
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
@@ -292,12 +292,15 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        if (!btnLogin.isEnabled()) return;
+
+        btnLogin.setEnabled(false);
         jLabel14.setText("LOADING...");
         String usernameValue = username.getText();
         String passwordValue = String.valueOf(password.getPassword());
 
         if (isInputEmpty(usernameValue, passwordValue)) {
-            loginErrorMessage("Mohon mengisi username dan password dengan benar!");
+            loginErrorHandler("Mohon mengisi username dan password dengan benar!");
         } else {
             login(usernameValue, passwordValue);
         }
@@ -320,27 +323,28 @@ public class LoginForm extends javax.swing.JFrame {
                     BCrypt.Result passwordCheck = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
                     boolean isAdmin = user.getType().equals("admin");
                     if (!passwordCheck.verified || !isAdmin) {
-                        loginErrorMessage("Username atau Password salah");
+                        loginErrorHandler("Username atau Password salah");
                     } else {
                         MainClass.isLogin = true;
                         MainClass.loginCheck();
                     }
                 } else {
-                    loginErrorMessage("Username atau Password salah");
+                    loginErrorHandler("Username atau Password salah");
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
-                loginErrorMessage("The read failed: " + error.getMessage());
+                loginErrorHandler("The read failed: " + error.getMessage());
             }
         });
     }
 
-    private void loginErrorMessage(String errorMessage) {
+    private void loginErrorHandler(String errorMessage) {
         JOptionPane.showMessageDialog(rootPane, errorMessage,
             "Whoops! something were wrong!", HEIGHT);
         jLabel14.setText("LOGIN");
+        btnLogin.setEnabled(true);
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
