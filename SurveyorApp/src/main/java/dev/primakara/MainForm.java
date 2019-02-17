@@ -11,6 +11,7 @@ import dev.primakara.model.Kost;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -1634,13 +1635,13 @@ public class MainForm extends javax.swing.JFrame {
     
     // Method for collects inputs and then send to firebase    
     void insertData() {
-        String namaKost = insertNamaKost.getText();
-        String alamatKost = insertAlamatKost.getText();
-        int jumlahKamar = Integer.parseInt(insertJumlahKamar.getText());
-        int hargaBulanan = Integer.parseInt(insertHargaBulanan.getText());
-        String deskripsiKost = insertDeskripsiKost.getText();
-        String pemilikKost = insertNamaLengkapPemilik.getText();
-        String telponPemilik = insertNomorTeleponPemilik.getText();
+        String namaKost = insertNamaKost.getText().trim();
+        String alamatKost = insertAlamatKost.getText().trim();
+        int jumlahKamar = Integer.parseInt(insertJumlahKamar.getText().trim());
+        int hargaBulanan = Integer.parseInt(insertHargaBulanan.getText().trim());
+        String deskripsiKost = insertDeskripsiKost.getText().trim();
+        String pemilikKost = insertNamaLengkapPemilik.getText().trim();
+        String telponPemilik = insertNomorTeleponPemilik.getText().trim();
         boolean biayalistrik = false;
         boolean biayapam = false;
         
@@ -1699,16 +1700,15 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     void updateData() {
-        String namaKost = editNamaKost.getText();
-        String alamatKost = editAlamatKost.getText();
-        String jumlahKamar = editJumlahKamar.getText();
-        int hargaBulanan = Integer.parseInt(editHargaBulanan.getText());
-        String deskripsiKost = editDeskripsiKost.getText();
-        String pemilikKost = editNamaLengkapPemilik.getText();
-        String telponPemilik = editNomorTeleponPemilik.getText();
-        boolean biayalistrik, biayapam;
-        boolean insertSuccess = true;
-
+        String namaKost = editNamaKost.getText().trim();
+        String alamatKost = editAlamatKost.getText().trim();
+        int jumlahKamar = Integer.parseInt(editJumlahKamar.getText().trim());
+        int hargaBulanan = Integer.parseInt(editHargaBulanan.getText().trim());
+        String deskripsiKost = editDeskripsiKost.getText().trim();
+        String pemilikKost = editNamaLengkapPemilik.getText().trim();
+        String telponPemilik = editNomorTeleponPemilik.getText().trim();
+        boolean biayalistrik = false;
+        boolean biayapam = false;
 
         if (editBiayaListrikSudahTermasuk.isSelected()) {
             biayalistrik = true;
@@ -1721,10 +1721,29 @@ public class MainForm extends javax.swing.JFrame {
         } else if (editBiayaPdamBelumTermasuk.isSelected()) {
             biayapam = false;
         }
-        
-        if(insertSuccess){
-            showListKost();
-        }
+
+
+        Kost kost = new Kost();
+        kost.setName(namaKost);
+        kost.setAddress(alamatKost);
+        kost.setRooms(jumlahKamar);
+        kost.setPrice(hargaBulanan);
+        kost.setElectricityCost(biayalistrik);
+        kost.setWaterCost(biayapam);
+        kost.setDescription(deskripsiKost);
+        kost.setOwnerName(pemilikKost);
+        kost.setOwnerPhoneNumber(telponPemilik);
+
+        Map<String, Object> kostUpdate = new HashMap<>();
+        kostUpdate.put(selectedKostId, kost);
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+        DatabaseReference kostsRef = ref.child("kosts");
+
+        kostsRef.updateChildren(kostUpdate, (error, ref1) -> {
+            showDetailKost(selectedKostId);
+        });
     }
 
     //Method for send data to inputs in editKost
@@ -1763,6 +1782,12 @@ public class MainForm extends javax.swing.JFrame {
         hargaBulanan.setText(Integer.toString(selectedKost.getPrice()));
         namaLengkapPemilik.setText(selectedKost.getOwnerName());
         nomorTeleponPemilik.setText(selectedKost.getOwnerPhoneNumber());
+
+        if (selectedKost.getElectricityCost()) ketentuanListrik.setText("Sudah Termasuk");
+        else ketentuanListrik.setText("Belum Termasuk");
+
+        if (selectedKost.getWaterCost()) ketentuanPDAM.setText("Sudah Termasuk");
+        else ketentuanPDAM.setText("Belum Termasuk");
     }
     
     // VIEWS
