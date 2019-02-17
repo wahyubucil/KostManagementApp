@@ -292,7 +292,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        MainClass.objLoginForm.jLabel14.setText("LOADING...");
+        jLabel14.setText("LOADING...");
         String usernameValue = username.getText();
         String passwordValue = String.valueOf(password.getPassword());
 
@@ -340,7 +340,7 @@ public class LoginForm extends javax.swing.JFrame {
     private void loginErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(rootPane, errorMessage,
             "Whoops! something were wrong!", HEIGHT);
-        MainClass.objLoginForm.jLabel14.setText("LOGIN");
+        jLabel14.setText("LOGIN");
     }
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
