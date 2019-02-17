@@ -1621,7 +1621,12 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_listSurveyorBtnMouseClicked
 
     private void btnHapusSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusSurveyorMouseClicked
-        
+        int confirmStatus = JOptionPane.showConfirmDialog(this, "Anda yakin ingin menghapus data ini?",
+                "Confirmation Message", JOptionPane.YES_NO_OPTION);
+
+        if (confirmStatus == JOptionPane.YES_OPTION){
+            deleteSurveyorData(selectedSurveyorId);
+        }
     }//GEN-LAST:event_btnHapusSurveyorMouseClicked
 
     private void btnEditSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditSurveyorMouseClicked
@@ -1745,6 +1750,17 @@ public class MainForm extends javax.swing.JFrame {
                 inputError("Data could not be saved " + error.getMessage());
             } else {
                 showDetailSurveyor(uniqueId);
+            }
+        });
+    }
+
+    private void deleteSurveyorData(String selectedSurveyorId) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("users/" + selectedSurveyorId).removeValue((error, ref) -> {
+            if (error != null) {
+                inputError("Data could not be deleted " + error.getMessage());
+            } else {
+                showListSurveyor();
             }
         });
     }
