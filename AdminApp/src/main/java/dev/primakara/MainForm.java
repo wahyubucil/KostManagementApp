@@ -197,13 +197,10 @@ public class MainForm extends javax.swing.JFrame {
         editSurveyor = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         editEmail = new javax.swing.JTextField();
-        btnEditKost = new javax.swing.JPanel();
+        btnUpdateSurveyor = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
-        jLabel20 = new javax.swing.JLabel();
-        editPassword = new javax.swing.JPasswordField();
         jLabel22 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         editUsername = new javax.swing.JTextField();
@@ -223,7 +220,7 @@ public class MainForm extends javax.swing.JFrame {
         usernameSurveyor = new javax.swing.JLabel();
         lblNomorTelefon1 = new javax.swing.JLabel();
         emailSurveyor = new javax.swing.JLabel();
-        emailSurveyor1 = new javax.swing.JLabel();
+        displayNameSurveyor = new javax.swing.JLabel();
         lblNomorTelefon2 = new javax.swing.JLabel();
         btnHapusSurveyor = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
@@ -1069,7 +1066,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jLabel18)
                     .addComponent(aboutDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         aboutLayout.setVerticalGroup(
             aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1114,14 +1111,14 @@ public class MainForm extends javax.swing.JFrame {
         editEmail.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         editEmail.setBorder(null);
 
-        btnEditKost.setBackground(new java.awt.Color(85, 65, 118));
-        btnEditKost.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnEditKost.setForeground(new java.awt.Color(255, 255, 255));
-        btnEditKost.setToolTipText("");
-        btnEditKost.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEditKost.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnUpdateSurveyor.setBackground(new java.awt.Color(85, 65, 118));
+        btnUpdateSurveyor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnUpdateSurveyor.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateSurveyor.setToolTipText("");
+        btnUpdateSurveyor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUpdateSurveyor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEditKostMouseClicked(evt);
+                btnUpdateSurveyorMouseClicked(evt);
             }
         });
 
@@ -1129,17 +1126,17 @@ public class MainForm extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("SIMPAN");
 
-        javax.swing.GroupLayout btnEditKostLayout = new javax.swing.GroupLayout(btnEditKost);
-        btnEditKost.setLayout(btnEditKostLayout);
-        btnEditKostLayout.setHorizontalGroup(
-            btnEditKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnEditKostLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnUpdateSurveyorLayout = new javax.swing.GroupLayout(btnUpdateSurveyor);
+        btnUpdateSurveyor.setLayout(btnUpdateSurveyorLayout);
+        btnUpdateSurveyorLayout.setHorizontalGroup(
+            btnUpdateSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnUpdateSurveyorLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel19)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
-        btnEditKostLayout.setVerticalGroup(
-            btnEditKostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btnUpdateSurveyorLayout.setVerticalGroup(
+            btnUpdateSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
@@ -1148,15 +1145,6 @@ public class MainForm extends javax.swing.JFrame {
 
         jSeparator8.setBackground(new java.awt.Color(110, 89, 222));
         jSeparator8.setForeground(new java.awt.Color(110, 89, 222));
-
-        jSeparator9.setBackground(new java.awt.Color(110, 89, 222));
-        jSeparator9.setForeground(new java.awt.Color(110, 89, 222));
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel20.setText("Password");
-
-        editPassword.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        editPassword.setBorder(null);
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel22.setText("Email");
@@ -1185,15 +1173,12 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(editSurveyorLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(editSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23)
                     .addGroup(editSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jSeparator16, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(editDisplayName, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(editPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
                     .addComponent(jLabel26)
                     .addComponent(jLabel7)
                     .addGroup(editSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1203,7 +1188,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(446, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editSurveyorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEditKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdateSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
         editSurveyorLayout.setVerticalGroup(
@@ -1218,12 +1203,6 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
                 .addComponent(jLabel22)
                 .addGap(11, 11, 11)
                 .addComponent(editEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1236,7 +1215,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(btnEditKost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdateSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1382,8 +1361,8 @@ public class MainForm extends javax.swing.JFrame {
         emailSurveyor.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         emailSurveyor.setText("Email Surveyor Disini");
 
-        emailSurveyor1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        emailSurveyor1.setText("Display Name Surveyor Disini");
+        displayNameSurveyor.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        displayNameSurveyor.setText("Display Name Surveyor Disini");
 
         lblNomorTelefon2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         lblNomorTelefon2.setText("Display Name");
@@ -1454,7 +1433,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(detailSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNomorTelefon2)
-                    .addComponent(emailSurveyor1)
+                    .addComponent(displayNameSurveyor)
                     .addComponent(jLabel45)
                     .addComponent(lblNamaLengkap1)
                     .addComponent(usernameSurveyor)
@@ -1489,7 +1468,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblNomorTelefon2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailSurveyor1)
+                        .addComponent(displayNameSurveyor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addComponent(btnHapusSurveyor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -1624,9 +1603,9 @@ public class MainForm extends javax.swing.JFrame {
         this.setState(MainForm.ICONIFIED);
     }//GEN-LAST:event_minimizeBtnMouseClicked
 
-    private void btnEditKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditKostMouseClicked
+    private void btnUpdateSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateSurveyorMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditKostMouseClicked
+    }//GEN-LAST:event_btnUpdateSurveyorMouseClicked
 
     private void tableListSurveyorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableListSurveyorMouseClicked
         selectedSurveyorId = tableListSurveyor.getModel().getValueAt(tableListSurveyor.getSelectedRow(), 0).toString();
@@ -1849,7 +1828,7 @@ public class MainForm extends javax.swing.JFrame {
         User user = users.get(uniqueId);
         usernameSurveyor.setText(uniqueId);
         emailSurveyor.setText(user.getEmail());
-        emailSurveyor1.setText(user.getDisplayName());
+        displayNameSurveyor.setText(user.getDisplayName());
     }
     
     // ABOUT
@@ -1924,13 +1903,13 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel addSurveyor;
     private javax.swing.JLabel alamatLengkapKost;
     private javax.swing.JPanel bg;
-    private javax.swing.JPanel btnEditKost;
     private javax.swing.JPanel btnEditSurveyor;
     private javax.swing.ButtonGroup btnGroupEditBiayaListrik;
     private javax.swing.ButtonGroup btnGroupEditBiayaPdam;
     private javax.swing.JPanel btnHapusSurveyor;
     private javax.swing.JPanel btnInsertKost;
     private javax.swing.JPanel btnLogout;
+    private javax.swing.JPanel btnUpdateSurveyor;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JLabel currentUserLoggedIn;
     private javax.swing.JPanel detailKost;
@@ -1938,13 +1917,12 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel devOne;
     private javax.swing.JLabel devThree;
     private javax.swing.JLabel devTwo;
+    private javax.swing.JLabel displayNameSurveyor;
     private javax.swing.JTextField editDisplayName;
     private javax.swing.JTextField editEmail;
-    private javax.swing.JPasswordField editPassword;
     private javax.swing.JPanel editSurveyor;
     private javax.swing.JTextField editUsername;
     private javax.swing.JLabel emailSurveyor;
-    private javax.swing.JLabel emailSurveyor1;
     private javax.swing.JLabel hargaBulanan;
     private javax.swing.JPanel homeBtn;
     private javax.swing.JLabel info;
@@ -1964,7 +1942,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -2005,7 +1982,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel jumlahKamar;
     private javax.swing.JLabel ketentuanListrik;
     private javax.swing.JLabel ketentuanPDAM;
