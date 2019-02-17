@@ -1640,9 +1640,9 @@ public class MainForm extends javax.swing.JFrame {
     void insertData() {
         String namaKost = insertNamaKost.getText().trim();
         String alamatKost = insertAlamatKost.getText().trim();
-        int jumlahKamar = Integer.parseInt(insertJumlahKamar.getText().trim());
-        int hargaBulanan = Integer.parseInt(insertHargaBulanan.getText().trim());
         String deskripsiKost = insertDeskripsiKost.getText().trim();
+        int jumlahKamar;
+        int hargaBulanan;
         String pemilikKost = insertNamaLengkapPemilik.getText().trim();
         String telponPemilik = insertNomorTeleponPemilik.getText().trim();
         boolean biayalistrik = false;
@@ -1658,6 +1658,19 @@ public class MainForm extends javax.swing.JFrame {
             biayapam = true;
         } else if (biayaPdamBelumTermasuk.isSelected()) {
             biayapam = false;
+        }
+
+        if (namaKost.length() < 1 || alamatKost.length() < 1 || deskripsiKost.length() < 1 || pemilikKost.length() < 1 || telponPemilik.length() < 1) {
+            inputError("Mohon mengisi seluruh field yang ada!");
+            return;
+        }
+
+        try {
+            jumlahKamar = Integer.parseInt(insertJumlahKamar.getText().trim());
+            hargaBulanan = Integer.parseInt(insertHargaBulanan.getText().trim());
+        } catch (NumberFormatException e) {
+            inputError("Input angka dengan benar!");
+            return;
         }
 
 
@@ -1678,8 +1691,7 @@ public class MainForm extends javax.swing.JFrame {
         DatabaseReference kostsRef = ref.child("kosts");
         kostsRef.push().setValue(kost, (error, ref1) -> {
             if (error != null) {
-                JOptionPane.showMessageDialog(rootPane, "Data could not be saved " + error.getMessage(),
-                        "Whoops! something were wrong!", HEIGHT);
+                inputError("Data could not be saved " + error.getMessage());
             } else {
                 showListKost();
                 clearInput_InsertKost();
@@ -1701,12 +1713,17 @@ public class MainForm extends javax.swing.JFrame {
         biayaPdamSudahTermasuk.setSelected(false);
         biayaPdamBelumTermasuk.setSelected(false);
     }
+
+    private void inputError(String errorMessage) {
+        JOptionPane.showMessageDialog(rootPane, errorMessage,
+                "Whoops! something were wrong!", HEIGHT);
+    }
     
     void updateData() {
         String namaKost = editNamaKost.getText().trim();
         String alamatKost = editAlamatKost.getText().trim();
-        int jumlahKamar = Integer.parseInt(editJumlahKamar.getText().trim());
-        int hargaBulanan = Integer.parseInt(editHargaBulanan.getText().trim());
+        int jumlahKamar;
+        int hargaBulanan;
         String deskripsiKost = editDeskripsiKost.getText().trim();
         String pemilikKost = editNamaLengkapPemilik.getText().trim();
         String telponPemilik = editNomorTeleponPemilik.getText().trim();
@@ -1723,6 +1740,19 @@ public class MainForm extends javax.swing.JFrame {
             biayapam = true;
         } else if (editBiayaPdamBelumTermasuk.isSelected()) {
             biayapam = false;
+        }
+
+        if (namaKost.length() < 1 || alamatKost.length() < 1 || deskripsiKost.length() < 1 || pemilikKost.length() < 1 || telponPemilik.length() < 1) {
+            inputError("Mohon mengisi seluruh field yang ada!");
+            return;
+        }
+
+        try {
+            jumlahKamar = Integer.parseInt(editJumlahKamar.getText().trim());
+            hargaBulanan = Integer.parseInt(editHargaBulanan.getText().trim());
+        } catch (NumberFormatException e) {
+            inputError("Input angka dengan benar!");
+            return;
         }
 
 
