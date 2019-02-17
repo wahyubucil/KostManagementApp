@@ -1632,23 +1632,30 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeBtnMouseClicked
 
     private void btnHapusKostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusKostMouseClicked
-        // TODO add your handling code here:
+        // Kode Logout Disini
+        int confirmStatus = JOptionPane.showConfirmDialog(this, "Anda yakin ingin menghapus data ini?",
+                "Confirmation Message", JOptionPane.YES_NO_OPTION);
+
+        if (confirmStatus == JOptionPane.YES_OPTION){
+            deleteKostData();
+        }
     }//GEN-LAST:event_btnHapusKostMouseClicked
-    
-//    Method untuk ngerubah warna menu di sidebar
+
+    //    Method untuk ngerubah warna menu di sidebar
+
     void setColor(JPanel panel)
     {
         panel.setBackground(new Color(85,65,118));
     }
-    
     void resetColor(JPanel panel)
     {
         panel.setBackground(new Color(64,43,100));
     }
-    
+
     // Method for fill listKost JTable with Kost List
+
     void Show_Kosts_In_JTable() {
-       
+
         DefaultTableModel model = (DefaultTableModel)tableListKost.getModel();
         // clear jtable content
         model.setRowCount(0);
@@ -1661,11 +1668,11 @@ public class MainForm extends javax.swing.JFrame {
 
             model.addRow(row);
         });
-    
+
         tableListKost.setModel(model);
     }
-    
-    // Method for collects inputs and then send to firebase    
+    // Method for collects inputs and then send to firebase
+
     void insertData() {
         String namaKost = insertNamaKost.getText().trim();
         String alamatKost = insertAlamatKost.getText().trim();
@@ -1676,13 +1683,13 @@ public class MainForm extends javax.swing.JFrame {
         String telponPemilik = insertNomorTeleponPemilik.getText().trim();
         boolean biayalistrik = false;
         boolean biayapam = false;
-        
+
         if (biayaListrikSudahTermasuk.isSelected()) {
             biayalistrik = true;
         } else if (biayaListrikBelumTermasuk.isSelected()) {
             biayalistrik = false;
         }
-        
+
         if (biayaPdamSudahTermasuk.isSelected()) {
             biayapam = true;
         } else if (biayaPdamBelumTermasuk.isSelected()) {
@@ -1727,7 +1734,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
     }
-
     private void clearInput_InsertKost() {
         insertNamaKost.setText("");
         insertAlamatKost.setText("");
@@ -1747,7 +1753,7 @@ public class MainForm extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, errorMessage,
                 "Whoops! something were wrong!", HEIGHT);
     }
-    
+
     void updateData() {
         String namaKost = editNamaKost.getText().trim();
         String alamatKost = editAlamatKost.getText().trim();
@@ -1805,6 +1811,16 @@ public class MainForm extends javax.swing.JFrame {
 
         kostsRef.updateChildren(kostUpdate, (error, ref1) -> {
             showDetailKost(selectedKostId);
+        });
+    }
+
+    private void deleteKostData() {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("kosts/" + selectedKostId).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError error, DatabaseReference ref) {
+                showListKost();
+            }
         });
     }
 
