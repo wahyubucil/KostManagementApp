@@ -74,6 +74,7 @@ public class MainForm extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         closeBtn = new javax.swing.JLabel();
         info = new javax.swing.JLabel();
+        minimizeBtn = new javax.swing.JLabel();
         sidebar = new javax.swing.JPanel();
         sidebarTitle = new javax.swing.JLabel();
         titleSeparator = new javax.swing.JSeparator();
@@ -92,6 +93,8 @@ public class MainForm extends javax.swing.JFrame {
         btnLogout = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        currentUserLoggedIn = new javax.swing.JLabel();
         mainHeader = new javax.swing.JPanel();
         menuTitle = new javax.swing.JLabel();
         menuDesc = new javax.swing.JLabel();
@@ -199,6 +202,16 @@ public class MainForm extends javax.swing.JFrame {
         info.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 infoMouseClicked(evt);
+            }
+        });
+
+        minimizeBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        minimizeBtn.setText("__");
+        minimizeBtn.setToolTipText("");
+        minimizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimizeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeBtnMouseClicked(evt);
             }
         });
 
@@ -398,6 +411,14 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
+        jLabel34.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("You logged in as,");
+
+        currentUserLoggedIn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        currentUserLoggedIn.setForeground(new java.awt.Color(255, 255, 255));
+        currentUserLoggedIn.setText("User");
+
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
         sidebarLayout.setHorizontalGroup(
@@ -413,6 +434,12 @@ public class MainForm extends javax.swing.JFrame {
             .addComponent(listSurveyorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(aboutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
             .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+            .addGroup(sidebarLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currentUserLoggedIn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,7 +458,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(aboutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(currentUserLoggedIn))
+                .addGap(34, 34, 34))
         );
 
         mainHeader.setBackground(new java.awt.Color(110, 89, 222));
@@ -580,7 +611,7 @@ public class MainForm extends javax.swing.JFrame {
         addSurveyorLayout.setVerticalGroup(
             addSurveyorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addSurveyorLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel25)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel3)
@@ -606,9 +637,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(txtSurveyorDisplayName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(9, 9, 9))
         );
 
         mainContent.add(addSurveyor, "card2");
@@ -1112,7 +1143,9 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(info)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 448, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 428, Short.MAX_VALUE)
+                        .addComponent(minimizeBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(closeBtn)
                         .addContainerGap())
                     .addComponent(mainHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1125,10 +1158,15 @@ public class MainForm extends javax.swing.JFrame {
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(closeBtn)
-                    .addComponent(info))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(closeBtn)
+                            .addComponent(info)))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(minimizeBtn)))
                 .addGap(10, 10, 10)
                 .addComponent(mainHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1304,6 +1342,10 @@ public class MainForm extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void minimizeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeBtnMouseClicked
+        this.setState(MainForm.ICONIFIED);
+    }//GEN-LAST:event_minimizeBtnMouseClicked
 //    Method untuk ngerubah warna menu di sidebar
     void setColor(JPanel panel)
     {
@@ -1426,6 +1468,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup biayapam;
     private javax.swing.JPanel btnLogout;
     private javax.swing.JLabel closeBtn;
+    private javax.swing.JLabel currentUserLoggedIn;
     private javax.swing.JPanel detailKost;
     private javax.swing.JLabel devOne;
     private javax.swing.JLabel devThree;
@@ -1458,6 +1501,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
@@ -1496,6 +1540,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel mainHeader;
     private javax.swing.JLabel menuDesc;
     private javax.swing.JLabel menuTitle;
+    private javax.swing.JLabel minimizeBtn;
     private javax.swing.JLabel namaKost;
     private javax.swing.JLabel namaLengkapPemilik;
     private javax.swing.JLabel nomorTeleponPemilik;
