@@ -5,6 +5,7 @@
  */
 package dev.primakara;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.google.firebase.database.*;
 import dev.primakara.model.Kost;
 import dev.primakara.model.User;
@@ -1691,11 +1692,43 @@ public class MainForm extends javax.swing.JFrame {
     
     // Method for collects inputs and then send to firebase    
     void insertData() {
-        
+        String username = insertUsername1.getText().trim();
+        String email = insertEmail.getText().trim();
+        String displayName = insertDisplayName.getText().trim();
+
+        String password = String.valueOf(insertPassword.getPassword());
+        String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+
+        if (username.length() < 1 || email.length() < 1 || displayName.length() < 1 || password.length() < 1) {
+            inputError("Mohon mengisi seluruh field yang ada!");
+            return;
+        }
+
+        User surveyor = new User();
+        surveyor.setEmail(email);
+        surveyor.setDisplayName(displayName);
+        surveyor.setPassword(bcryptHashString);
+        surveyor.setType("surveyor");
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+
+        DatabaseReference usersRef = ref.child("users");
+        usersRef.child(username).setValue(surveyor, (error, ref1) -> {
+            if (error != null) {
+                inputError("Data could not be saved " + error.getMessage());
+            } else {
+                showListSurveyor();
+                clearInput_InsertSurveyor();
+            }
+        });
     }
 
-    private void clearInput_InsertKost() {
-        
+    private void clearInput_InsertSurveyor() {
+        insertUsername1.setText("");
+        insertEmail.setText("");
+        insertDisplayName.setText("");
+        insertPassword.setText("");
     }
 
     private void inputError(String errorMessage) {
