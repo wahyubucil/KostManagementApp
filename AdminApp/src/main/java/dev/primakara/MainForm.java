@@ -1314,7 +1314,7 @@ public class MainForm extends javax.swing.JFrame {
             tableListSurveyor.getColumnModel().getColumn(0).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(0).setPreferredWidth(10);
             tableListSurveyor.getColumnModel().getColumn(1).setResizable(false);
-            tableListSurveyor.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableListSurveyor.getColumnModel().getColumn(1).setPreferredWidth(250);
             tableListSurveyor.getColumnModel().getColumn(2).setResizable(false);
             tableListSurveyor.getColumnModel().getColumn(2).setPreferredWidth(10);
             tableListSurveyor.getColumnModel().getColumn(3).setResizable(false);
